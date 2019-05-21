@@ -8,6 +8,8 @@
     <title>Home</title>
     {% if name == 'home2' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
+    {& elif name == 'search' &}
+    <link rel="stylesheet" href="{% static 'hr_wiki/css/searchCSS.css' %}">
     {% else %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     {% endif%}
