@@ -3,7 +3,6 @@ from .forms import LoginForm
 
 # Create your views here.
 def home(request):
-    return render(request, 'hr_wiki/home.html')
     form = LoginForm()
     return render(request, 'hr_wiki/home.html', {'form': form})
   

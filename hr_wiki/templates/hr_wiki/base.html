@@ -8,11 +8,10 @@
     <title>Home</title>
     {% if name == 'home2' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
-    {& elif name == 'search' &}
+    {% elif name == 'search' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/searchCSS.css' %}">
-    {% else %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     {% endif%}
+    <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     
 </head>
 <body>
@@ -28,7 +27,7 @@
             {% if name == 'home2' %}
             <a href="" style="font-weight: bold">Halo, user 14214241</a>
             {% else %}
-            <a href="{% url 'wiki-home2' %}" class="login">Login</a>
+            <a href="#" class="login" id="btn">Login</a>
             {% endif %}
         </div>
     </nav>
