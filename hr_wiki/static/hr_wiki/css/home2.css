@@ -68,9 +68,7 @@
     width: 20em;
   }
 
-
-
-#kolomInput{
+#id_search{
     width : 350px;
     border-radius: 50px;
     height: 35px;
@@ -87,6 +85,7 @@
     color:#EA0A7A;
     opacity: 1; /* Firefox */
 }
+
 button{
     margin-left: 8px;
     height: 40px;
@@ -97,8 +96,10 @@ button{
     border-radius: 50px;
     font-size: 12px;
     outline: none;
-    border:none;
+    border: 1.5px solid #EA0A7A;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out
 }
 
 button:active{
@@ -106,6 +107,46 @@ button:active{
     color:#EA0A7A;
     border:1px solid black;
 }
+
+button:hover{
+    color: #EA0A7A;
+    background-color: white;
+    transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out
+}
+
+/* INI SEMENTARA SEBELUM ADA DB NANTI APUS AJA */
+.btn{
+    text-decoration: none;
+    padding: 1em;
+    margin-left: 8px;
+    height: 40px;
+    width: 75px;
+    background-color: #EA0A7A;
+    font-family: 'Montserrat';
+    color: white;
+    border: 1.5px solid #EA0A7A;
+    border-radius: 50px;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out
+}
+
+.btn:hover{
+    color: #EA0A7A;
+    background-color: white;
+    transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out
+}
+
+.btn:active{
+    background-color: white;
+    color:#EA0A7A;
+    border:1px solid black;
+}
+
 .baris{
     display: flex;
     padding-bottom: 35px;

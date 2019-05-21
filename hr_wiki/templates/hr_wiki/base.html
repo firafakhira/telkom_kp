@@ -24,8 +24,8 @@
             <a href="{% url 'wiki-home' %}">Home</a>
             <a href="#">Contact</a>
             <a href="#">About</a>
-            {% if name == 'home2' %}
-            <a href="" style="font-weight: bold">Halo, user 14214241</a>
+            {% if name %}
+            <a href="#" style="font-weight: bold">Halo, user 14214241</a>
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}

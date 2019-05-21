@@ -5,13 +5,18 @@
     <div class="conc">
         <div class="content">
             <div class="content-text">
-                <p class="header">Welcome to HR Wiki!</p>
+                <p class="header"><b>Welcome to HR Wiki!</b></p>
     
                 <h1>Everything you need to know is here</h1>
     
                 <div class="searchText">
-                    <input type='text' placeholder="Type Here..." id="kolomInput">
-                    <button>Search</button>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.search }}
+                        <!-- <input type='text' placeholder="Type Here..." id="kolomInput"> -->
+                        <!-- <button type="submit">Search</button> --> <!-- nanti ini diaktifin kalo udah ada db -->
+                        <a href="{% url 'wiki-search' %}" class="btn">Search</a>
+                    </form>
                 </div>
             </div>
             <div class="content-img">
