@@ -15,4 +15,21 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <div class="modal">
+        <div class="modal-login">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.username }}
+                {{ form.password }}
+                <div class="forgot">
+                    <small><a href="{% url 'wiki-home2' %}">Forgot password?</a></small>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 {% endblock content %}

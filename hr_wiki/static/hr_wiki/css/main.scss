@@ -17,6 +17,7 @@ p, h1{
     padding: 0;
 }
 
+<<<<<<< HEAD
 nav{
     display: flex;
     justify-content: space-between;
@@ -24,6 +25,21 @@ nav{
     margin: 10em;
     padding: 0.5em ;
     height: 10vh;
+=======
+input, button{
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 4em;
+    padding: 0.5em 0;
+    height: 10vh;
+    z-index: 3;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
     .logo{
         a{
             img{
@@ -42,7 +58,11 @@ nav{
             padding: 0.5em 1.5em;
             transition: font-weight 0.2s ease-in-out;
             &:hover{
+<<<<<<< HEAD
                 font-weight: bold;
+=======
+                font-weight: 500;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
                 transition: font-weight 0.2s ease-in-out;
             }
         }
@@ -51,13 +71,23 @@ nav{
             border-radius: 1em;
             border: 1.5px solid $ijo;
             color: white;
+<<<<<<< HEAD
             transition: background-color 0.2s ease-in-out;
+=======
+            transition: background-color 0.2s ease-in-out,
+                        color 0.2s ease-in-out;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 
             &:hover{
                 color: $ijo;
                 font-weight: normal;
                 background-color: white;
+<<<<<<< HEAD
                 transition: background-color 0.2s ease-in-out;
+=======
+                transition: background-color 0.2s ease-in-out,
+                        color 0.2s ease-in-out;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
             }
         }
     }
@@ -88,7 +118,11 @@ nav{
         grid-template-rows: 100%;
         grid-column-gap: 2em;
         justify-content: space-between;
+<<<<<<< HEAD
         margin: 0 2em;
+=======
+        margin: 0 4em;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
         height: 100%;
     
         .content-img{
@@ -117,4 +151,84 @@ nav{
             }
         }
     }
+<<<<<<< HEAD
+=======
+}
+
+.modal{
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.7);
+    z-index: 2;
+    top: -100vh;
+    .modal-login{
+        position: absolute;
+        margin-top: 11vh;
+        padding: 1em;
+        background-color: $ijo;
+        border-radius: 0.5em;
+        right: 4em;
+        form{
+            display: flex;
+            flex-direction: column;
+            input{
+                width: 15em;
+                margin-bottom: 1em;
+                padding: 0.5em;
+                background-color: white;
+                border-radius: 1em;
+                border: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .forgot{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-top: 1em;
+                small{
+                    margin-right: 1em;
+                    a{
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+                button{
+                    cursor: pointer;
+                    border-radius: 1em;
+                    border: 1.5px solid white;
+                    background-color: white;
+                    color: $ijo;
+                    padding: 0.5em;
+                    transition: background-color 0.2s ease-in-out,
+                                color 0.2s ease-in-out;
+                    &:focus{
+                        outline: none;
+                    }
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                        transition: background-color 0.2s ease-in-out,
+                                    color 0.2s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.show{
+    display: block !important;
+}
+
+.clicked{
+    color: $ijo !important;
+    font-weight: normal !important;
+    background-color: white !important;
+    transition: background-color 0.2s ease-in-out !important,
+                color 0.2s ease-in-out !important
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }

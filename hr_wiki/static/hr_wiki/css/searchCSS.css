@@ -45,6 +45,7 @@ h3{
     top: -5px;
     right: 5em;
 }
+<<<<<<< HEAD
 p{
     color: #A89D98;
 }
@@ -71,4 +72,14 @@ nobr{
 } 
 a{
     text-decoration: none;
+=======
+.page{
+    margin-left: 80%;
+    margin-top: 1%;
+}
+.bulet{
+    color: #0C9093;
+    border-radius: 20%;
+    margin-left: 80%;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }
