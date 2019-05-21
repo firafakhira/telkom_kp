@@ -45,6 +45,34 @@ h3{
     top: -5px;
     right: 5em;
 }
+<<<<<<< HEAD
+p{
+    color: #A89D98;
+}
+.page{
+    margin-top: 1%;
+    right: 50px;
+    position:absolute;
+    color: #0C9093;
+}
+.bulet{
+    background-color: #0C9093;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 50%;
+    margin: 17px;
+    opacity: 1;
+    color: white;
+}
+nobr{
+    padding-right: 20px;
+    color: #0C9093;
+} 
+a{
+    text-decoration: none;
+=======
 .page{
     margin-left: 80%;
     margin-top: 1%;
@@ -53,4 +81,5 @@ h3{
     color: #0C9093;
     border-radius: 20%;
     margin-left: 80%;
+>>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }
