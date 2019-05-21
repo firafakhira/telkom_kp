@@ -15,4 +15,18 @@
             </div>
         </div>
     </div>
+
+    <div class="modal">
+        <div class="modal-login">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.username }}
+                {{ form.password }}
+                <div class="forgot">
+                    <small><a href="#">Forgot password?</a></small>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock content %}
