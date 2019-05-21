@@ -1,0 +1,38 @@
+{% extends "hr_wiki/base.html" %}
+{% load static %}
+{% block content %}
+    <img src="{% static 'hr_wiki/img/home2.png' %}" alt="" id="bgr">
+    <div class="conc">
+        <div class="content">
+            <div class="content-text">
+                <p class="header">Welcome to HR Wiki!</p>
+    
+                <h1>Everything you need to know is here</h1>
+    
+                <div class="searchText">
+                    <input type='text' placeholder="Type Here..." id="kolomInput">
+                    <button>Search</button>
+                </div>
+            </div>
+            <div class="content-img">
+                <div class="logoicon">
+                    <div class="baris">
+                        <div id="logo1"></div>
+                        <div id="logo2"></div>
+                        <div id="logo3"></div>
+                    </div>
+                    <div class="baris">
+                        <div id="logo1"></div>
+                        <div id="logo2"></div>
+                        <div id="logo3"></div>
+                    </div>
+                    <div class="baris">
+                        <div id="logo1"></div>
+                        <div id="logo2"></div>
+                        <div id="logo3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

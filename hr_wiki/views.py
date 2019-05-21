@@ -5,3 +5,5 @@ from .forms import LoginForm
 def home(request):
     form = LoginForm()
     return render(request, 'hr_wiki/home.html', {'form': form})
+def home2(request):
+    return render(request, 'hr_wiki/home2.html',{'name': 'home2'})

@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  p, h1 {
+    margin: 0;
+    padding: 0;
+  }
+nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 4em;
+    padding: 0.5em 0;
+    height: 10vh;
+  }
+  
+  nav .logo a img {
+    width: 10em;
+    height: 4em;
+  }
+  
+  nav .nav-link {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  nav .nav-link a {
+    text-decoration: none;
+    color: #0C9093;
+    padding: 0.5em 1.5em;
+    -webkit-transition: font-weight 0.2s ease-in-out;
+    transition: font-weight 0.2s ease-in-out;
+  }
+  
+  nav .nav-link a:hover {
+    font-weight: bold;
+    -webkit-transition: font-weight 0.2s ease-in-out;
+    transition: font-weight 0.2s ease-in-out;
+  }
+  
+  nav .nav-link .login {
+    background-color: #0C9093;
+    border-radius: 1em;
+    border: 1.5px solid #0C9093;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  nav .nav-link .login:hover {
+    color: #0C9093;
+    font-weight: normal;
+    background-color: white;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+  }
+.conc {
+    position: relative;
+    z-index: 1;
+    height: 87vh;
+  }
+  
+  #bgr {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-size: 40em 35em;
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
+  
+  .conc .content {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1.2fr;
+        grid-template-columns: 1fr 1.2fr;
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    grid-column-gap: 2em;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 4em;
+    height: 100%;
+  }
+  
+  .conc .content .content-img img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .conc .content .content-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .conc .content .content-text h1 {
+    font-size: 3em;
+    color: #0C9093;
+    margin: 0.5em 0;
+  }
+  
+  .conc .content .content-text p.header {
+    color: #EA0A7A;
+  }
+  
+  .conc .content .content-text p.isi {
+    color: #EA0A7A;
+    width: 20em;
+  }
+
+
+
+#kolomInput{
+    width : 350px;
+    border-radius: 50px;
+    height: 35px;
+    border:1px solid  #EA0A7A;
+    font-family: 'Montserrat';
+    font-style: italic;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    padding-right:20px;
+}
+::placeholder {
+    color:#EA0A7A;
+    opacity: 1; /* Firefox */
+}
+button{
+    margin-left: 8px;
+    height: 40px;
+    width: 75px;
+    background-color: #EA0A7A;
+    font-family: 'Montserrat';
+    color: white;
+    border-radius: 50px;
+    font-size: 12px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+}
+
+button:active{
+    background-color: white;
+    color:#EA0A7A;
+    border:1px solid black;
+}
+.baris{
+    display: flex;
+    padding-bottom: 35px;
+}
+.content-img .logoicon{
+    position: absolute;
+    top: 50%;
+    left:70%;
+    transform: translate(-50%, -50%);
+}
+#logo1 {
+    background-color: #0C9093;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 18px;
+}
+#logo2 {
+    margin-left: 35px;
+    background-color: #0C9093;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 18px;
+}
+#logo3 {
+    margin-left: 35px;
+    background-color: #0C9093;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 18px;
+}
+#logo1:hover{
+    background-color:#EA0A7A;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+#logo2:hover{
+    background-color:#EA0A7A;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+#logo3:hover{
+    background-color:#EA0A7A;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+
