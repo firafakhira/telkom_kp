@@ -17,15 +17,6 @@ p, h1{
     padding: 0;
 }
 
-<<<<<<< HEAD
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10em;
-    padding: 0.5em ;
-    height: 10vh;
-=======
 input, button{
     font-family: 'Montserrat', sans-serif;
 }
@@ -39,7 +30,6 @@ nav{
     padding: 0.5em 0;
     height: 10vh;
     z-index: 3;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
     .logo{
         a{
             img{
@@ -58,11 +48,7 @@ nav{
             padding: 0.5em 1.5em;
             transition: font-weight 0.2s ease-in-out;
             &:hover{
-<<<<<<< HEAD
-                font-weight: bold;
-=======
                 font-weight: 500;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
                 transition: font-weight 0.2s ease-in-out;
             }
         }
@@ -71,23 +57,15 @@ nav{
             border-radius: 1em;
             border: 1.5px solid $ijo;
             color: white;
-<<<<<<< HEAD
-            transition: background-color 0.2s ease-in-out;
-=======
             transition: background-color 0.2s ease-in-out,
                         color 0.2s ease-in-out;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 
             &:hover{
                 color: $ijo;
                 font-weight: normal;
                 background-color: white;
-<<<<<<< HEAD
-                transition: background-color 0.2s ease-in-out;
-=======
                 transition: background-color 0.2s ease-in-out,
                         color 0.2s ease-in-out;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
             }
         }
     }
@@ -118,11 +96,7 @@ nav{
         grid-template-rows: 100%;
         grid-column-gap: 2em;
         justify-content: space-between;
-<<<<<<< HEAD
-        margin: 0 2em;
-=======
         margin: 0 4em;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
         height: 100%;
     
         .content-img{
@@ -151,8 +125,6 @@ nav{
             }
         }
     }
-<<<<<<< HEAD
-=======
 }
 
 .modal{
@@ -230,5 +202,4 @@ nav{
     background-color: white !important;
     transition: background-color 0.2s ease-in-out !important,
                 color 0.2s ease-in-out !important
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }

@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-<<<<<<< HEAD
-    {% if name == 'search' %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/searchCSS.css' %}">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
-=======
     {% if name == 'home2' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
     {% elif name == 'search' %}
@@ -19,39 +13,27 @@
     {% endif%}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 </head>
 <body>
     <nav>
         <div class="logo">
-<<<<<<< HEAD
-            <a href="#"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
-=======
             <a href="{% url 'wiki-home' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
         </div>
 
         <div class="nav-link">
             <a href="{% url 'wiki-home' %}">Home</a>
             <a href="#">Contact</a>
             <a href="#">About</a>
-<<<<<<< HEAD
-            <a href="#" class="login">Login</a>
-=======
             {% if name %}
             <a href="#" style="font-weight: bold">Halo, user 14214241</a>
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
         </div>
     </nav>
     {% block content %}
     {% endblock %}
-<<<<<<< HEAD
-=======
 
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 </body>
 </html>
