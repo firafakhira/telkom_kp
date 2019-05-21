@@ -12,7 +12,12 @@ p, h1 {
   padding: 0;
 }
 
+input, button {
+  font-family: 'Montserrat', sans-serif;
+}
+
 nav {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,9 +27,10 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 2em;
+  margin: 0 4em;
   padding: 0.5em 0;
   height: 10vh;
+  z-index: 3;
 }
 
 nav .logo a img {
@@ -51,7 +57,7 @@ nav .nav-link a {
 }
 
 nav .nav-link a:hover {
-  font-weight: bold;
+  font-weight: 500;
   -webkit-transition: font-weight 0.2s ease-in-out;
   transition: font-weight 0.2s ease-in-out;
 }
@@ -61,16 +67,16 @@ nav .nav-link .login {
   border-radius: 1em;
   border: 1.5px solid #0C9093;
   color: white;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 nav .nav-link .login:hover {
   color: #0C9093;
   font-weight: normal;
   background-color: white;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .con {
@@ -104,7 +110,7 @@ nav .nav-link .login:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 2em;
+  margin: 0 4em;
   height: 100%;
 }
 
@@ -140,5 +146,103 @@ nav .nav-link .login:hover {
 .con .content .content-text p.isi {
   color: #EA0A7A;
   width: 20em;
+}
+
+.modal {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+  top: -100vh;
+}
+
+.modal .modal-login {
+  position: absolute;
+  margin-top: 11vh;
+  padding: 1em;
+  background-color: #0C9093;
+  border-radius: 0.5em;
+  right: 4em;
+}
+
+.modal .modal-login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal .modal-login form input {
+  width: 15em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background-color: white;
+  border-radius: 1em;
+  border: none;
+}
+
+.modal .modal-login form input:focus {
+  outline: none;
+}
+
+.modal .modal-login form .forgot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+}
+
+.modal .modal-login form .forgot small {
+  margin-right: 1em;
+}
+
+.modal .modal-login form .forgot small a {
+  text-decoration: none;
+  color: white;
+}
+
+.modal .modal-login form .forgot button {
+  cursor: pointer;
+  border-radius: 1em;
+  border: 1.5px solid white;
+  background-color: white;
+  color: #0C9093;
+  padding: 0.5em;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.modal .modal-login form .forgot button:focus {
+  outline: none;
+}
+
+.modal .modal-login form .forgot button:hover {
+  background-color: #0C9093;
+  color: white;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.show {
+  display: block !important;
+}
+
+.clicked {
+  color: #0C9093 !important;
+  font-weight: normal !important;
+  background-color: white !important;
+  -webkit-transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
+  transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
 }
 /*# sourceMappingURL=main.css.map */
