@@ -10,13 +10,20 @@
     display: flex;
     align-items: center;
     padding-top: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .tombol a img {
-    width: 2.3em;
-    height: 2.3em;
+    width: 2.1em;
+    height: 2.1em;
     margin: 3px;
-  }
+}
+
+.tombol button img {
+    width: 2.5em;
+    height: 2.5em;
+}
 .inp_search{
     box-sizing: border-box;
     width: 350px;
@@ -47,7 +54,7 @@ p{
     color: #A89D98;
 }
 .content-search{
-    margin : 1em 0 0 4em;
+    margin : 0 0 0 4em;
     position: relative;
     width: 950px;
     text-align: justify;
@@ -87,26 +94,26 @@ body::before{
     margin: 0 2em 1em 2em;
     height: 40%;
     border-radius: 15px;
-    padding: 0.5em;
+    padding: 0 1em 1em 1em;    
+    justify-content: space-around;
 }
 
 .artikel p {
     color: #0c9093;
-    font-size: 11pt;
-}
-
-.info_konten p {
-    color: #0c9093;
-    font-size: 8pt;
+    font-size: 10pt;
 }
 
 .info_konten{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border-style: solid;
     border-color: #0c9093;
     margin: 0 2em 1em 2em;
-    height: 25%;
+    height: 23%;
     border-radius: 15px;
-    padding: 1em;
+    padding: 1em 2em 1em 1em;
+    width: 12em;
 }
 
 .cek{
@@ -131,10 +138,28 @@ body::before{
 .report img {
     width: 1.5em;
     height: 1.5em;
+    margin: 0 0.5em;
 }
 
 .report img:last-child {
     width: 1.5em;
     height: 1.5em;
-    transform: rotate(180deg);
+}
+
+.info_konten img {
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {     
+    background: #fff;    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #0c9093;
+    border-radius:10px;
 }
