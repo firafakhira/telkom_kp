@@ -71,6 +71,7 @@ nobr{
 } 
 a{
     text-decoration: none;
+<<<<<<< HEAD
 .page{
     margin-left: 80%;
     margin-top: 1%;
@@ -79,4 +80,6 @@ a{
     color: #0C9093;
     border-radius: 20%;
     margin-left: 80%;
+=======
+>>>>>>> 88fbc3d8070e1b6d9295b0f403713b93c8780a23
 }

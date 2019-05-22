@@ -12,16 +12,12 @@ p, h1 {
   padding: 0;
 }
 
-<<<<<<< HEAD
-nav {
-=======
 input, button {
   font-family: 'Montserrat', sans-serif;
 }
 
 nav {
   position: relative;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,10 +30,7 @@ nav {
   margin: 0 4em;
   padding: 0.5em 0;
   height: 10vh;
-<<<<<<< HEAD
-=======
   z-index: 3;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }
 
 nav .logo a img {
@@ -64,11 +57,7 @@ nav .nav-link a {
 }
 
 nav .nav-link a:hover {
-<<<<<<< HEAD
-  font-weight: bold;
-=======
   font-weight: 500;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
   -webkit-transition: font-weight 0.2s ease-in-out;
   transition: font-weight 0.2s ease-in-out;
 }
@@ -78,26 +67,16 @@ nav .nav-link .login {
   border-radius: 1em;
   border: 1.5px solid #0C9093;
   color: white;
-<<<<<<< HEAD
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
-=======
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }
 
 nav .nav-link .login:hover {
   color: #0C9093;
   font-weight: normal;
   background-color: white;
-<<<<<<< HEAD
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
-=======
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 }
 
 .con {
@@ -169,8 +148,6 @@ nav .nav-link .login:hover {
   width: 20em;
 }
 
-<<<<<<< HEAD
-=======
 .modal {
   position: relative;
   display: none;
@@ -268,5 +245,4 @@ nav .nav-link .login:hover {
   -webkit-transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
   transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
 }
->>>>>>> 0b8a0203fee861eb23577fa5851df7e1b4f179fa
 /*# sourceMappingURL=main.css.map */
