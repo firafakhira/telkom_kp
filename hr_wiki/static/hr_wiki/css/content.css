@@ -151,3 +151,15 @@ body::before{
     height: 1em;
     margin-right: 5px;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {     
+    background: #fff;    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #0c9093;
+    border-radius:10px;
+}
