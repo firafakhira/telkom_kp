@@ -25,6 +25,7 @@
     height: 35px;
     border-radius: 50px;
     color: aliceblue;
+    cursor: pointer;
 }
 .btn_search:focus{
     outline: none;
@@ -80,10 +81,6 @@ nobr{
 } 
 a{
     text-decoration: none;
-.page{
-    margin-left: 80%;
-    margin-top: 1%;
-}
 .bulet{
     color: #0C9093;
     border-radius: 20%;
