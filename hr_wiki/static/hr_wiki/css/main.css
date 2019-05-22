@@ -243,16 +243,16 @@ nav .nav-link .login:hover {
 }
 
 .show {
-  display: block ;
+  display: block !important;
 }
 
 .clicked {
-  color: #0C9093 ;
-  font-weight: normal ;
-  background-color: white ;
-  -webkit-transition: background-color 0.2s ease-in-out ,
- color 0.2s ease-in-out ;
-  transition: background-color 0.2s ease-in-out ,
- color 0.2s ease-in-out ;
+  color: #0C9093 !important;
+  font-weight: normal !important;
+  background-color: white !important;
+  -webkit-transition: background-color 0.2s ease-in-out !important,
+ color 0.2s ease-in-out !important;
+  transition: background-color 0.2s ease-in-out !important,
+ color 0.2s ease-in-out !important;
 }
 /*# sourceMappingURL=main.css.map */
