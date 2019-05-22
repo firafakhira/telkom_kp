@@ -8,7 +8,10 @@ def home(request):
   
 def home2(request):
     form = SearchForm()
-    return render(request, 'hr_wiki/home2.html',{'name': 'home2', 'form': form})
+    return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form})
   
 def sear(request):
-    return render(request, 'hr_wiki/search.html',{'name' :'search'})
+    return render(request, 'hr_wiki/search.html', {'name' :'search'})
+
+def content(request):
+    return render(request, 'hr_wiki/content.html', {'name': 'content'})
