@@ -67,16 +67,20 @@ nav .nav-link .login {
   border-radius: 1em;
   border: 1.5px solid #0C9093;
   color: white;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
 }
 
 nav .nav-link .login:hover {
   color: #0C9093;
   font-weight: normal;
   background-color: white;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
 }
 
 .con {
@@ -219,8 +223,10 @@ nav .nav-link .login:hover {
   background-color: white;
   color: #0C9093;
   padding: 0.5em;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
 }
 
 .modal .modal-login form .forgot button:focus {
@@ -230,8 +236,10 @@ nav .nav-link .login:hover {
 .modal .modal-login form .forgot button:hover {
   background-color: #0C9093;
   color: white;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out,
+ color 0.2s ease-in-out;
 }
 
 .show {
@@ -242,7 +250,9 @@ nav .nav-link .login:hover {
   color: #0C9093 !important;
   font-weight: normal !important;
   background-color: white !important;
-  -webkit-transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
-  transition: background-color 0.2s ease-in-out !important, color 0.2s ease-in-out !important;
+  -webkit-transition: background-color 0.2s ease-in-out !important,
+ color 0.2s ease-in-out !important;
+  transition: background-color 0.2s ease-in-out !important,
+ color 0.2s ease-in-out !important;
 }
 /*# sourceMappingURL=main.css.map */
