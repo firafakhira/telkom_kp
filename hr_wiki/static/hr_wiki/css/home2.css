@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
 body {
     width: 100%;
     height: 100vh;
@@ -84,7 +84,7 @@ nav {
     height: 80%;
     background-repeat: no-repeat;
     background-size: 40em 35em;
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
     top: 50%;
 	left: 50%;
@@ -147,7 +147,7 @@ nav {
     height: 35px;
     border:1px solid  #EA0A7A;
     font-family: 'Montserrat';
-    font-style: italic;
+    
     padding-left: 20px;
     font-size: 14px;
     font-weight: bold;
@@ -155,6 +155,7 @@ nav {
     padding-right:20px;
 }
 ::placeholder {
+    font-style: italic;
     color:#EA0A7A;
     opacity: 1; /* Firefox */
 }
@@ -187,59 +188,28 @@ nav {
     left:70%;
     transform: translate(-50%, -50%);
 }
-#logo1 {
+#logo {
     background-color: #0C9093;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
-    border-radius: 18px;
+    border-radius: 50%;
     outline: none;
     color: white;
     font-family: 'montserrat';
+    font-weight: 200;
+    margin-right: 35px;
 }
-#logo2 {
-    margin-left: 35px;
-    background-color: #0C9093;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border-radius: 18px;
-    outline: none;
-    color: white;
-    font-family: 'montserrat';
-}
-#logo3 {
-    margin-left: 35px;
-    background-color: #0C9093;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border-radius: 18px;
-    outline: none;
-    color: white;
-    font-family: 'montserrat';
-}
-#logo1:hover{
+#logo:hover{
     background-color:#EA0A7A;
     -webkit-transition: 0.1s ease-in-out;
     transition: 0.1s ease-in-out;
 }
-#logo2:hover{
-    background-color:#EA0A7A;
-    -webkit-transition: 0.1s ease-in-out;
-    transition: 0.1s ease-in-out;
-}
-#logo3:hover{
-    background-color:#EA0A7A;
-    -webkit-transition: 0.1s ease-in-out;
-    transition: 0.1s ease-in-out;
-}
-#logo1:active{
+#logo:active{
   color:black;
 }
-#logo2:active{
-  color:black;
-}
-#logo3:active{
-  color:black;
+
+#logobtn{
+  max-width: 50px;
+  max-height: 50px;
 }
