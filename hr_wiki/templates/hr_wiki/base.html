@@ -16,7 +16,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
+            <a href="{% url 'wiki-home' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
         </div>
 
         <div class="nav-link">
@@ -24,7 +24,7 @@
             <a href="#">Contact</a>
             <a href="#">About</a>
             {% if name == 'home2' %}
-            <a href="" style="font-weight: bold">Halo, user 14214241</a>
+            <a href="" style="font-weight: bold">Halo, user 14214241 <img id="profile" src="{% static 'hr_wiki/img/person.png' %}" width="25px" align="center"> </a>
             {% else %}
             <a href="{% url 'wiki-home2' %}" class="login">Login</a>
             {% endif %}
@@ -32,5 +32,7 @@
     </nav>
     {% block content %}
     {% endblock %}
+
+    <script src="{% static 'hr_wiki/js/login.js' %}"></script>
 </body>
 </html>

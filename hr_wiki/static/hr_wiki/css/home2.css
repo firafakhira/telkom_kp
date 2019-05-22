@@ -158,7 +158,7 @@ nav {
     color:#EA0A7A;
     opacity: 1; /* Firefox */
 }
-button{
+#cari{
     margin-left: 8px;
     height: 40px;
     width: 75px;
@@ -172,7 +172,7 @@ button{
     cursor: pointer;
 }
 
-button:active{
+#cari:active{
     background-color: white;
     color:#EA0A7A;
     border:1px solid black;
@@ -193,6 +193,9 @@ button:active{
     height: 100px;
     cursor: pointer;
     border-radius: 18px;
+    outline: none;
+    color: white;
+    font-family: 'montserrat';
 }
 #logo2 {
     margin-left: 35px;
@@ -201,6 +204,9 @@ button:active{
     height: 100px;
     cursor: pointer;
     border-radius: 18px;
+    outline: none;
+    color: white;
+    font-family: 'montserrat';
 }
 #logo3 {
     margin-left: 35px;
@@ -209,6 +215,9 @@ button:active{
     height: 100px;
     cursor: pointer;
     border-radius: 18px;
+    outline: none;
+    color: white;
+    font-family: 'montserrat';
 }
 #logo1:hover{
     background-color:#EA0A7A;
@@ -225,4 +234,12 @@ button:active{
     -webkit-transition: 0.1s ease-in-out;
     transition: 0.1s ease-in-out;
 }
-
+#logo1:active{
+  color:black;
+}
+#logo2:active{
+  color:black;
+}
+#logo3:active{
+  color:black;
+}
