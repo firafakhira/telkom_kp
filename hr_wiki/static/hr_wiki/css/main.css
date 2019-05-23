@@ -328,20 +328,26 @@ nav .nav-link .login:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 80.3vh;
+  overflow: hidden;
 }
 
 .content .content-search::before {
   content: '';
   display: block;
-  width: 50%;
+  width: 100%;
   height: 100%;
   background-image: url(../img/pic.png);
   background-repeat: no-repeat;
-  background-size: 40em 35em;
+  background-size: 50%;
   opacity: 0.1;
   position: absolute;
   top: -5px;
-  right: 5em;
+  right: -25em;
+  z-index: -1;
 }
 
 .content .content-search .isi .row h3 a {
@@ -352,7 +358,7 @@ nav .nav-link .login:hover {
   color: #A89D98;
 }
 
-.content .content-search .page {
+.content .content-search .pagination {
   width: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -366,9 +372,12 @@ nav .nav-link .login:hover {
       align-self: flex-end;
   margin-top: 1%;
   color: #0C9093;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: last baseline;
 }
 
-.content .content-search .page a {
+.content .content-search .pagination a {
   color: #0C9093;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -382,7 +391,7 @@ nav .nav-link .login:hover {
   padding: 0.2em 0.5em;
 }
 
-.content .content-search .page .active {
+.content .content-search .pagination .active {
   background-color: #0C9093 !important;
   color: white !important;
   border-radius: 2em;
