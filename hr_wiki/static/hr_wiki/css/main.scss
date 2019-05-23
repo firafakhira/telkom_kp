@@ -21,6 +21,10 @@ input, button{
     font-family: 'Montserrat', sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
+
 nav{
     position: relative;
     display: flex;
@@ -202,4 +206,121 @@ nav{
     background-color: white !important;
     transition: background-color 0.2s ease-in-out !important,
                 color 0.2s ease-in-out !important
+}
+
+// BAGIAN HAIFA
+
+.content{
+    .cari{
+        margin : 0 4em;
+        margin-top: 1%;
+        justify-content: center;
+
+        .inp_search{
+            box-sizing: border-box;
+            width: 350px;
+            padding-right: 20px;
+            padding-left: 20px;
+            border: 1px solid $merah;
+            border-radius: 50px;
+            height: 35px;
+            text-align: left;
+            outline: none;
+            &::placeholder{
+                color: $merah;
+            }
+        }
+
+        .btn_search{
+            cursor: pointer;
+            background-color: $merah;
+            border: 1.5px solid $merah;
+            box-sizing: border-box;
+            width: 75px;
+            height: 35px;
+            border-radius: 50px;
+            color: aliceblue;
+            transition: background-color 0.2s ease-in-out,
+                        color 0.2s ease-in-out;
+
+            &:hover{
+                background-color: white;
+                color: $merah;
+                transition: background-color 0.2s ease-in-out,
+                            color 0.2s ease-in-out;
+            }
+
+            &:focus{
+                outline: none;
+            }
+
+            &:active{
+                background-color: white;
+                color:$merah;
+                border:1px solid black;
+            }
+        }
+    }
+
+    .content-search{
+        margin : 0 4em;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &::before{
+            content: '';
+            display: block;
+            width: 50%;
+            height: 100%;
+            background-image: url(../img/pic.png);
+            background-repeat: no-repeat;
+            background-size: 40em 35em;
+            opacity: 0.1;
+            position: absolute;
+            top: -5px;
+            right: 5em;
+        }
+
+        .isi{
+            .row{
+                h3{
+                    a{
+                        color: $ijo;
+                    }
+                }
+    
+                p{
+                    color: $abu;
+                }
+            }
+        }
+
+        .page{
+            width: 25%;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            align-self: flex-end;
+            margin-top: 1%;
+            color: $ijo;
+
+            a{
+                color: $ijo;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.2em 0.5em;
+            }
+
+            .active{
+                background-color: $ijo !important;
+                color: white !important;
+                border-radius: 2em;
+                
+            }
+        }
+
+    }
 }

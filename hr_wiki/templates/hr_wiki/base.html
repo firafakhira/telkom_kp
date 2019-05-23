@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
     {% elif name == 'search' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/searchCSS.css' %}">
+    {% elif name == 'content' %}
+    <link rel="stylesheet" href="{% static 'hr_wiki/css/content.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endif%}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     
@@ -25,7 +28,7 @@
             <a href="#">Contact</a>
             <a href="#">About</a>
             {% if name %}
-            <a href="#" style="font-weight: bold">Halo, user 14214241</a>
+            <a href="" style="font-weight: bold">Halo, user 14214241 <img id="profile" src="{% static 'hr_wiki/img/person.png' %}" width="25px" align="center"> </a>
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}
@@ -35,5 +38,6 @@
     {% endblock %}
 
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
+    <script src="{% static 'hr_wiki/js/enterclicked.js' %}"></script>
 </body>
 </html>

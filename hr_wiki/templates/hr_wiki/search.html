@@ -1,37 +1,67 @@
 {% extends "hr_wiki/base.html" %}
 {% load static %}
 {% block content %}
-    <div class=cari>
-        <input class = "inp_search" type="text" placeholder="Pedoman Travel Management">
-        <button class = "btn_search" type = "submit">Search</button>
+
+<div class="cobain">
+    <div class="cari">
+        <input class="inp_search" type="text" placeholder="Pedoman Travel Management">
+        <button class="btn_search" type="submit">Search</button>
     </div>
     <div class="content-search">
-        <div class = "row">
-            <h3><a href="#">Monserrat</a> <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[250 Hits]</nobr></h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+        <div class="isi">
+            <div class = "row">
+                <h3><a href="{% url 'wiki-content' %}">Monserrat</a> <nobr style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[250 Hits]</nobr></h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            </div>
+            <div class = "row">
+                <h3><a href="{% url 'wiki-content' %}">QuickSand </a><nobr style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[176 Hits]</nobr></h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            </div>
+            <div class = "row">
+                <h3><a href="{% url 'wiki-content' %}">Helvetica</a> <nobr style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[123 Hits]</nobr></h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            </div>
+            <div class = "row">
+                <h3><a href="{% url 'wiki-content' %}">Roboto Bold</a> <nobr  style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[270 Hits]</nobr></h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            </div>
+            <div class = "row">
+                <h3><a href="{% url 'wiki-content' %}">Nexa Demo Light </a><nobr  style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[167 Hits]</nobr></h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            </div>
         </div>
-        <div class = "row">
-            <h3><a href="#">QuickSand </a><nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[176 Hits]</nobr></h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-        </div>
-        <div class = "row">
-            <h3><a href="#">Helvetica</a> <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[123 Hits]</nobr></h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-        </div>
-        <div class = "row">
-            <h3><a href="#">Roboto Bold</a> <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[270 Hits]</nobr></h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-        </div>
-        <div class = "row">
-            <h3><a href="#">Nexa Demo Light </a><nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[167 Hits]</nobr></h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+        <div class="page">
+            <a href ="#" ><nobr class="bulet">1 </nobr></a> 
+            <a href ="#" id="pg"><nobr>2 </nobr></a>
+            <a href ="#" id="pg"><nobr>3 </nobr></a>
+            <a href ="#" id="pg" onclick="javascript:history.forward();"><nobr>Next Page </nobr></a>
+            <a href ="#" id="pg"><nobr><b>Last Page</b></nobr></a>
         </div>
     </div>
-    <div class="page">
-        <a href ="#" ><nobr class="bulet">1 &nbsp</nobr></a> 
-        <a href ="#" ><nobr>2 &nbsp</nobr></a>
-        <a href ="#" ><nobr>3 &nbsp</nobr></a>
-        <a href ="#"  onclick="goBack"><nobr>Next Page &nbsp</nobr></a>
-        <a href ="#" ><nobr><b>Last Page</b></nobr></a>
+
+    <div class="cek">
+        <div class="info_konten">
+            <div>
+                <h3 style="color: black">HR Wiki Trends</h3>
+            </div>
+            <div>
+              <a href="#" id="trends">ManagementWaktu</a> 
+              <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">560 Hits</p> 
+            </div>
+            <div>
+                <a href="#" id="trends">ManagementKarir</a> 
+                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">497 Hits</p> 
+            </div>
+            <div>
+                <a href="#" id="trends">Renumerasi</a> 
+                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">350 Hits</p> 
+            </div>
+            <div>
+                <a href="#" id="trends">ManagementAdministrasi</a> 
+                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;"> 312 Hits</p> 
+            </div>
+        </div>
     </div>
+</div>
 {% endblock content %}
+
