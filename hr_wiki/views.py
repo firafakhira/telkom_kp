@@ -53,4 +53,5 @@ def sear(request):
     return render(request, 'hr_wiki/search.html', {'name' :'search', 'kontens': kontens, 'form': form})
 
 def content(request):
-    return render(request, 'hr_wiki/content.html', {'name': 'content'})
+    form = SearchForm()
+    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form})

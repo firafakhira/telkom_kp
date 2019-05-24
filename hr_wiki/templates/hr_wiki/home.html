@@ -2,28 +2,28 @@
 {% load static %}
 {% block content %}
     <div class="con">
-        <div class="content">
-            <div class="content-text">
+        <div class="content-landing">
+            <div class="content-landing-text">
                 <p class="header">Welcome to HR Wiki!</p>
     
                 <h1>Everything you need to know is here</h1>
     
                 <p class="isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatum deleniti pariatur tempora, culpa odit exercitationem</p>
             </div>
-            <div class="content-img">
+            <div class="content-landing-img">
                 <img src="{% static 'hr_wiki/img/gambar1.png' %}" alt="">
             </div>
         </div>
     </div>
 
-    <div class="modal">
-        <div class="modal-login">
+    <div class="modal-login">
+        <div class="modal-login-content">
             <form method="POST">
                 {% csrf_token %}
                 {{ form.username }}
                 {{ form.password }}
                 <div class="forgot">
-                    <small><a href="{% url 'wiki-home2' %}">Forgot password?</a></small>
+                    <small><a href="#">Forgot password?</a></small>
                     <button type="submit">Login</button>
                 </div>
             </form>
