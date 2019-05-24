@@ -1,12 +1,42 @@
 from django.shortcuts import render
+
+#INI UNTUK IMPORT FORMS
 from .forms import LoginForm, SearchForm
+
+#INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
+
+#INI IMPORT MODEL
 from .models import Konten
+
+import requests
+import json
 
 # Create your views here.
 def home(request):
-    form = LoginForm()
-    return render(request, 'hr_wiki/home.html', {'form': form})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            url = f'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username={username}&password={password}'
+            response = requests.post(url)
+            data = response.json()
+            if data['status'] == 'success':
+                form = SearchForm()
+                return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form})
+            else:
+                form = LoginForm()
+                return render(request, 'hr_wiki/home.html', {'form': form})
+    else:
+        form = LoginForm()
+        return render(request, 'hr_wiki/home.html', {'form': form})
+
+    # INI BUAT LOAD API NYA DUDE
+    # url = 'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username=402256&password=Sflozi14'
+    # r = requests.post(url)
+    # status = [r.json]
   
 def home2(request):
     form = SearchForm()
