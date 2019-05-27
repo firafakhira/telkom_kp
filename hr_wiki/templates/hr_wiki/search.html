@@ -15,7 +15,7 @@
         <div class="isi">
             {% for konten in kontens %}
             <div class="row">
-                <h3><a href="{% url 'wiki-content' %}">{{ konten.judul }}</a>
+                <h3><a href="{% url 'wiki-content' konten.id %}">{{ konten.judul }}</a>
                     <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[250
                         Hits]</nobr>
                 </h3>
@@ -44,10 +44,13 @@
     <div class="cek">
         <div class="artikel">
             <h4>Artikel Terkait</h4>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
+            <div class="artikel-link">
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+            </div>
         </div>
     </div>
 </div>

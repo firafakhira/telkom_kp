@@ -1,0 +1,109 @@
+nav{
+    @include responsive("xsmall"){
+        @include position(relative, 3);
+        @include flex(space-between, center);
+        margin: 0 2em;
+        padding: 0.5em 0;
+        height: 10vh;
+        .logo{
+            a{
+                img{
+                    width: 10em;
+                    height: 4em;
+                }
+            }
+        }
+        .nav-link{
+            display: none;
+        }
+        .hamburger-icon{
+            display: block;
+            button{
+                cursor: pointer;
+                background-color: rgba($color: #000000, $alpha: 0);
+                border: none;
+            }
+        }
+    }
+    @include responsive("small"){
+        @include position(relative, 3);
+        @include flex(space-between, center);
+        margin: 0 4em;
+        padding: 0.5em 0;
+        height: 10vh;
+        .logo{
+            a{
+                img{
+                    width: 10em;
+                    height: 4em;
+                }
+            }
+        }
+        .nav-link{
+            display: none;
+        }
+        .hamburger-icon{
+            display: block;
+            button{
+                cursor: pointer;
+                background-color: rgba($color: #000000, $alpha: 0);
+                border: none;
+            }
+        }
+    }
+    @include responsive("medium"){
+        .nav-link{
+            width: 50%;
+            @include flex(space-between);
+            a{
+                @include flex(center, center);
+                text-decoration: none;
+                color: $ijo;
+                padding: 0.5em 1em;
+                transition: font-weight 0.2s ease-in-out;
+                &:hover{
+                    font-weight: 500;
+                    transition: font-weight 0.2s ease-in-out;
+                }
+                span{
+                    display: none;
+                    font-weight: bold;
+                    margin-right: .5em;
+                }
+                .profile{
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+            }
+            .login{
+                @include button(1.5px solid $ijo, $ijo, white);
+                @include tranisition-btn;
+    
+                &:hover{
+                    color: $ijo;
+                    font-weight: normal;
+                    background-color: white;
+                    @include tranisition-btn;
+                }
+            }
+        }
+        .hamburger-icon{
+            display: none;
+        }
+    }
+    @include responsive("xlarge"){
+        .nav-link{
+            a{
+                span{
+                    display: block;
+                    font-weight: bold;
+                    margin-right: .5em;
+                }
+                .profile{
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+            }
+        }
+    }
+}

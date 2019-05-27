@@ -36,49 +36,22 @@
 
     <div class="content-main" id="printDiv">
         <div class="row" id="save">
-            <h3>Pedoman Travel Management</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
-                ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
-                mauris.</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tempora architecto. Eveniet modi provident
-                qui error eligendi beatae facilis perspiciatis reiciendis dicta, fuga facere architecto sint sit fugiat
-                illum totam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tempora architecto. Eveniet modi provident
-                qui error eligendi beatae facilis perspiciatis reiciendis dicta, fuga facere architecto sint sit fugiat
-                illum totam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tempora architecto. Eveniet modi provident
-                qui error eligendi beatae facilis perspiciatis reiciendis dicta, fuga facere architecto sint sit fugiat
-                illum totam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tempora architecto. Eveniet modi provident
-                qui error eligendi beatae facilis perspiciatis reiciendis dicta, fuga facere architecto sint sit fugiat
-                illum totam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, tempora architecto. Eveniet modi provident
-                qui error eligendi beatae facilis perspiciatis reiciendis dicta, fuga facere architecto sint sit fugiat
-                illum totam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p><br><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid esse voluptas tempora error aspernatur
-                perferendis provident ducimus. Quae reprehenderit explicabo, laudantium amet illum quo, eum, culpa
-                quibusdam aliquid laboriosam aliquam?</p>
+            <h3>{{ judul }}</h3>
+            {% for i in isi %}
+            <p>{{ i }}</p>
+            <br>
+            {% endfor %}
         </div>
     </div>
 
     <div class="report">
-        <p>Apakah artikel ini membantu? <img src="{% static 'hr_wiki/img/thumbs up.png' %}"><img
-                src="{% static 'hr_wiki/img/thumbs down.png' %}"> | <button id="myBtn">Laporkan Artikel</button></p>
+        <p>Apakah artikel ini membantu?</p>
+        <div class="thumb">
+            <img src="{% static 'hr_wiki/img/thumbs up.png' %}">
+            <img src="{% static 'hr_wiki/img/thumbs down.png' %}">
+        </div>
+        <button id="myBtn">Komentar Artikel</button>
+
     </div>
 
     <div class="cek">
@@ -112,15 +85,18 @@
         </div>
         <div class="artikel">
             <h4>Artikel Terkait</h4>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
-            <p>Suspendices ultra massa</p><br>
+            <div class="artikel-link">
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+            </div>
         </div>
     </div>
 </div>
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" style="display: none">
 
     <!-- Modal content -->
     <div class="modal-content">

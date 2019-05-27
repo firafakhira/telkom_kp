@@ -52,6 +52,9 @@ def sear(request):
     kontens = paginator.get_page(page)
     return render(request, 'hr_wiki/search.html', {'name' :'search', 'kontens': kontens, 'form': form})
 
-def content(request):
+def content(request, content_id):
+    content = Konten.objects.get(id=content_id)
     form = SearchForm()
-    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form})
+    judul = content.judul
+    isi = content.isi.split('\n')
+    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form, 'judul': judul, 'isi': isi})

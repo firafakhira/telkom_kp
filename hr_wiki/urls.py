@@ -5,5 +5,5 @@ urlpatterns = [
     path('', views.home, name='wiki-home'),
     path('home2/', views.home2, name='wiki-home2'),
     path('search/', views.sear, name='wiki-search'),
-    path('content/', views.content, name='wiki-content')
+    path('content/<content_id>', views.content, name='wiki-content')
 ]
