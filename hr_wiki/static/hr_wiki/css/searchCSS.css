@@ -2,10 +2,9 @@
     margin : 0 4em;
     margin-top: 1%;
     justify-content: center;
-    grid-area: a;
   }
 
-.inp_search{
+.q{
     box-sizing: border-box;
     width: 350px;
     padding-right: 20px;
@@ -23,7 +22,6 @@
     outline: none;
     background-color: #EA0A7A;
     border: 1px solid #EA0A7A;
-    box-sizing: border-box;
     width: 75px;
     height: 35px;
     border-radius: 50px;
@@ -98,12 +96,6 @@ body::before{
 .report p {
     font-size: 10pt;
     margin: 1em;
-}
-
-.info_konten img {
-    width: 1em;
-    height: 1em;
-    margin-right: 5px;
 }
 #pg{
     padding: 20px;

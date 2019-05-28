@@ -17,4 +17,4 @@ class SearchForm(forms.Form):
         attrs = {
             'placeholder': 'Type Here...'
         }
-    ), required=False)
+    ))

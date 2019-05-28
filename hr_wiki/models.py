@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Konten(models.Model):
+    id = models.AutoField(primary_key=True)
     judul = models.CharField(max_length=50)
     isi = models.TextField()
 

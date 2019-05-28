@@ -236,6 +236,7 @@ button:hover{
     cursor: pointer;
     border-radius: 50%;
     outline: none;
+    border:none;
     color: white;
     font-family: 'montserrat';
     font-weight: 200;
