@@ -25,7 +25,9 @@ def home(request):
             data = response.json()
             if data['status'] == 'success':
                 form = SearchForm()
-                return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form})
+                request.session['username'] = username
+                request.session['token'] = data['data']['jwt']['token']
+                return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
             else:
                 form = LoginForm()
                 return render(request, 'hr_wiki/home.html', {'form': form})
@@ -40,21 +42,20 @@ def home(request):
   
 def home2(request):
     form = SearchForm()
-    return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form})
+    return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
   
 def sear(request):
     form = SearchForm()
-
     konten_list = Konten.objects.all()
     paginator = Paginator(konten_list, 5)
 
     page = request.GET.get('page')
     kontens = paginator.get_page(page)
-    return render(request, 'hr_wiki/search.html', {'name' :'search', 'kontens': kontens, 'form': form})
+    return render(request, 'hr_wiki/search.html', {'name' :'search', 'kontens': kontens, 'form': form, 'username': request.session['username']})
 
 def content(request, content_id):
     content = Konten.objects.get(id=content_id)
     form = SearchForm()
     judul = content.judul
     isi = content.isi.split('\n')
-    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form, 'judul': judul, 'isi': isi})
+    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form, 'judul': judul, 'isi': isi, 'username': request.session['username']})

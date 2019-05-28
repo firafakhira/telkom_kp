@@ -1,10 +1,10 @@
 {% extends "hr_wiki/base.html" %}
 {% load static %}
 {% block content %}
-    <img src="{% static 'hr_wiki/img/home2.png' %}" alt="" id="bgr">
-    <div class="conc">
-        <div class="content">
-            <div class="content-text">
+{% if username %}
+    <div class="con">
+        <div class="content-landing">
+            <div class="content-landing-text">
                 <p class="header"><b>Welcome to HR Wiki!</b></p>
     
                 <h1>Everything you need to know is here</h1>
@@ -15,30 +15,52 @@
                         {{ form.search }}
                         <!-- <input type='text' placeholder="Type Here..." id="kolomInput"> -->
                         <!-- <button type="submit">Search</button> --> <!-- nanti ini diaktifin kalo udah ada db -->
-                        <a href="{% url 'wiki-search' %}" class="btn">Search</a>
+                        <a href="{% url 'wiki-search' %}" class="btn_search">Search</a>
                     </form>
                 </div>
             </div>
-            <div class="content-img">
+            <div class="content-landing-img">
                 <div class="logoicon">
-                    <div class="baris">
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/mk2.png' %}">Manajemen <br> Karir</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/remunerasi2.png' %}"> Remunerasi</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/tm2.png' %}"><br>Travel <br> Management</button>
-                    </div>
-                    <div class="baris">
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/scm2.png' %}"><br>Spiritual <br> Capital <br> Management</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/kes2.png' %}">Kesehatan</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/er2.png' %}">Employee <br> Relation</button>
-                    </div>
-                    <div class="baris">
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/rekrut2.png' %}"><br>Rekruitasi</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/as2.png' %}">Administration <br> Service</button>
-                        <button id="logo" style="font-size: 11px"><img id="logobtn" src="{% static 'hr_wiki/img/mw2.png' %}">Manajemen <br> Waktu</button>
-                    </div>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/mk2.png' %}">
+                        <span>Manajemen Karir</span> 
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/remunerasi2.png' %}">
+                        <span>Remunerasi</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/tm2.png' %}">
+                        <span>Travel Management</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/scm2.png' %}">
+                        <span>Spiritual Capital Management</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/kes2.png' %}">
+                        <span>Kesehatan</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/er2.png' %}">
+                        <span>Employee Relation</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/rekrut2.png' %}">
+                        <span>Rekruitasi</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/as2.png' %}">
+                        <span>Administration Service</span>
+                    </a>
+                    <a href="#" id="logo">
+                        <img id="logobtn" src="{% static 'hr_wiki/img/mw2.png' %}">
+                        <span>Manajemen Waktu</span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+{% endif %}
 {% endblock content %}
 

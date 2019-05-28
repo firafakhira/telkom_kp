@@ -24,7 +24,9 @@
             <a href="#">Contact</a>
             <a href="#">About</a>
             {% if name %}
-            <a href="#"><span>Halo, user 14214241</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
+            {% if username %}
+            <a href="#"><span>Halo, user {{ username }}</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
+            {% endif %}
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}
