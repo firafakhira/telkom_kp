@@ -7,18 +7,18 @@ from .forms import LoginForm, SearchForm
 from django.core.paginator import Paginator
 
 #INI IMPORT MODEL
-from .models import Konten
+from .models import Konten, Incident
 
 #INI BUAT Q OBJECTS FILTER
 from django.db.models import Q
 
 #IMPORT DARI SEARCH
-from search.documents import KontenDocument
+from search.documents import KontenDocument, IncidentDocument
 
 #UNTUK STRIP
 from django.utils.html import strip_tags
 
-#UNTUK SPLIT
+#UNTUK REGULAR EXPRESSION
 import re
 
 import requests
@@ -96,16 +96,16 @@ def search(request, q):
         else:
             form = SearchForm()
             # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
-            konten_list = KontenDocument.search().query("match_phrase_prefix", _all= q)
+            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q)
             # print(konten_list)
             konten = []
             for item in konten_list:
                 konten.append(
                     {
-                        'id': item.id,
-                        'judul': item.judul,
-                        'highlight': strip_tags(item.isi)[:150]+'...',
-                        'isi': strip_tags(item.isi)
+                        'id': item.idincident,
+                        'judul': item.kasus,
+                        'highlight': strip_tags(item.solusi.replace("&nbsp;", ""))[:150]+'...',
+                        'isi': strip_tags(item.solusi.replace("&nbsp;", ""))
                     }
                 )
             paginator = Paginator(konten, 4)
@@ -129,8 +129,8 @@ def content(request, content_id):
                     red = f'http://localhost:8000/search/{q}'
                     return redirect(red)
         else:
-            content = Konten.objects.get(id=content_id)
+            content = Incident.objects.get(idincident=content_id)
             form = SearchForm()
-            judul = content.judul
-            isi = content.isi.split('\n')
+            judul = content.kasus
+            isi = content.solusi
             return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'judul': judul, 'isi': isi, 'username': request.session['username']})

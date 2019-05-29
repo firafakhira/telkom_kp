@@ -18,3 +18,20 @@ class User(models.Model):
 
     def __str__(self):
         return self.nik
+
+class Incident(models.Model):
+    idincident = models.AutoField(primary_key=True)
+    kasus = models.TextField()
+    applikasi = models.CharField(max_length=45)
+    solusi = models.TextField()
+    createdby = models.CharField(max_length=20)
+    lastupdate = models.CharField(max_length=30)
+    link = models.CharField(max_length=200)
+    direktori = models.CharField(max_length=500)
+    flagdefinisi = models.IntegerField(blank=True, null=True)
+    flagaktif = models.IntegerField(blank=True, null=True)
+    flagapprove = models.IntegerField(blank=True, null=True)
+    hits = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.idincident

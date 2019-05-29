@@ -716,11 +716,20 @@ a {
     -ms-grid-column-span: 5;
     grid-area: c;
   }
+  .content .content-main .row {
+    line-height: 1.5em;
+  }
   .content .content-main .row h3 {
     font-size: 0.9em;
     color: black;
   }
   .content .content-main .row p {
+    margin: 1em 0;
+    font-size: 0.9em;
+    color: black;
+  }
+  .content .content-main .row ol li, .content .content-main .row ul li {
+    margin: 0.25em 0;
     font-size: 0.9em;
     color: black;
   }
@@ -1035,11 +1044,20 @@ a {
     -ms-grid-column-span: 5;
     grid-area: c;
   }
+  .content .content-main .row {
+    line-height: 1.5em;
+  }
   .content .content-main .row h3 {
     font-size: 0.9em;
     color: black;
   }
   .content .content-main .row p {
+    margin: 1em 0;
+    font-size: 0.9em;
+    color: black;
+  }
+  .content .content-main .row ol li, .content .content-main .row ul li {
+    margin: 0.25em 0;
     font-size: 0.9em;
     color: black;
   }
@@ -1280,6 +1298,9 @@ a {
     font-size: 1em;
   }
   .content .content-main .row p {
+    font-size: 1em;
+  }
+  .content .content-main .row ol li, .content .content-main .row ul li {
     font-size: 1em;
   }
   .content .content-search .isi .row h3 a {

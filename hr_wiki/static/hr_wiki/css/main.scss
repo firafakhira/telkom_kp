@@ -348,14 +348,24 @@ a{
             grid-area: c;
             
             .row{
+                line-height: 1.5em;
                 h3{
                     font-size: 0.9em;
                     color: black;
                 }
     
                 p{
+                    margin: 1em 0;
                     font-size: 0.9em;
                     color: black;
+                }
+
+                ol, ul{
+                    li{
+                        margin: 0.25em 0;
+                        font-size: 0.9em;
+                        color: black;
+                    }
                 }
             }
         }
@@ -555,14 +565,23 @@ a{
             grid-area: c;
             
             .row{
+                line-height: 1.5em;
                 h3{
                     font-size: 0.9em;
                     color: black;
                 }
     
                 p{
+                    margin: 1em 0;
                     font-size: 0.9em;
                     color: black;
+                }
+                ol, ul{
+                    li{
+                        margin: 0.25em 0;
+                        font-size: 0.9em;
+                        color: black;
+                    }
                 }
             }
         }
@@ -712,6 +731,11 @@ a{
     
                 p{
                     font-size: 1em;
+                }
+                ol, ul{
+                    li{
+                        font-size: 1em;
+                    }
                 }
             }
         }

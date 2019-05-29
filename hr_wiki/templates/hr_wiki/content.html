@@ -37,10 +37,9 @@
     <div class="content-main" id="printDiv">
         <div class="row" id="save">
             <h3>{{ judul }}</h3>
-            {% for i in isi %}
-            <p>{% autoescape %}{{ i }}{% endautoescape %}</p>
-            <br>
-            {% endfor %}
+            
+            {{ isi|safe }}
+            
         </div>
     </div>
 
