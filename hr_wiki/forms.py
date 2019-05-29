@@ -18,4 +18,4 @@ class SearchForm(forms.Form):
             'placeholder': 'Type Here...',
             'class': 'inp_search'
         }
-    ), required=False)
+    ))

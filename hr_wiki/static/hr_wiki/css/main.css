@@ -452,11 +452,25 @@ a {
 }
 
 @media only screen and (min-width: 992px) {
+  .con::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    display: block;
+    right: 60vmin;
+    width: 100vmin;
+    height: 80vh;
+    background-image: url(../img/gambar1.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    opacity: 0.1;
+  }
   .con .content-landing {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1.2fr;
-        grid-template-columns: 1fr 1.2fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 100%;
         grid-template-rows: 100%;
     grid-column-gap: 2em;
@@ -468,6 +482,54 @@ a {
   }
   .con .content-landing .content-landing-img {
     display: block;
+  }
+  .con .content-landing .content-landing-img .logoicon {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+  }
+  .con .content-landing .content-landing-img .logoicon #logo {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 1.5em;
+    background-color: #0C9093;
+    width: 124px;
+    height: 124px;
+    border-radius: 10em;
+    outline: none;
+    color: white;
+  }
+  .con .content-landing .content-landing-img .logoicon #logo:hover {
+    background-color: #EA0A7A;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+  .con .content-landing .content-landing-img .logoicon #logo:active {
+    color: black;
+  }
+  .con .content-landing .content-landing-img .logoicon #logo span {
+    margin-top: 1em;
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .con .content-landing .content-landing-img .logoicon #logo #logobtn {
+    width: 3em;
+    height: 3em;
   }
   .con .content-landing .content-landing-img img {
     width: 100%;
@@ -537,8 +599,6 @@ a {
   color: white;
   padding: 0.5em;
   text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }

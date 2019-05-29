@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    {% if name == 'home2' %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
-    {% endif%}
+    {% if name %}
+    <title>HR Wiki - {{ name }}</title>
+    {% else %}
+    <title>HR Wiki</title>
+    {% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     
@@ -16,15 +17,23 @@
 <body>
     <nav>
         <div class="logo">
+            {% if username %}
             <a href="{% url 'wiki-home' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
+            {% else %}
+            <a href="{% url 'wiki-landing' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
+            {% endif %}
         </div>
 
         <div class="nav-link">
+            {% if username %}
             <a href="{% url 'wiki-home' %}">Home</a>
+            {% else %}
+            <a href="{% url 'wiki-landing' %}">Home</a>
+            {% endif %}
             <a href="#">Contact</a>
             <a href="#">About</a>
-            {% if name %}
-            <a href="#"><span>Halo, user 14214241</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
+            {% if username %}
+            <a href="{% url 'wiki-landing' %}?action=logout"><span>Halo, user {{ username }}</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}
@@ -38,6 +47,20 @@
     </nav>
     {% block content %}
     {% endblock %}
+
+    <div class="modal-login">
+        <div class="modal-login-content">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.username }}
+                {{ form.password }}
+                <div class="forgot">
+                    <small><a href="#">Forgot password?</a></small>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
     <script src="{% static 'hr_wiki/js/enterclicked.js' %}"></script>

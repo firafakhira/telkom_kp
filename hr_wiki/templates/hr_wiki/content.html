@@ -38,7 +38,7 @@
         <div class="row" id="save">
             <h3>{{ judul }}</h3>
             {% for i in isi %}
-            <p>{{ i }}</p>
+            <p>{% autoescape %}{{ i }}{% endautoescape %}</p>
             <br>
             {% endfor %}
         </div>
