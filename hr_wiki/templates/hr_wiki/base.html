@@ -8,36 +8,46 @@
     <title>Home</title>
     {% if name == 'home2' %}
     <link rel="stylesheet" href="{% static 'hr_wiki/css/home2.css' %}">
-    {% elif name == 'search' %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/searchCSS.css' %}">
-    {% elif name == 'content' %}
-    <link rel="stylesheet" href="{% static 'hr_wiki/css/content.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endif%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'hr_wiki/css/main.css' %}">
     
 </head>
 <body>
     <nav>
         <div class="logo">
+            {% if username %}
+            <a href="{% url 'wiki-home2' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
+            {% else %}
             <a href="{% url 'wiki-home' %}"><img src="{% static 'hr_wiki/img/logo.png' %}" alt="logo"></a>
+            {% endif %}
         </div>
 
         <div class="nav-link">
+            {% if username %}
+            <a href="{% url 'wiki-home2' %}">Home</a>
+            {% else %}
             <a href="{% url 'wiki-home' %}">Home</a>
+            {% endif %}
             <a href="#">Contact</a>
             <a href="#">About</a>
-            {% if name %}
-            <a href="" style="font-weight: bold">Halo, user 14214241 <img id="profile" src="{% static 'hr_wiki/img/person.png' %}" width="25px" align="center"> </a>
+            {% if username %}
+            <a href="{% url 'wiki-home' %}?action=logout"><span>Halo, user {{ username }}</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
             {% else %}
             <a href="#" class="login" id="btn">Login</a>
             {% endif %}
+        </div>
+        
+        <div class="hamburger-icon">
+            <button>
+                <img src="https://img.icons8.com/metro/26/000000/menu.png">
+            </button>
         </div>
     </nav>
     {% block content %}
     {% endblock %}
 
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
-    
+    <script src="{% static 'hr_wiki/js/enterclicked.js' %}"></script>
 </body>
 </html>

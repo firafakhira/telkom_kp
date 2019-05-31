@@ -15,6 +15,7 @@ class LoginForm(forms.Form):
 class SearchForm(forms.Form):
     search = forms.CharField(widget=forms.TextInput(
         attrs = {
-            'placeholder': 'Type Here...'
+            'placeholder': 'Type Here...',
+            'class': 'inp_search'
         }
-    ), required=False)
+    ))

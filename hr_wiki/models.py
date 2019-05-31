@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Konten(models.Model):
     judul = models.CharField(max_length=50)
+    highlight = models.TextField()
     isi = models.TextField()
 
     def __str__(self):
