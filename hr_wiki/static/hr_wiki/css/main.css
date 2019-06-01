@@ -138,12 +138,15 @@ a {
     -webkit-transition: font-weight 0.2s ease-in-out;
     transition: font-weight 0.2s ease-in-out;
   }
-  nav .nav-link a span {
+  nav .nav-link #profil {
+    cursor: pointer;
+  }
+  nav .nav-link #profil span {
     display: none;
     font-weight: bold;
     margin-right: .5em;
   }
-  nav .nav-link a .profile {
+  nav .nav-link #profil .profile {
     width: 1.5em;
     height: 1.5em;
   }
@@ -163,8 +166,6 @@ a {
     color: #0C9093;
     font-weight: normal;
     background-color: white;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
   nav .hamburger-icon {
     display: none;
@@ -172,18 +173,34 @@ a {
 }
 
 @media only screen and (min-width: 1200px) {
-  nav .nav-link a span {
+  nav .nav-link #profil {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #0C9093;
+  }
+  nav .nav-link #profil span {
     display: block;
     font-weight: bold;
     margin-right: .5em;
   }
-  nav .nav-link a .profile {
+  nav .nav-link #profil .profile {
     width: 1.5em;
     height: 1.5em;
   }
 }
 
-.modal-login {
+.modal {
   position: relative;
   z-index: 2;
   top: -100vh;
@@ -193,7 +210,7 @@ a {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.modal-login .modal-login-content {
+.modal .modal-login {
   position: absolute;
   z-index: 1;
   right: 4em;
@@ -201,9 +218,11 @@ a {
   padding: 1em;
   background-color: #0C9093;
   border-radius: 0.5em;
+  -webkit-animation: show 0.5s ease-out;
+          animation: show 0.5s ease-out;
 }
 
-.modal-login .modal-login-content form {
+.modal .modal-login form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,7 +238,7 @@ a {
           align-items: stretch;
 }
 
-.modal-login .modal-login-content form input {
+.modal .modal-login form input {
   width: 15em;
   margin-bottom: 1em;
   padding: 0.5em;
@@ -228,11 +247,11 @@ a {
   border: none;
 }
 
-.modal-login .modal-login-content form input:focus {
+.modal .modal-login form input:focus {
   outline: none;
 }
 
-.modal-login .modal-login-content form .forgot {
+.modal .modal-login form .forgot {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,16 +268,16 @@ a {
   margin-top: 1em;
 }
 
-.modal-login .modal-login-content form .forgot small {
+.modal .modal-login form .forgot small {
   margin-right: 1em;
 }
 
-.modal-login .modal-login-content form .forgot small a {
+.modal .modal-login form .forgot small a {
   text-decoration: none;
   color: white;
 }
 
-.modal-login .modal-login-content form .forgot button {
+.modal .modal-login form .forgot button {
   cursor: pointer;
   width: 5em;
   border-radius: 1em;
@@ -271,15 +290,161 @@ a {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.modal-login .modal-login-content form .forgot button:focus {
+.modal .modal-login form .forgot button:focus {
   outline: none;
 }
 
-.modal-login .modal-login-content form .forgot button:hover {
+.modal .modal-login form .forgot button:hover {
   background-color: #0C9093;
   color: white;
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.modal .modal-profil {
+  position: absolute;
+  z-index: 1;
+  right: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 5em;
+  width: 7em;
+  margin-top: 11vh;
+  padding: 1em;
+  background-color: #0C9093;
+  border-radius: 0.5em;
+  -webkit-animation: show 0.5s ease-out;
+          animation: show 0.5s ease-out;
+}
+
+.modal .modal-profil .greet, .modal .modal-profil .logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100%;
+  height: 50%;
+  color: white;
+}
+
+.modal .modal-profil .logout {
+  cursor: pointer;
+  border-top: 1px solid #c7c6c6;
+}
+
+.modal .modal-profil .logout:active {
+  color: #c7c6c6;
+}
+
+.modal-komen {
+  position: relative;
+  z-index: 3;
+  top: -100vh;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-komen .fa-window-close {
+  cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.modal-komen .modal-komen-content {
+  position: absolute;
+  z-index: 1;
+  top: 25vh;
+  right: 50vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20em;
+  width: 35em;
+  padding: 1em;
+  background-color: rgba(12, 144, 147, 0.8);
+  border-radius: 0.5em;
+}
+
+.modal-komen .modal-komen-content h1 {
+  color: white;
+}
+
+.modal-komen .modal-komen-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 1em;
+}
+
+.modal-komen .modal-komen-content form textarea {
+  width: 35em;
+  resize: none;
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid white;
+  border-radius: 1em;
+}
+
+.modal-komen .modal-komen-content form button {
+  cursor: pointer;
+  width: 5em;
+  border-radius: 1em;
+  border: 1.5px solid white;
+  background-color: white;
+  color: #0C9093;
+  padding: 0.5em;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.modal-komen .modal-komen-content form button:hover {
+  background-color: #0C9093;
+  color: white;
 }
 
 .show {
@@ -292,6 +457,32 @@ a {
   background-color: white !important;
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+@-webkit-keyframes show {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -377,6 +568,20 @@ a {
     text-align: center;
     color: #EA0A7A;
     width: 20em;
+  }
+  .con .content-landing .content-landing-text .searchText form .inp_search {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 1em;
+    border: 1px solid #EA0A7A;
+    width: 15em;
+  }
+  .con .content-landing .content-landing-text .searchText form .inp_search:focus {
+    outline: none;
   }
 }
 
@@ -606,8 +811,6 @@ a {
 .btn_search:hover {
   background-color: white;
   color: #EA0A7A;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .btn_search:focus {
@@ -836,12 +1039,38 @@ a {
     font-size: 10pt;
     margin: 1em;
   }
+  .content .report .thumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
   .content .report .thumb img {
+    cursor: pointer;
     width: 1em;
     height: 1em;
     margin: 0 0.5em;
   }
-  .content .report #myBtn {
+  .content .report .thumb form button {
+    background-color: transparent;
+    border: none;
+  }
+  .content .report .thumb form button img {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    margin: 0 0.5em;
+  }
+  .content .report #komen {
     cursor: pointer;
     margin-top: 1em;
     background-color: rgba(0, 0, 0, 0);
@@ -970,7 +1199,7 @@ a {
 
 @media screen and (min-width: 544px) {
   .content {
-    height: 80vh;
+    height: 87vh;
     margin: 0 4em;
     display: -ms-grid;
     display: grid;
@@ -1166,12 +1395,38 @@ a {
     font-size: 10pt;
     margin: 1em;
   }
+  .content .report .thumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
   .content .report .thumb img {
+    cursor: pointer;
     width: 1em;
     height: 1em;
     margin: 0 0.5em;
   }
-  .content .report #myBtn {
+  .content .report .thumb form button {
+    background-color: transparent;
+    border: none;
+  }
+  .content .report .thumb form button img {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    margin: 0 0.5em;
+  }
+  .content .report #komen {
     cursor: pointer;
     margin-left: 1em;
     background-color: rgba(0, 0, 0, 0);
@@ -1316,7 +1571,7 @@ a {
 
 @media only screen and (min-width: 992px) {
   .content {
-        grid-template-areas: "a a a b . ." "c c c c d d" ". e e . . .";
+        grid-template-areas: "a a a b . ." "c c c c d d" "e e e e . .";
   }
   .content::before {
     right: 25vw;
@@ -1346,6 +1601,9 @@ a {
   .content .content-main {
     width: 95%;
   }
+  .content .content-search {
+    height: 67vh;
+  }
   .content .pagination {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1354,9 +1612,9 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;

@@ -33,9 +33,9 @@
             <a href="#">Contact</a>
             <a href="#">About</a>
             {% if username %}
-            <a href="{% url 'wiki-landing' %}?action=logout"><span>Halo, user {{ username }}</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </a>
+            <div id="profil"><span>Halo, user {{ username }}</span><img class="profile" src="{% static 'hr_wiki/img/person.png' %}"> </div>
             {% else %}
-            <a href="#" class="login" id="btn">Login</a>
+            <div class="login" id="btn">Login</div>
             {% endif %}
         </div>
         
@@ -48,8 +48,22 @@
     {% block content %}
     {% endblock %}
 
-    <div class="modal-login">
-        <div class="modal-login-content">
+    
+    {% if username %}
+    <div class="modal">
+        <div class="modal-profil">
+            <span class="greet">
+                Halo, {{ username }}
+            </span>
+            <a href="{% url 'wiki-landing' %}?action=logout" class="logout">
+                Logout
+            </span>
+        </div>
+    </div>
+    <script src="{% static 'hr_wiki/js/profil.js' %}"></script>
+    {% else %}
+    <div class="modal">
+        <div class="modal-login">
             <form method="POST">
                 {% csrf_token %}
                 {{ form.username }}
@@ -61,8 +75,7 @@
             </form>
         </div>
     </div>
-
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
-    <script src="{% static 'hr_wiki/js/enterclicked.js' %}"></script>
+    {% endif %}
 </body>
 </html>

@@ -19,3 +19,20 @@ class SearchForm(forms.Form):
             'class': 'inp_search'
         }
     ))
+
+class LikeForm(forms.Form):
+    like = forms.CharField(widget=forms.HiddenInput(
+        attrs = {
+            'value': '1'
+        }
+    ))
+
+class DislikeForm(forms.Form):
+    dislike = forms.CharField(widget=forms.HiddenInput(
+        attrs = {
+            'value': '1'
+        }
+    ))
+
+class KomenForm(forms.Form):
+    komen = forms.CharField(widget=forms.Textarea)

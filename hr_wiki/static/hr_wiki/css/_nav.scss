@@ -65,6 +65,9 @@ nav{
                     font-weight: 500;
                     transition: font-weight 0.2s ease-in-out;
                 }
+            }
+            #profil{
+                cursor: pointer;
                 span{
                     display: none;
                     font-weight: bold;
@@ -74,6 +77,7 @@ nav{
                     width: 1.5em;
                     height: 1.5em;
                 }
+
             }
             .login{
                 @include button(1.5px solid $ijo, $ijo, white);
@@ -83,7 +87,6 @@ nav{
                     color: $ijo;
                     font-weight: normal;
                     background-color: white;
-                    @include tranisition-btn;
                 }
             }
         }
@@ -93,7 +96,9 @@ nav{
     }
     @include responsive("xlarge"){
         .nav-link{
-            a{
+            #profil{
+                @include flex(center, center);
+                color: $ijo;
                 span{
                     display: block;
                     font-weight: bold;

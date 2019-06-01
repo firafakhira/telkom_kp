@@ -122,6 +122,15 @@ a{
                     color: $merah;
                     width: 20em;
                 }
+                .searchText{
+                    form{
+                        .inp_search{
+                            box-sizing: border-box;
+                            @include input(1px solid $merah);
+                            width: 15em;
+                        }
+                    }
+                }
             }
         }
     }
@@ -266,13 +275,11 @@ a{
 .btn_search{
     @include button(1.5px solid $merah, $merah, white);
     // box-sizing: border-box;
-    transition: background-color 0.2s ease-in-out,
-                color 0.2s ease-in-out;
+    @include tranisition-btn;
 
     &:hover{
         background-color: white;
         color: $merah;
-        @include tranisition-btn;
     }
 
     &:focus{
@@ -375,7 +382,7 @@ a{
             @include flex($direction: column);
             overflow-y: scroll;
             grid-area: c;
-    
+            
             .isi{
                 .row{
                     h3{
@@ -391,8 +398,6 @@ a{
                     }
                 }
             }
-    
-            
         }
     
         .pagination{
@@ -429,13 +434,29 @@ a{
                 margin: 1em;
             }
             .thumb{
+                @include flex();
                 img{
+                    cursor: pointer;
                     width: 1em;
                     height: 1em;
                     margin: 0 0.5em;
                 }
+                form{
+                    button{
+                        
+                        background-color: transparent;
+                        border: none;
+                        img{
+                            cursor: pointer;
+                            width: 1em;
+                            height: 1em;
+                            margin: 0 0.5em;
+                        }
+                    }
+                }
             }
-            #myBtn{
+
+            #komen{
                 cursor: pointer;
                 margin-top: 1em;
                 background-color: rgba(0, 0, 0, 0);
@@ -510,7 +531,7 @@ a{
         }
     }
     @include responsive("small"){
-        height: 80vh;
+        height: 87vh;
         margin: 0 4em;
         display: grid;
         grid-gap: 1em;
@@ -646,13 +667,28 @@ a{
                 margin: 1em;
             }
             .thumb{
+                @include flex();
                 img{
+                    cursor: pointer;
                     width: 1em;
                     height: 1em;
                     margin: 0 0.5em;
                 }
+                form{
+                    button{
+                        
+                        background-color: transparent;
+                        border: none;
+                        img{
+                            cursor: pointer;
+                            width: 1em;
+                            height: 1em;
+                            margin: 0 0.5em;
+                        }
+                    }
+                }
             }
-            #myBtn{
+            #komen{
                 cursor: pointer;
                 margin-left: 1em;
                 background-color: rgba(0, 0, 0, 0);
@@ -766,7 +802,7 @@ a{
         grid-template-areas: 
                             "a a a b . ."
                             "c c c c d d"
-                            ". e e . . .";
+                            "e e e e . .";
     
         &::before{
             right: 25vw;
@@ -788,9 +824,13 @@ a{
         .content-main{
             width: 95%;
         }
+
+        .content-search{
+            height: 67vh;
+        }
     
         .pagination{
-            @include flex(space-between);
+            @include flex(center);
         }
     
         .cek{
