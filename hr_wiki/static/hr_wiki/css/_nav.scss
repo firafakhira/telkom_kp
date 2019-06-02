@@ -22,6 +22,7 @@ nav{
                 cursor: pointer;
                 background-color: rgba($color: #000000, $alpha: 0);
                 border: none;
+                outline: none;
             }
         }
     }
@@ -48,6 +49,7 @@ nav{
                 cursor: pointer;
                 background-color: rgba($color: #000000, $alpha: 0);
                 border: none;
+                outline: none;
             }
         }
     }
@@ -68,6 +70,7 @@ nav{
             }
             #profil{
                 cursor: pointer;
+                padding: 0.5em 1em;
                 span{
                     display: none;
                     font-weight: bold;

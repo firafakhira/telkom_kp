@@ -1,7 +1,7 @@
 // MODAL LOGIN
-button = document.getElementById('btn')
-modal = document.querySelector('.modal')
-nav = document.querySelector('nav')
+const button = document.getElementById('btn')
+const modal = document.querySelector('.modal')
+const sideLogin = document.querySelector('.sidebar .sidebar-nav span.login')
 
 button.addEventListener('click', ()=>{
     modal.classList.toggle('show')
@@ -10,7 +10,12 @@ button.addEventListener('click', ()=>{
 
 window.addEventListener('click', ()=>{
     if (event.target == modal || event.target == nav){
-        modal.classList.toggle('show')
-        button.classList.toggle('clicked')
+        modal.classList.remove('show')
+        button.classList.remove('clicked')
     }
+})
+
+sideLogin.addEventListener('click', ()=>{
+    sidebar.classList.remove('show')
+    modal.classList.add('show')
 })

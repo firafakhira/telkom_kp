@@ -55,6 +55,7 @@ a {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    outline: none;
   }
 }
 
@@ -93,6 +94,7 @@ a {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    outline: none;
   }
 }
 
@@ -140,6 +142,7 @@ a {
   }
   nav .nav-link #profil {
     cursor: pointer;
+    padding: 0.5em 1em;
   }
   nav .nav-link #profil span {
     display: none;
@@ -218,8 +221,8 @@ a {
   padding: 1em;
   background-color: #0C9093;
   border-radius: 0.5em;
-  -webkit-animation: show 0.5s ease-out;
-          animation: show 0.5s ease-out;
+  -webkit-animation: show 0.4s ease-in;
+          animation: show 0.4s ease-in;
 }
 
 .modal .modal-login form {
@@ -356,99 +359,202 @@ a {
   color: #c7c6c6;
 }
 
-.modal-komen {
-  position: relative;
-  z-index: 3;
-  top: -100vh;
-  display: none;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.7);
+@media screen and (max-width: 544px) {
+  .modal-komen {
+    position: relative;
+    z-index: 3;
+    top: -100vh;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    overflow: hidden !important;
+  }
+  .modal-komen .fa-window-close {
+    cursor: pointer;
+    margin: -1em 0 1em 0;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .modal-komen .modal-komen-content {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 15em;
+    width: 15em;
+    padding: 1em;
+    margin: -7.5em -7.5em 0 0;
+    background-color: rgba(12, 144, 147, 0.8);
+    border-radius: 0.5em;
+    -webkit-animation: show-from-bottom 0.4s ease-in;
+            animation: show-from-bottom 0.4s ease-in;
+  }
+  .modal-komen .modal-komen-content h1 {
+    font-size: 1em;
+    color: white;
+  }
+  .modal-komen .modal-komen-content form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    margin-top: 1em;
+    height: 10em;
+    widows: 10em;
+  }
+  .modal-komen .modal-komen-content form textarea {
+    width: 15em;
+    resize: none;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid white;
+    border-radius: 1em;
+  }
+  .modal-komen .modal-komen-content form button {
+    cursor: pointer;
+    width: 5em;
+    border-radius: 1em;
+    border: 1.5px solid white;
+    background-color: white;
+    color: #0C9093;
+    padding: 0.5em;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 0.7em;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .modal-komen .modal-komen-content form button:hover {
+    background-color: #0C9093;
+    color: white;
+  }
 }
 
-.modal-komen .fa-window-close {
-  cursor: pointer;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+@media screen and (min-width: 544px) {
+  .modal-komen {
+    position: relative;
+    z-index: 3;
+    top: -100vh;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    overflow: hidden !important;
+  }
+  .modal-komen .fa-window-close {
+    cursor: pointer;
+    margin: -1em 0 1em 0;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .modal-komen .modal-komen-content {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 20em;
+    width: 20em;
+    padding: 1em;
+    margin: -10em -10em 0 0;
+    background-color: rgba(12, 144, 147, 0.8);
+    border-radius: 0.5em;
+    -webkit-animation: show-from-bottom 0.4s ease-in;
+            animation: show-from-bottom 0.4s ease-in;
+  }
+  .modal-komen .modal-komen-content h1 {
+    font-size: 1em;
+    color: white;
+  }
+  .modal-komen .modal-komen-content form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    margin-top: 1em;
+  }
+  .modal-komen .modal-komen-content form textarea {
+    width: 19em;
+    resize: none;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid white;
+    border-radius: 1em;
+  }
+  .modal-komen .modal-komen-content form button {
+    cursor: pointer;
+    width: 5em;
+    border-radius: 1em;
+    border: 1.5px solid white;
+    background-color: white;
+    color: #0C9093;
+    padding: 0.5em;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 0.7em;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .modal-komen .modal-komen-content form button:hover {
+    background-color: #0C9093;
+    color: white;
+  }
 }
 
-.modal-komen .modal-komen-content {
-  position: absolute;
-  z-index: 1;
-  top: 25vh;
-  right: 50vmin;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 20em;
-  width: 35em;
-  padding: 1em;
-  background-color: rgba(12, 144, 147, 0.8);
-  border-radius: 0.5em;
-}
-
-.modal-komen .modal-komen-content h1 {
-  color: white;
-}
-
-.modal-komen .modal-komen-content form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  margin-top: 1em;
-}
-
-.modal-komen .modal-komen-content form textarea {
-  width: 35em;
-  resize: none;
-  margin-bottom: 1em;
-  padding: 1em;
-  border: 1px solid white;
-  border-radius: 1em;
-}
-
-.modal-komen .modal-komen-content form button {
-  cursor: pointer;
-  width: 5em;
-  border-radius: 1em;
-  border: 1.5px solid white;
-  background-color: white;
-  color: #0C9093;
-  padding: 0.5em;
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.modal-komen .modal-komen-content form button:hover {
-  background-color: #0C9093;
-  color: white;
-}
-
-.show {
-  display: block !important;
+@media only screen and (min-width: 768px) {
+  .modal-komen .modal-komen-content {
+    width: 35em;
+    margin-right: -17.5em;
+  }
+  .modal-komen .modal-komen-content form textarea {
+    width: 35em;
+  }
 }
 
 .clicked {
@@ -485,6 +591,32 @@ a {
   }
 }
 
+@-webkit-keyframes show-from-bottom {
+  from {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(25vh);
+            transform: scale(25vh);
+    opacity: 1;
+  }
+}
+
+@keyframes show-from-bottom {
+  from {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(25vh);
+            transform: scale(25vh);
+    opacity: 1;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -496,6 +628,115 @@ a {
 ::-webkit-scrollbar-thumb {
   background: #0c9093;
   border-radius: 10px;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 2;
+  display: none;
+  top: -100vh;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  overflow-x: hidden;
+}
+
+.sidebar .sidebar-nav {
+  position: absolute;
+  z-index: 1;
+  top: 11.5vh;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 40%;
+  background-color: #0C9093;
+  -webkit-box-shadow: -4px 2px 7px 0px rgba(112, 112, 112, 0.8);
+          box-shadow: -4px 2px 7px 0px rgba(112, 112, 112, 0.8);
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  -webkit-animation: side 0.5s ease-in-out;
+          animation: side 0.5s ease-in-out;
+}
+
+.sidebar .sidebar-nav a, .sidebar .sidebar-nav span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3em;
+  color: white;
+  padding-left: 1em;
+}
+
+.sidebar .sidebar-nav .sidebar-link:first-child {
+  border-top-left-radius: 0.5em;
+}
+
+.sidebar .sidebar-nav .sidebar-link:last-child {
+  border-bottom-left-radius: 0.5em;
+}
+
+.sidebar .sidebar-nav a {
+  border-top: 1px solid white;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar .sidebar-nav a:hover {
+  background-color: #096e70;
+}
+
+.sidebar .sidebar-nav .login {
+  cursor: pointer;
+  border-top: 1px solid white;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar .sidebar-nav .login:hover {
+  background-color: #096e70;
+}
+
+@-webkit-keyframes side {
+  from {
+    right: -100em;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes side {
+  from {
+    right: -100em;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 544px) {
@@ -656,20 +897,15 @@ a {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .con::before {
+    right: 5em;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .con::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    display: block;
-    right: 60vmin;
-    width: 100vmin;
-    height: 80vh;
-    background-image: url(../img/gambar1.png);
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: center;
-    opacity: 0.1;
+    right: 50vmin;
   }
   .con .content-landing {
     display: -ms-grid;
@@ -761,60 +997,6 @@ a {
   .con .content-landing .content-landing-text p.isi {
     text-align: left;
   }
-}
-
-.inp_search {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 15em;
-  margin-bottom: 1em;
-  padding: 0.5em;
-  background-color: white;
-  border-radius: 1em;
-  border: 1px solid #EA0A7A;
-  width: 25em;
-}
-
-.inp_search:focus {
-  outline: none;
-}
-
-.inp_search::-webkit-input-placeholder {
-  color: #EA0A7A;
-}
-
-.inp_search:-ms-input-placeholder {
-  color: #EA0A7A;
-}
-
-.inp_search::-ms-input-placeholder {
-  color: #EA0A7A;
-}
-
-.inp_search::placeholder {
-  color: #EA0A7A;
-}
-
-.btn_search {
-  cursor: pointer;
-  width: 5em;
-  border-radius: 1em;
-  border: 1.5px solid #EA0A7A;
-  background-color: #EA0A7A;
-  color: white;
-  padding: 0.5em;
-  text-align: center;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.btn_search:hover {
-  background-color: white;
-  color: #EA0A7A;
-}
-
-.btn_search:focus {
-  outline: none;
 }
 
 @media screen and (max-width: 544px) {
@@ -952,6 +1134,7 @@ a {
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
+    height: 60vh;
     overflow-y: scroll;
     -ms-grid-row: 3;
     -ms-grid-column: 1;
@@ -1075,6 +1258,7 @@ a {
     margin-top: 1em;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    outline: none;
   }
   .content .cek {
     display: -webkit-box;
@@ -1306,6 +1490,7 @@ a {
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
+    height: 60vh;
     overflow-y: scroll;
     -ms-grid-row: 3;
     -ms-grid-column: 1;
@@ -1431,6 +1616,7 @@ a {
     margin-left: 1em;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    outline: none;
   }
   .content .cek {
     display: -webkit-box;
@@ -1474,7 +1660,7 @@ a {
     margin: 0 0 1em 0;
     min-height: 23%;
     border-radius: 1em;
-    padding: 1em;
+    padding: 0.5em 1em;
     width: 100%;
   }
   .content .cek .info_konten .text_konten {
@@ -1673,5 +1859,63 @@ a {
   .content .cek .artikel .artikel-link {
     margin: 0 1em;
   }
+}
+
+.inp_search {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background-color: white;
+  border-radius: 1em;
+  border: 1px solid #EA0A7A;
+  width: 25em;
+}
+
+.inp_search:focus {
+  outline: none;
+}
+
+.inp_search::-webkit-input-placeholder {
+  color: #EA0A7A;
+}
+
+.inp_search:-ms-input-placeholder {
+  color: #EA0A7A;
+}
+
+.inp_search::-ms-input-placeholder {
+  color: #EA0A7A;
+}
+
+.inp_search::placeholder {
+  color: #EA0A7A;
+}
+
+.btn_search {
+  cursor: pointer;
+  width: 5em;
+  border-radius: 1em;
+  border: 1.5px solid #EA0A7A;
+  background-color: #EA0A7A;
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn_search:hover {
+  background-color: white;
+  color: #EA0A7A;
+}
+
+.btn_search:focus {
+  outline: none;
+}
+
+.show {
+  display: block !important;
 }
 /*# sourceMappingURL=main.css.map */

@@ -13,7 +13,7 @@
         padding: 1em;
         background-color: $ijo;
         border-radius: 0.5em;
-        animation: show 0.5s ease-out;
+        animation: show 0.4s ease-in;
         form{
             @include flex(flex-start, stretch, column);
             input{
@@ -73,56 +73,127 @@
 }
 
 .modal-komen{
-    @include position(relative, 3);
-    top: -100vh;
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255,255,255,0.7);
-    .fa-window-close{
-        cursor: pointer;
-        align-self: flex-end;
-    }
-    .modal-komen-content{
-        @include position(absolute, 1);
-        top: 25vh;
-        right: 50vmin;
-        @include flex(center, center, column);
-        height: 20em;
-        width: 35em;
-        padding: 1em;
-        background-color: rgba($color: $ijo, $alpha: 0.8);
-        border-radius: 0.5em;
-        h1{
-            color: white;
+    @include responsive("xsmall"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
         }
-        form{
-            @include flex($direction:column);
-            margin-top: 1em;
-            textarea{
-                width: 35em;
-                resize: none;
-                margin-bottom: 1em;
-                padding: 1em;
-                border: 1px solid white;
-                border-radius: 1em;
+        .modal-komen-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 15em;
+            width: 15em;
+            padding: 1em;
+            margin: -7.5em -7.5em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show-from-bottom 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
             }
-            button{
-                @include button(1.5px solid white, white, $ijo);
-                width: 100%;
-                font-weight: bold;
-                @include tranisition-btn;
-                &:hover{
-                    background-color: $ijo;
-                    color: white;
+            form{
+                @include flex($direction:column);
+                margin-top: 1em;
+                height: 10em;
+                widows: 10em;
+                textarea{
+                    width: 15em;
+                    resize: none;
+                    margin-bottom: 1em;
+                    padding: 1em;
+                    border: 1px solid white;
+                    border-radius: 1em;
+                }
+                button{
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
                 }
             }
         }
     }
-}
-
-.show{
-    display: block !important;
+    @include responsive("small"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-komen-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 20em;
+            width: 20em;
+            padding: 1em;
+            margin: -10em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show-from-bottom 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                @include flex($direction:column);
+                margin-top: 1em;
+                textarea{
+                    width: 19em;
+                    resize: none;
+                    margin-bottom: 1em;
+                    padding: 1em;
+                    border: 1px solid white;
+                    border-radius: 1em;
+                }
+                button{
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("medium"){
+        .modal-komen-content{
+            width: 35em;
+            margin-right: -17.5em;
+            form{
+                textarea{
+                    width: 35em;
+                }
+            }
+        }
+    }
 }
 
 .clicked{
@@ -139,6 +210,17 @@
     }
     to{
         transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes show-from-bottom{
+    from{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(25vh);
         opacity: 1;
     }
 }

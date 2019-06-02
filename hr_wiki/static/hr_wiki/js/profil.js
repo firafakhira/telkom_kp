@@ -1,7 +1,6 @@
 // MODAL PROFIL
-profil = document.getElementById('profil')
-modal = document.querySelector('.modal')
-nav = document.querySelector('nav')
+const profil = document.getElementById('profil')
+const modal = document.querySelector('.modal')
 
 profil.addEventListener('click', ()=>{
     modal.classList.toggle('show')
@@ -9,6 +8,6 @@ profil.addEventListener('click', ()=>{
 
 window.addEventListener('click', ()=>{
     if (event.target == modal || event.target == nav){
-        modal.classList.toggle('show')
+        modal.classList.remove('show')
     }
 })

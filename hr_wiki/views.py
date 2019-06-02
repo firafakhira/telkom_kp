@@ -28,34 +28,41 @@ import json
 
 # Create your views here.
 def landing(request):
-    if 'action' in request.GET:
-        if request.GET.get('action') == 'logout':
-            request.session.flush()
-            return redirect('wiki-home')
-    else:
-        if request.method == 'POST':
-            form = LoginForm(request.POST)
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                password = form.cleaned_data['password']
-
-                url = f'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username={username}&password={password}'
-                response = requests.post(url)
-                data = response.json()
-                if data['status'] == 'success':
-                    # form = SearchForm()
-                    request.session['username'] = username
-                    request.session['token'] = data['data']['jwt']['token']
-                    request.session.set_expiry(data['data']['jwt']['expires'])
-                    # return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
-                    return redirect('wiki-home')
-                else:
-                    # form = LoginForm()
-                    # return render(request, 'hr_wiki/home.html', {'form': form})
-                    return redirect('wiki-landing')
+    try:
+        request.session['username']
+    except KeyError:
+        if 'action' in request.GET:
+            if request.GET.get('action') == 'logout':
+                request.session.flush()
+                return redirect('wiki-home')
         else:
-            form = LoginForm()
-            return render(request, 'hr_wiki/landing.html', {'name': 'Landing','form': form})
+            if request.method == 'POST':
+                form = LoginForm(request.POST)
+                if form.is_valid():
+                    username = form.cleaned_data['username']
+                    password = form.cleaned_data['password']
+
+                    url = f'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username={username}&password={password}'
+                    response = requests.post(url)
+                    data = response.json()
+                    if data['status'] == 'success':
+                        # form = SearchForm()
+                        request.session['username'] = username
+                        request.session['token'] = data['data']['jwt']['token']
+                        request.session.set_expiry(data['data']['jwt']['expires'])
+                        # return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
+                        return redirect('wiki-home')
+                    else:
+                        # form = LoginForm()
+                        # return render(request, 'hr_wiki/home.html', {'form': form})
+                        return redirect('wiki-landing')
+            else:
+                form = LoginForm()
+                return render(request, 'hr_wiki/landing.html', {'name': 'Landing','form': form})
+    except Exception:
+        print('Error!')
+    else:
+        return redirect('wiki-home')
 
     # INI BUAT LOAD API NYA DUDE
     # url = 'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username=402256&password=Sflozi14'

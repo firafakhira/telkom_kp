@@ -1,6 +1,6 @@
-btn = document.getElementById('komen')
-modalKomen = document.querySelector('.modal-komen')
-close = document.querySelector('.fa-window-close')
+const btn = document.getElementById('komen')
+const modalKomen = document.querySelector('.modal-komen')
+const close = document.querySelector('.fa-window-close')
 
 
 btn.addEventListener('click', ()=>{
