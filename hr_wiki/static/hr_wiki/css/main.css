@@ -213,95 +213,172 @@ a {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.modal .modal-login {
-  position: absolute;
-  z-index: 1;
-  right: 4em;
-  margin-top: 11vh;
-  padding: 1em;
-  background-color: #0C9093;
-  border-radius: 0.5em;
-  -webkit-animation: show 0.4s ease-in;
-          animation: show 0.4s ease-in;
+@media screen and (max-width: 544px) {
+  .modal .modal-login {
+    position: absolute;
+    z-index: 1;
+    right: 2em;
+    margin-top: 12vh;
+    padding: 1em;
+    background-color: #0C9093;
+    border-radius: 0.5em;
+    -webkit-animation: show 0.4s ease-in;
+            animation: show 0.4s ease-in;
+  }
+  .modal .modal-login form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .modal .modal-login form input {
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 1em;
+    border: none;
+  }
+  .modal .modal-login form input:focus {
+    outline: none;
+  }
+  .modal .modal-login form .forgot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 1em;
+  }
+  .modal .modal-login form .forgot small {
+    margin-right: 1em;
+  }
+  .modal .modal-login form .forgot small a {
+    text-decoration: none;
+    color: white;
+  }
+  .modal .modal-login form .forgot button {
+    cursor: pointer;
+    width: 5em;
+    border-radius: 1em;
+    border: 1.5px solid white;
+    background-color: white;
+    color: #0C9093;
+    padding: 0.5em;
+    text-align: center;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .modal .modal-login form .forgot button:focus {
+    outline: none;
+  }
+  .modal .modal-login form .forgot button:hover {
+    background-color: #0C9093;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
 }
 
-.modal .modal-login form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-}
-
-.modal .modal-login form input {
-  width: 15em;
-  margin-bottom: 1em;
-  padding: 0.5em;
-  background-color: white;
-  border-radius: 1em;
-  border: none;
-}
-
-.modal .modal-login form input:focus {
-  outline: none;
-}
-
-.modal .modal-login form .forgot {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 1em;
-}
-
-.modal .modal-login form .forgot small {
-  margin-right: 1em;
-}
-
-.modal .modal-login form .forgot small a {
-  text-decoration: none;
-  color: white;
-}
-
-.modal .modal-login form .forgot button {
-  cursor: pointer;
-  width: 5em;
-  border-radius: 1em;
-  border: 1.5px solid white;
-  background-color: white;
-  color: #0C9093;
-  padding: 0.5em;
-  text-align: center;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.modal .modal-login form .forgot button:focus {
-  outline: none;
-}
-
-.modal .modal-login form .forgot button:hover {
-  background-color: #0C9093;
-  color: white;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+@media screen and (min-width: 544px) {
+  .modal .modal-login {
+    position: absolute;
+    z-index: 1;
+    right: 4em;
+    margin-top: 11vh;
+    padding: 1em;
+    background-color: #0C9093;
+    border-radius: 0.5em;
+    -webkit-animation: show 0.4s ease-in;
+            animation: show 0.4s ease-in;
+  }
+  .modal .modal-login form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .modal .modal-login form input {
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 1em;
+    border: none;
+  }
+  .modal .modal-login form input:focus {
+    outline: none;
+  }
+  .modal .modal-login form .forgot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 1em;
+  }
+  .modal .modal-login form .forgot small {
+    margin-right: 1em;
+  }
+  .modal .modal-login form .forgot small a {
+    text-decoration: none;
+    color: white;
+  }
+  .modal .modal-login form .forgot button {
+    cursor: pointer;
+    width: 5em;
+    border-radius: 1em;
+    border: 1.5px solid white;
+    background-color: white;
+    color: #0C9093;
+    padding: 0.5em;
+    text-align: center;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .modal .modal-login form .forgot button:focus {
+    outline: none;
+  }
+  .modal .modal-login form .forgot button:hover {
+    background-color: #0C9093;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
 }
 
 .modal .modal-profil {
@@ -1001,7 +1078,7 @@ a {
 
 @media screen and (max-width: 544px) {
   .content {
-    height: 80vh;
+    height: 87vh;
     margin: 0 2em;
     display: -ms-grid;
     display: grid;

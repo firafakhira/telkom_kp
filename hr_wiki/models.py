@@ -21,7 +21,7 @@ class Incident(models.Model):
         return self.idincident
 class Log(models.Model):
     username = models.CharField(max_length=30)
-    like = models.IntegerField(default=0)
-    dislike = models.IntegerField(default=0)
-    hits = models.IntegerField(default=0)
+    like = models.BooleanField(default=0)
+    dislike = models.BooleanField(default=0)
+    hits = models.BooleanField(default=0)
     incident = models.ForeignKey('Incident', on_delete=models.CASCADE)

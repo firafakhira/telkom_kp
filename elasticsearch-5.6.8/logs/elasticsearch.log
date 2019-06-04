@@ -1,90 +1,64 @@
-[2019-06-02T15:48:03,352][INFO ][o.e.n.Node               ] [] initializing ...
-[2019-06-02T15:48:04,404][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] using [1] data paths, mounts [[(E:)]], net usable_space [202.6gb], net total_space [540.8gb], spins? [unknown], types [NTFS]
-[2019-06-02T15:48:04,408][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] heap size [1.9gb], compressed ordinary object pointers [true]
-[2019-06-02T15:48:04,917][INFO ][o.e.n.Node               ] node name [IKF-EAb] derived from node ID [IKF-EAbyQLOSt7XSrOsIFw]; set [node.name] to override
-[2019-06-02T15:48:04,917][INFO ][o.e.n.Node               ] version[5.6.8], pid[1068], build[688ecce/2018-02-16T16:46:30.010Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_211/25.211-b12]
-[2019-06-02T15:48:04,921][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=E:\Project(s)\Web\telkom_kp\elasticsearch-5.6.8]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [aggs-matrix-stats]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [ingest-common]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-expression]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-groovy]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-mustache]
-[2019-06-02T15:48:08,953][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-painless]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [parent-join]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [percolator]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [reindex]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty3]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty4]
-[2019-06-02T15:48:08,957][INFO ][o.e.p.PluginsService     ] [IKF-EAb] no plugins loaded
-[2019-06-02T15:48:16,953][INFO ][o.e.d.DiscoveryModule    ] [IKF-EAb] using discovery type [zen]
-[2019-06-02T15:48:18,445][INFO ][o.e.n.Node               ] initialized
-[2019-06-02T15:48:18,449][INFO ][o.e.n.Node               ] [IKF-EAb] starting ...
-[2019-06-02T15:48:21,849][INFO ][o.e.t.TransportService   ] [IKF-EAb] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
-[2019-06-02T15:48:25,389][INFO ][o.e.c.s.ClusterService   ] [IKF-EAb] new_master {IKF-EAb}{IKF-EAbyQLOSt7XSrOsIFw}{Cq3D6cuTTIeU6JPkXQ-Khw}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-elected-as-master ([0] nodes joined)
-[2019-06-02T15:48:26,920][INFO ][o.e.h.n.Netty4HttpServerTransport] [IKF-EAb] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
-[2019-06-02T15:48:26,920][INFO ][o.e.n.Node               ] [IKF-EAb] started
-[2019-06-02T15:48:27,808][INFO ][o.e.g.GatewayService     ] [IKF-EAb] recovered [2] indices into cluster_state
-[2019-06-02T15:48:32,177][INFO ][o.e.c.r.a.AllocationService] [IKF-EAb] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[konten][0]] ...]).
-[2019-06-02T15:50:12,752][INFO ][o.e.n.Node               ] [IKF-EAb] stopping ...
-[2019-06-02T15:50:12,844][INFO ][o.e.n.Node               ] [IKF-EAb] stopped
-[2019-06-02T15:50:12,844][INFO ][o.e.n.Node               ] [IKF-EAb] closing ...
-[2019-06-02T15:50:12,964][INFO ][o.e.n.Node               ] [IKF-EAb] closed
-[2019-06-02T15:50:26,357][INFO ][o.e.n.Node               ] [] initializing ...
-[2019-06-02T15:50:26,573][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] using [1] data paths, mounts [[(E:)]], net usable_space [202.6gb], net total_space [540.8gb], spins? [unknown], types [NTFS]
-[2019-06-02T15:50:26,573][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] heap size [1.9gb], compressed ordinary object pointers [true]
-[2019-06-02T15:50:26,869][INFO ][o.e.n.Node               ] node name [IKF-EAb] derived from node ID [IKF-EAbyQLOSt7XSrOsIFw]; set [node.name] to override
-[2019-06-02T15:50:26,869][INFO ][o.e.n.Node               ] version[5.6.8], pid[13596], build[688ecce/2018-02-16T16:46:30.010Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_211/25.211-b12]
-[2019-06-02T15:50:26,873][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=E:\Project(s)\Web\telkom_kp\elasticsearch-5.6.8]
-[2019-06-02T15:50:29,216][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [aggs-matrix-stats]
-[2019-06-02T15:50:29,216][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [ingest-common]
-[2019-06-02T15:50:29,220][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-expression]
-[2019-06-02T15:50:29,220][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-groovy]
-[2019-06-02T15:50:29,224][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-mustache]
-[2019-06-02T15:50:29,224][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-painless]
-[2019-06-02T15:50:29,224][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [parent-join]
-[2019-06-02T15:50:29,224][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [percolator]
-[2019-06-02T15:50:29,228][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [reindex]
-[2019-06-02T15:50:29,236][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty3]
-[2019-06-02T15:50:29,236][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty4]
-[2019-06-02T15:50:29,240][INFO ][o.e.p.PluginsService     ] [IKF-EAb] no plugins loaded
-[2019-06-02T15:50:35,027][INFO ][o.e.d.DiscoveryModule    ] [IKF-EAb] using discovery type [zen]
-[2019-06-02T15:50:36,058][INFO ][o.e.n.Node               ] initialized
-[2019-06-02T15:50:36,058][INFO ][o.e.n.Node               ] [IKF-EAb] starting ...
-[2019-06-02T15:50:39,090][INFO ][o.e.t.TransportService   ] [IKF-EAb] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
-[2019-06-02T15:50:42,339][INFO ][o.e.c.s.ClusterService   ] [IKF-EAb] new_master {IKF-EAb}{IKF-EAbyQLOSt7XSrOsIFw}{syeyYB7YQ4ikKGtlyOJlfg}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-elected-as-master ([0] nodes joined)
-[2019-06-02T15:50:42,894][INFO ][o.e.g.GatewayService     ] [IKF-EAb] recovered [2] indices into cluster_state
-[2019-06-02T15:50:44,219][INFO ][o.e.h.n.Netty4HttpServerTransport] [IKF-EAb] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
-[2019-06-02T15:50:44,219][INFO ][o.e.n.Node               ] [IKF-EAb] started
-[2019-06-02T15:50:44,679][INFO ][o.e.c.r.a.AllocationService] [IKF-EAb] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[konten][4]] ...]).
-[2019-06-02T16:48:24,814][INFO ][o.e.b.Bootstrap          ] running graceful exit on windows
-[2019-06-02T16:48:24,814][INFO ][o.e.n.Node               ] [IKF-EAb] stopping ...
-[2019-06-02T16:48:24,861][INFO ][o.e.n.Node               ] [IKF-EAb] stopped
-[2019-06-02T16:48:24,861][INFO ][o.e.n.Node               ] [IKF-EAb] closing ...
-[2019-06-02T16:48:24,877][INFO ][o.e.n.Node               ] [IKF-EAb] closed
-[2019-06-02T21:26:11,652][INFO ][o.e.n.Node               ] [] initializing ...
-[2019-06-02T21:26:12,090][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] using [1] data paths, mounts [[(E:)]], net usable_space [202.6gb], net total_space [540.8gb], spins? [unknown], types [NTFS]
-[2019-06-02T21:26:12,090][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] heap size [1.9gb], compressed ordinary object pointers [true]
-[2019-06-02T21:26:12,309][INFO ][o.e.n.Node               ] node name [IKF-EAb] derived from node ID [IKF-EAbyQLOSt7XSrOsIFw]; set [node.name] to override
-[2019-06-02T21:26:12,309][INFO ][o.e.n.Node               ] version[5.6.8], pid[9244], build[688ecce/2018-02-16T16:46:30.010Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_211/25.211-b12]
-[2019-06-02T21:26:12,309][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=E:\Project(s)\Web\telkom_kp\elasticsearch-5.6.8]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [aggs-matrix-stats]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [ingest-common]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-expression]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-groovy]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-mustache]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-painless]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [parent-join]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [percolator]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [reindex]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty3]
-[2019-06-02T21:26:13,809][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty4]
-[2019-06-02T21:26:13,824][INFO ][o.e.p.PluginsService     ] [IKF-EAb] no plugins loaded
-[2019-06-02T21:26:22,066][INFO ][o.e.d.DiscoveryModule    ] [IKF-EAb] using discovery type [zen]
-[2019-06-02T21:26:25,391][INFO ][o.e.n.Node               ] initialized
-[2019-06-02T21:26:25,391][INFO ][o.e.n.Node               ] [IKF-EAb] starting ...
-[2019-06-02T21:26:28,782][INFO ][o.e.t.TransportService   ] [IKF-EAb] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
-[2019-06-02T21:26:32,861][INFO ][o.e.c.s.ClusterService   ] [IKF-EAb] new_master {IKF-EAb}{IKF-EAbyQLOSt7XSrOsIFw}{VDLPL7L3T6ie267wlDJ_gw}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-elected-as-master ([0] nodes joined)
-[2019-06-02T21:26:33,986][INFO ][o.e.g.GatewayService     ] [IKF-EAb] recovered [2] indices into cluster_state
-[2019-06-02T21:26:34,157][INFO ][o.e.h.n.Netty4HttpServerTransport] [IKF-EAb] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
-[2019-06-02T21:26:34,157][INFO ][o.e.n.Node               ] [IKF-EAb] started
-[2019-06-02T21:26:37,758][INFO ][o.e.c.r.a.AllocationService] [IKF-EAb] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[konten][0]] ...]).
+[2019-06-04T08:00:10,197][INFO ][o.e.n.Node               ] [] initializing ...
+[2019-06-04T08:00:10,353][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] using [1] data paths, mounts [[Windows 10 (C:)]], net usable_space [85.8gb], net total_space [143gb], spins? [unknown], types [NTFS]
+[2019-06-04T08:00:10,353][INFO ][o.e.e.NodeEnvironment    ] [IKF-EAb] heap size [1.9gb], compressed ordinary object pointers [true]
+[2019-06-04T08:00:10,698][INFO ][o.e.n.Node               ] node name [IKF-EAb] derived from node ID [IKF-EAbyQLOSt7XSrOsIFw]; set [node.name] to override
+[2019-06-04T08:00:10,698][INFO ][o.e.n.Node               ] version[5.6.8], pid[10156], build[688ecce/2018-02-16T16:46:30.010Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_211/25.211-b12]
+[2019-06-04T08:00:10,698][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=C:\Users\User\Desktop\telkom_kp\elasticsearch-5.6.8]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [aggs-matrix-stats]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [ingest-common]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-expression]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-groovy]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-mustache]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [lang-painless]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [parent-join]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [percolator]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [reindex]
+[2019-06-04T08:00:13,020][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty3]
+[2019-06-04T08:00:13,036][INFO ][o.e.p.PluginsService     ] [IKF-EAb] loaded module [transport-netty4]
+[2019-06-04T08:00:13,036][INFO ][o.e.p.PluginsService     ] [IKF-EAb] no plugins loaded
+[2019-06-04T08:00:17,659][INFO ][o.e.d.DiscoveryModule    ] [IKF-EAb] using discovery type [zen]
+[2019-06-04T08:00:19,529][INFO ][o.e.n.Node               ] initialized
+[2019-06-04T08:00:19,529][INFO ][o.e.n.Node               ] [IKF-EAb] starting ...
+[2019-06-04T08:00:23,277][INFO ][o.e.t.TransportService   ] [IKF-EAb] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2019-06-04T08:00:26,555][INFO ][o.e.c.s.ClusterService   ] [IKF-EAb] new_master {IKF-EAb}{IKF-EAbyQLOSt7XSrOsIFw}{CZ-2_wPjTFqPZFMyvPvbuQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-elected-as-master ([0] nodes joined)
+[2019-06-04T08:00:27,201][WARN ][o.e.c.s.ClusterService   ] [IKF-EAb] failed to notify ClusterStateApplier
+java.lang.IllegalStateException: Cannot delete index [[incident/6s8BdNRHRZeGRQdHMVzpRA]], it is still part of the cluster state.
+	at org.elasticsearch.indices.IndicesService.verifyIndexIsDeleted(IndicesService.java:759) ~[elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.indices.cluster.IndicesClusterStateService.deleteIndices(IndicesClusterStateService.java:272) ~[elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.indices.cluster.IndicesClusterStateService.applyClusterState(IndicesClusterStateService.java:192) ~[elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.ClusterService.callClusterStateAppliers(ClusterService.java:814) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.ClusterService.publishAndApplyChanges(ClusterService.java:768) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.ClusterService.runTasks(ClusterService.java:587) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.ClusterService$ClusterServiceTaskBatcher.run(ClusterService.java:263) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.TaskBatcher.runIfNotProcessed(TaskBatcher.java:150) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.cluster.service.TaskBatcher$BatchedTask.run(TaskBatcher.java:188) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:575) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:247) [elasticsearch-5.6.8.jar:5.6.8]
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:210) [elasticsearch-5.6.8.jar:5.6.8]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_211]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_211]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_211]
+[2019-06-04T08:00:27,372][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:27,372][INFO ][o.e.g.GatewayService     ] [IKF-EAb] recovered [2] indices into cluster_state
+[2019-06-04T08:00:27,772][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:28,255][WARN ][o.e.i.t.Translog         ] [IKF-EAb] [konten][2] deleted previously created, but not yet committed, next generation [translog-7.tlog]. This can happen due to a tragic exception when creating a new generation
+[2019-06-04T08:00:28,364][WARN ][o.e.i.t.Translog         ] [IKF-EAb] [konten][4] deleted previously created, but not yet committed, next generation [translog-7.tlog]. This can happen due to a tragic exception when creating a new generation
+[2019-06-04T08:00:28,567][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:28,794][WARN ][o.e.i.t.Translog         ] [IKF-EAb] [konten][1] deleted previously created, but not yet committed, next generation [translog-7.tlog]. This can happen due to a tragic exception when creating a new generation
+[2019-06-04T08:00:28,806][WARN ][o.e.i.t.Translog         ] [IKF-EAb] [konten][3] deleted previously created, but not yet committed, next generation [translog-7.tlog]. This can happen due to a tragic exception when creating a new generation
+[2019-06-04T08:00:28,870][WARN ][o.e.i.t.Translog         ] [IKF-EAb] [konten][0] deleted previously created, but not yet committed, next generation [translog-7.tlog]. This can happen due to a tragic exception when creating a new generation
+[2019-06-04T08:00:29,023][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:29,156][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:29,187][INFO ][o.e.c.r.a.AllocationService] [IKF-EAb] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[konten][3], [konten][0]] ...]).
+[2019-06-04T08:00:29,249][WARN ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] can not be imported as a dangling index, as index with same name already exists in cluster metadata
+[2019-06-04T08:00:29,978][INFO ][o.e.h.n.Netty4HttpServerTransport] [IKF-EAb] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2019-06-04T08:00:29,983][INFO ][o.e.n.Node               ] [IKF-EAb] started
+[2019-06-04T08:51:09,021][INFO ][o.e.c.m.MetaDataDeleteIndexService] [IKF-EAb] [incident/6s8BdNRHRZeGRQdHMVzpRA] deleting index
+[2019-06-04T08:51:09,286][INFO ][o.e.g.DanglingIndicesState] [IKF-EAb] [[incident/cwmnheuWRp6oMt70Jprv3w]] dangling index exists on local file system, but not in cluster metadata, auto import to cluster state
+[2019-06-04T08:51:09,290][INFO ][o.e.g.LocalAllocateDangledIndices] [IKF-EAb] auto importing dangled indices [[incident/cwmnheuWRp6oMt70Jprv3w]/OPEN] from [{IKF-EAb}{IKF-EAbyQLOSt7XSrOsIFw}{CZ-2_wPjTFqPZFMyvPvbuQ}{127.0.0.1}{127.0.0.1:9300}]
+[2019-06-04T08:51:11,546][INFO ][o.e.c.r.a.AllocationService] [IKF-EAb] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[incident][3]] ...]).
+[2019-06-04T09:08:42,697][INFO ][o.e.b.Bootstrap          ] running graceful exit on windows
+[2019-06-04T09:08:42,697][INFO ][o.e.n.Node               ] [IKF-EAb] stopping ...
+[2019-06-04T09:08:42,750][INFO ][o.e.n.Node               ] [IKF-EAb] stopped
+[2019-06-04T09:08:42,750][INFO ][o.e.n.Node               ] [IKF-EAb] closing ...
+[2019-06-04T09:08:42,750][INFO ][o.e.n.Node               ] [IKF-EAb] closed
