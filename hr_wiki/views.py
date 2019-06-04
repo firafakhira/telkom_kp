@@ -6,8 +6,11 @@ from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm
 #INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
 
+#INI UNTUK FLASH MESSAGE
+from django.contrib import messages
+
 #INI IMPORT MODEL
-from .models import Incident, Log
+from .models import Incident, Log, Komentar
 
 #INI BUAT Q OBJECTS FILTER
 from django.db.models import Q
@@ -46,8 +49,10 @@ def landing(request):
                     request.session['username'] = username
                     # request.session['token'] = data['data']['jwt']['token']
                     # request.session.set_expiry(data['data']['jwt']['expires'])
+                    messages.success(request, 'Login Success!')
                     return redirect('wiki-home')
                 else:
+                    messages.error(request, 'Incorrect Username or Password!')
                     return redirect('wiki-landing')
         else:
             form = LoginForm()
@@ -118,6 +123,7 @@ def content(request, content_id):
                 form = SearchForm(request.POST)
                 like = LikeForm(request.POST)
                 dislike = DislikeForm(request.POST)
+                komen = KomenForm(request.POST)
 
                 if form.is_valid():
                     q = form.cleaned_data['search']
@@ -165,6 +171,17 @@ def content(request, content_id):
                         logs.incident_id = content_id
                         logs.save()
                     
+                    red = f'http://localhost:8000/content/{content_id}'
+                    return redirect(red)
+                if komen.is_valid():
+                    isiKomen = komen.cleaned_data['komen']
+
+                    saveKomen = Komentar(nik=request.session['username'], isi_komentar=isiKomen)
+                    saveKomen.incident_id = content_id
+                    saveKomen.save()
+
+                    messages.success(request, "Thanks for your comment!")
+
                     red = f'http://localhost:8000/content/{content_id}'
                     return redirect(red)
         else:

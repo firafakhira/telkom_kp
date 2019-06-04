@@ -81,6 +81,8 @@ a{
 @import './con';
 @import './content';
 
+@import './alert';
+
 .inp_search{
     box-sizing: border-box;
     @include input(1px solid $merah);

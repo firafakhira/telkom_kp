@@ -115,6 +115,9 @@ a {
         -ms-flex-align: stretch;
             align-items: stretch;
   }
+  nav .nav-link .active {
+    font-weight: 500;
+  }
   nav .nav-link a {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -404,8 +407,8 @@ a {
   padding: 1em;
   background-color: #0C9093;
   border-radius: 0.5em;
-  -webkit-animation: show 0.5s ease-out;
-          animation: show 0.5s ease-out;
+  -webkit-animation: show 0.4s ease-out;
+          animation: show 0.4s ease-out;
 }
 
 .modal .modal-profil .greet, .modal .modal-profil .logout {
@@ -1321,6 +1324,7 @@ a {
     margin: 0 0.5em;
   }
   .content .report .thumb form button {
+    outline: none;
     background-color: transparent;
     border: none;
   }
@@ -1679,6 +1683,7 @@ a {
     margin: 0 0.5em;
   }
   .content .report .thumb form button {
+    outline: none;
     background-color: transparent;
     border: none;
   }
@@ -1936,6 +1941,83 @@ a {
   .content .cek .artikel .artikel-link {
     margin: 0 1em;
   }
+}
+
+.alert {
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.alert-success {
+  position: absolute;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 1em;
+  right: 50%;
+  margin-right: -11.5em;
+  width: 20em;
+  padding: .75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  font-size: 0.9em;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-error {
+  position: absolute;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 1em;
+  right: 50%;
+  margin-right: -11.5em;
+  width: 20em;
+  padding: .75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  font-size: 0.9em;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }
 
 .inp_search {

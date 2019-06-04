@@ -28,12 +28,12 @@
 
         <div class="nav-link">
             {% if username %}
-            <a href="{% url 'wiki-home' %}">Home</a>
+            <a href="{% url 'wiki-home' %}" class="{% if name == 'Home' %}active{% endif %}">Home</a>
             {% else %}
-            <a href="{% url 'wiki-landing' %}">Home</a>
+            <a href="{% url 'wiki-landing' %}" class="{% if name == 'Landing' %}active{% endif %}">Home</a>
             {% endif %}
-            <a href="#">Contact</a>
-            <a href="#">About</a>
+            <a href="#" class="{% if name == 'Contact' %}active{% endif %}">Contact</a>
+            <a href="#" class="{% if name == 'About' %}active{% endif %}">About</a>
             {% if username %}
             <div id="profil"><span>Halo, user {{ username }}</span><img class="profile"
                     src="{% static 'hr_wiki/img/person.png' %}"> </div>
@@ -48,6 +48,16 @@
             </button>
         </div>
     </nav>
+    {% if messages %}
+    <div class="alert">
+        {% for message in messages %}
+        <div class="alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 
@@ -104,6 +114,7 @@
     <script src="{% static 'hr_wiki/js/login.js' %}"></script>
     {% endif %}
     <script src="{% static 'hr_wiki/js/sidebar.js' %}"></script>
+    <script src="{% static 'hr_wiki/js/alert.js' %}"></script>
 </body>
 
 </html>

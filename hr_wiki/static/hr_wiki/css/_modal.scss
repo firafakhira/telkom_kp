@@ -95,7 +95,7 @@
         padding: 1em;
         background-color: $ijo;
         border-radius: 0.5em;
-        animation: show 0.5s ease-out;
+        animation: show 0.4s ease-out;
         .greet, .logout{
             @include flex($justify: center, $direction: column);
             width: 100%;
