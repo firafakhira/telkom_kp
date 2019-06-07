@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 
 #INI IMPORT MODEL
-from .models import Incident, Log, Komentar
+from .models import Incident, Komentar
 
 #INI BUAT Q OBJECTS FILTER
 from django.db.models import Q
@@ -24,7 +24,7 @@ from django.utils.html import strip_tags
 #UNTUK REGULAR EXPRESSION
 import re
 
-import math
+from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
 
 import requests
 import json
@@ -34,6 +34,7 @@ def landing(request):
     if 'action' in request.GET:
         if request.GET.get('action') == 'logout':
             request.session.flush()
+            messages.success(request, 'You are Logged Out!')
             return redirect('wiki-home')
     else:
         if request.method == 'POST':
@@ -49,7 +50,7 @@ def landing(request):
                     request.session['username'] = username
                     # request.session['token'] = data['data']['jwt']['token']
                     # request.session.set_expiry(data['data']['jwt']['expires'])
-                    messages.success(request, 'Login Success!')
+                    messages.success(request, 'You are Logged In!')
                     return redirect('wiki-home')
                 else:
                     messages.error(request, 'Incorrect Username or Password!')
@@ -101,8 +102,9 @@ def search(request, q):
                     {
                         'id': item.idincident,
                         'judul': item.kasus,
-                        'highlight': strip_tags(item.solusi.replace("&nbsp;", ""))[:150]+'...',
-                        'isi': strip_tags(item.solusi.replace("&nbsp;", ""))
+                        'highlight': get_highlight(strip_tags(item.solusi.replace("&nbsp;", ""))),
+                        'isi': strip_tags(item.solusi.replace("&nbsp;", "")),
+                        'views': Incident.objects.get(idincident=item.idincident).hits
                     }
                 )
             paginator = Paginator(konten, 4)
@@ -130,46 +132,14 @@ def content(request, content_id):
                     red = f'http://localhost:8000/search/{q}'
                     return redirect(red)
                 if like.is_valid():
-                    l = like.cleaned_data['like']
                     likes = Incident.objects.get(idincident=content_id)
-                    likes.like += int(l)
-                    likes.save()
-
-                    findLog = Log.objects.filter(Q(username = request.session['username']) & Q(incident_id = content_id))
-                    if len(findLog) != 0: #KALO ADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                        likeDisIsThere = findLog.filter(Q(like = True) | Q(dislike = True))
-                        if len(likeDisIsThere) != 0: #KALO ADA LIKE ATAU DISLIKE DI LOG
-                            pass
-                        else: #KALO GAADA
-                            saveLog = findLog.first()
-                            saveLog.like = True
-                            saveLog.save()
-                    else: #KALO GAADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                        logs = Log(username=request.session['username'], like=True)
-                        logs.incident_id = content_id
-                        logs.save()
+                    update_log_incident('like', likes, request.session['username'], content_id)
 
                     red = f'http://localhost:8000/content/{content_id}'
                     return redirect(red)
                 if dislike.is_valid():
-                    dl = dislike.cleaned_data['dislike']
                     dislikes = Incident.objects.get(idincident=content_id)
-                    dislikes.dislike += int(dl)
-                    dislikes.save()
-
-                    findLog = Log.objects.filter(Q(username = request.session['username']) & Q(incident_id = content_id))
-                    if len(findLog) != 0: #KALO ADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                        likeDisIsThere = findLog.filter(Q(like = True) | Q(dislike = True))
-                        if len(likeDisIsThere) != 0: #KALO ADA LIKE ATAU DISLIKE DI LOG
-                            pass
-                        else: #KALO GAADA
-                            saveLog = findLog.first()
-                            saveLog.dislike = True
-                            saveLog.save()
-                    else: #KALO GAADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                        logs = Log(username=request.session['username'], dislike=True)
-                        logs.incident_id = content_id
-                        logs.save()
+                    update_log_incident('dislike', dislikes, request.session['username'], content_id)
                     
                     red = f'http://localhost:8000/content/{content_id}'
                     return redirect(red)
@@ -191,40 +161,15 @@ def content(request, content_id):
             dislike = DislikeForm()
             komen = KomenForm()
 
-            if (int(content.like) + int(content.dislike)) != 0:
-                pLike = math.floor(int(content.like) / (int(content.like) + int(content.dislike)) * 5)
-            else:
-                pLike = 0
-            stars = []
-            for i in range(pLike):
-                stars.append('<span class="fa fa-star checked"></span>')
-            if pLike != 5:
-                for i in range(5-pLike):
-                    stars.append('<span class="fa fa-star"></span>')
+            stars = count_stars(content)
 
-            findLog = Log.objects.filter(Q(username = request.session['username']) & Q(incident_id = content_id))
-            if len(findLog) != 0: #KALO ADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                hitsIsThere = findLog.filter(hits=True)
-                if len(hitsIsThere) != 0: #KALO ADA HITS DI DALEM LOG
-                    pass
-                else: #KALO GAADA
-                    saveLog = findLog.first()
-                    saveLog.hits = True
-                    saveLog.save()
-                    
-                    content.hits += 1
-                    content.save()
-            else: #KALO GAADA LOG DENGAN USERNAME DAN INCIDENT ID TERSEBUT
-                saveLog = Log(username = request.session['username'], hits = True)
-                saveLog.incident_id = content_id
-                saveLog.save()
+            update_log_incident('hits', content, request.session['username'], content_id)
 
-                content.hits += 1
-                content.save()
+            findLog = find_log(request.session['username'], content_id)
 
             likeDisIsThere = findLog.filter(Q(like = True) | Q(dislike = True))
             if len(likeDisIsThere) != 0:
-                disable = Log.objects.filter(Q(username=request.session['username']) & Q(incident_id=content_id)).first()
+                disable = findLog.first()
 
                 return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
             else:
