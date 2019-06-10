@@ -1,57 +1,57 @@
 {% extends "hr_wiki/base.html" %}
 {% load static %}
 {% block content %}
+<div class="content">
 
-<div class="cobain">
-    <div class="cari">
+    <div class=cari>
         <form method="POST">
             {% csrf_token %}
-            <input type='text' placeholder="Type Here..." id="id_search" name="q">
-            <button type="submit" class="btn_search">Search</button>
-            <!--a href="{% url 'wiki-search' %}" class="btn_search">Search</a-->
+            {{ form.search }}
+            <button class="btn_search" type="submit">Search</button>
         </form>
     </div>
+
     <div class="content-search">
         <div class="isi">
-            {% for item in konten %}
-            <div class = "row">
-                <h3><a href="{% url 'wiki-content' %}">{{ item.judul }}</a> <nobr style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[250 Hits]</nobr></h3>
-                <p> {{ item.isi }}</p>
+            {% for konten in kontens %}
+            <div class="row">
+                <h3><a href="{% url 'wiki-content' konten.id %}">{{ konten.judul }}</a>
+                    <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[{{ konten.views }}
+                        Views]</nobr>
+                </h3>
+                <p>{{ konten.highlight }}</p>
             </div>
+
             {% endfor %}
         </div>
-        <div class="page">
-            <a href ="#" ><nobr class="bulet">1 </nobr></a> 
-            <a href ="#" id="pg"><nobr>2 </nobr></a>
-            <a href ="#" id="pg"><nobr>3 </nobr></a>
-            <a href ="#" id="pg" onclick="javascript:history.forward();"><nobr>Next Page </nobr></a>
-            <a href ="#" id="pg"><nobr><b>Last Page</b></nobr></a>
-        </div>
+    </div>
+
+    <div class="pagination">
+        {% if kontens.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ kontens.previous_page_number }}">Prev</a>
+        {% endif %}
+        {% for num in kontens.paginator.page_range %}
+        <a href="?page={{ num }}" class="{% if kontens.number == num %}active{% endif %}">{{ num }}</a>
+        {% endfor %}
+        {% if kontens.has_next %}
+        <a href="?page={{ kontens.next_page_number }}">Next</a>
+        <a href="?page={{ kontens.paginator.num_pages }}">Last</a>
+        {% endif %}
+
     </div>
 
     <div class="cek">
-        <div class="info_konten">
-            <div>
-                <h3 style="color: black">HR Wiki Trends</h3>
-            </div>
-            <div>
-              <a href="#" id="trends">ManagementWaktu</a> 
-              <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">560 Hits</p> 
-            </div>
-            <div>
-                <a href="#" id="trends">ManagementKarir</a> 
-                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">497 Hits</p> 
-            </div>
-            <div>
-                <a href="#" id="trends">Renumerasi</a> 
-                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">350 Hits</p> 
-            </div>
-            <div>
-                <a href="#" id="trends">ManagementAdministrasi</a> 
-                <p style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;"> 312 Hits</p> 
+        <div class="artikel">
+            <h4>Artikel Terkait</h4>
+            <div class="artikel-link">
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
+                <p>Suspendices ultra massa</p><br>
             </div>
         </div>
     </div>
 </div>
 {% endblock content %}
-
