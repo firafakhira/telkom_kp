@@ -13,6 +13,7 @@
 
     <div class="content-search">
         <div class="isi">
+            
             {% for konten in kontens %}
             <div class="row">
                 <h3><a href="{% url 'wiki-content' konten.id %}">{{ konten.judul }}</a>
