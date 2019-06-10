@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 #INI UNTUK IMPORT FORMS
-from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm
+from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm, ShareForm
 
 #INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
@@ -23,6 +23,10 @@ from django.utils.html import strip_tags
 
 #UNTUK REGULAR EXPRESSION
 import re
+
+#UNTUK SHARE LINK VIA EMAIL
+from django.core.mail import send_mail
+from django.conf import settings
 
 from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
 
@@ -48,6 +52,7 @@ def landing(request):
                 data = response.json()
                 if data['status'] == 'success':
                     request.session['username'] = username
+                    request.session['password'] = password
                     # request.session['token'] = data['data']['jwt']['token']
                     # request.session.set_expiry(data['data']['jwt']['expires'])
                     messages.success(request, 'You are Logged In!')
@@ -95,7 +100,7 @@ def search(request, q):
         else:
             form = SearchForm()
             # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
-            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q)
+            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q).sort("hits")
             konten = []
             for item in konten_list.scan():
                 konten.append(
@@ -107,6 +112,9 @@ def search(request, q):
                         'views': Incident.objects.get(idincident=item.idincident).hits
                     }
                 )
+            
+            konten = sorted(konten, key=lambda x: x['views'], reverse=True)
+            
             paginator = Paginator(konten, 4)
 
             page = request.GET.get('page')
@@ -160,6 +168,7 @@ def content(request, content_id):
             like = LikeForm()
             dislike = DislikeForm()
             komen = KomenForm()
+            share = ShareForm()
 
             stars = count_stars(content)
 
@@ -171,6 +180,27 @@ def content(request, content_id):
             if len(likeDisIsThere) != 0:
                 disable = findLog.first()
 
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
             else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'konten': content, 'username': request.session['username']})
+
+def share_link(request):
+    if 'url' in request.GET:
+        if request.GET.get('url'):
+            if request.method == 'POST':
+                share = ShareForm(request.POST)
+                if share.is_valid():
+                    nik = share.cleaned_data['penerima']
+                    at = share.cleaned_data['at']
+                    subjekEmail = "HC-Wiki Share Link"
+                    isiEmail = f'Check this link: http://{request.GET.get("url")}'
+                    pengirim = f'{request.session["username"]}@telkom.co.id'
+                    penerima = f'{nik}{at}' #Ganti sama ->>> nik@telkom.co.id
+
+                    settings.EMAIL_HOST_USER = pengirim
+                    settings.EMAIL_HOST_PASSWORD = request.session['password']
+
+                    send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
+                    
+                    return redirect('wiki-home')
+

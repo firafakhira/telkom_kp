@@ -12,9 +12,9 @@
     </div>
 
     <div class="tombol">
-        <a href="" id="doPrint" title="Print">
+        <div href="" id="doPrint" title="Print">
             <img src="{% static 'hr_wiki/img/print.png' %}" alt="tombol">
-        </a>
+        </div>
 
         <a href="{% static 'hr_wiki/img/juncheng2013.pdf' %}" title="Save" download="Rules.pdf">
             <img src="{% static 'hr_wiki/img/save.png' %}" alt="tombol">
@@ -27,11 +27,9 @@
             }
         </script>
 
-        <a href="javascript:void(0)"
-            onclick="javascript:genericSocialShare('https://mail.telkom.co.id/mail09a/?view=cm&fs=1&tf=1&to=&su=I want to share this site&body=Check out this site http://www.hrwiki.com.&ui=2&tf=1&pli=1')"
-            title="share">
+        <div id="share" title="share">
             <img src="{% static 'hr_wiki/img/share.png' %}" alt="tombol">
-        </a>
+        </div>
     </div>
 
     <div class="content-main">
@@ -118,6 +116,20 @@
     </div>
 </div>
 
+<div class="modal-share">
+    <div class="modal-share-content">
+        <i class="fa fa-window-close" aria-hidden="true" style="color: white"></i>
+        <h1>Share Link via Email</h1>
+        <form method="POST" action="{% url 'wiki-share' %}?url={{ request.get_full_path }}">
+            {% csrf_token %}
+            {{ share.penerima }}
+            {{ share.at }}
+            <button type="submit">Share</button>
+        </form>
+        <!-- <a href="{% url 'wiki-share' %}?url={{ request.get_full_path }}"><button type="submit">Send</button></a> -->
+    </div>
+</div>
+
 <div class="modal-komen">
     <div class="modal-komen-content">
         <i class="fa fa-window-close" aria-hidden="true" style="color: white"></i>
@@ -132,4 +144,5 @@
 
 <script src="{% static 'hr_wiki/js/print.js' %}"></script>
 <script src="{% static 'hr_wiki/js/komen.js' %}"></script>
+<script src="{% static 'hr_wiki/js/share.js' %}"></script>
 {% endblock content %}
