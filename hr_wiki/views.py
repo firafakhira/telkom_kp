@@ -24,6 +24,10 @@ from django.utils.html import strip_tags
 #UNTUK REGULAR EXPRESSION
 import re
 
+#UNTUK SHARE LINK VIA EMAIL
+from django.core.mail import send_mail
+from django.conf import settings
+
 from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
 
 import requests
@@ -48,6 +52,7 @@ def landing(request):
                 data = response.json()
                 if data['status'] == 'success':
                     request.session['username'] = username
+                    request.session['password'] = password
                     # request.session['token'] = data['data']['jwt']['token']
                     # request.session.set_expiry(data['data']['jwt']['expires'])
                     messages.success(request, 'You are Logged In!')
@@ -95,9 +100,9 @@ def search(request, q):
         else:
             form = SearchForm()
             # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
-            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q)
+            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q).sort("hits")
             konten = []
-            for item in konten_list:
+            for item in konten_list.scan():
                 konten.append(
                     {
                         'id': item.idincident,
@@ -107,6 +112,9 @@ def search(request, q):
                         'views': Incident.objects.get(idincident=item.idincident).hits
                     }
                 )
+            
+            konten = sorted(konten, key=lambda x: x['views'], reverse=True)
+            
             paginator = Paginator(konten, 4)
 
             page = request.GET.get('page')
@@ -174,3 +182,19 @@ def content(request, content_id):
                 return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
             else:
                 return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
+
+def share_link(request):
+    if 'url' in request.GET:
+        if request.GET.get('url'):
+            subjekEmail = "HC-Wiki Share Link"
+            isiEmail = "Check this link: "+request.GET.get('url')
+            pengirim = "402256@telkom.co.id"
+            penerima = "cute.fakhira@gmail.com" #Ganti sama ->>> nik@telkom.co.id
+
+            settings.EMAIL_HOST_USER = pengirim
+            settings.EMAIL_HOST_PASSWORD = request.session['password']
+
+            send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
+            
+            return redirect('wiki-home')
+

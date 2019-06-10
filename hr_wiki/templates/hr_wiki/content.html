@@ -27,9 +27,7 @@
             }
         </script>
 
-        <a href="javascript:void(0)"
-            onclick="javascript:genericSocialShare('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=I want to share this site&body=Check out this site http://www.hrwiki.com.&ui=2&tf=1&pli=1')"
-            title="share">
+        <a id="share" title="share">
             <img src="{% static 'hr_wiki/img/share.png' %}" alt="tombol">
         </a>
     </div>
@@ -115,6 +113,15 @@
                 <p>Suspendices ultra massa</p><br>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal-share">
+    <div class="modal-share-content">
+        <i class="fa fa-window-close" aria-hidden="true" style="color: white"></i>
+        <h1>Share Link via Email</h1>
+        <input>
+        <a href="{% url 'wiki-share' %}?url={{ request.get_full_path }}"><button type="submit">Send</button></a>
     </div>
 </div>
 
