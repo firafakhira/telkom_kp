@@ -1,0 +1,179 @@
+.con{
+    @include responsive("xsmall"){
+        @include position(relative, 1);
+        height: 87vh;
+
+        &::before{
+            content: '';
+            @include position(absolute, -1);
+            display: block;
+            width: 100vmin;
+            height: 80vh;
+            background-image: url(../img/gambar1.png);
+            background-repeat: no-repeat;
+            background-size: 80%;
+            background-position: center;
+            opacity: 0.1;
+        }
+        .content-landing{
+            @include flex(center, center, column);
+            margin: 0 2em;
+            height: 100%;
+        
+            .content-landing-img{
+                display: none;
+            }
+        
+            .content-landing-text{
+                @include flex(center, center, column);
+                h1{
+                    font-size: 2em;
+                    text-align: center;
+                    color: $ijo;
+                    margin: 0.5em 0;
+                }
+                p.header{
+                    font-size: 0.9em;
+                    color: $merah;
+                    font-weight: bold;
+                }
+                p.isi{
+                    font-size: 0.9em;
+                    text-align: center;
+                    color: $merah;
+                    width: 20em;
+                }
+                .searchText{
+                    form{
+                        .inp_search{
+                            box-sizing: border-box;
+                            @include input(1px solid $merah);
+                            width: 15em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("small"){
+        @include position(relative, 1);
+        height: 87vh;
+
+        &::before{
+            content: '';
+            @include position(absolute, -1);
+            display: block;
+            width: 100vmin;
+            height: 80vh;
+            background-image: url(../img/gambar1.png);
+            background-repeat: no-repeat;
+            background-size: 80%;
+            background-position: center;
+            opacity: 0.1;
+        }
+        .content-landing{
+            @include flex(center, center, column);
+            margin: 0 4em;
+            height: 100%;
+        
+            .content-landing-img{
+                display: none;
+            }
+        
+            .content-landing-text{
+                @include flex(center, center, column);
+                h1{
+                    font-size: 3em;
+                    text-align: center;
+                    color: $ijo;
+                    margin: 0.5em 0;
+                }
+                p.header{
+                    color: $merah;
+                    font-weight: bold;
+                }
+                p.isi{
+                    text-align: center;
+                    color: $merah;
+                    width: 20em;
+                }
+            }
+        }
+    }
+    @include responsive("medium"){
+        &::before{
+            right: 5em;
+        }
+    }
+    @include responsive("large"){
+        &::before{
+            right: 50vmin;
+        }
+
+        .content-landing{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100%;
+            grid-column-gap: 2em;
+            justify-content: space-between;
+            margin: 0 4em;
+            height: 100%;
+        
+            .content-landing-img{
+                display: block;
+                .logoicon{
+                    // @include flex(space-evenly, center);
+                    // flex-wrap: wrap;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    #logo{
+                        cursor: pointer;
+                        @include flex(center, center, column);
+                        margin-top: 1.5em;
+                        background-color: $ijo;
+                        width: 124px;
+                        height: 124px;
+                        border-radius: 10em;
+                        outline: none;
+                        color: white;
+                        // font-family: 'montserrat';
+                        // font-weight: 200;
+                        // margin-right: 35px;
+                        // border: none;
+                        &:hover{
+                            background-color:#EA0A7A;
+                            transition: 0.1s ease-in-out;
+                        }
+                        &:active{
+                            color: black;
+                        }
+                        span{
+                            margin-top: 1em;
+                            text-align: center;
+                            font-size: 0.6em;
+                        }
+                        #logobtn{
+                            width: 3em;
+                            height: 3em;
+                        }
+                    }
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        
+            .content-landing-text{
+                @include flex(center, stretch, column);
+                h1{
+                    text-align: left;
+                }
+                p.isi{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

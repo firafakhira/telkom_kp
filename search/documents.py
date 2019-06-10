@@ -1,16 +1,16 @@
 from django_elasticsearch_dsl import DocType, Index
-from hr_wiki.models import Konten
+from hr_wiki.models import Incident
 
-konten = Index('konten')
+incident = Index('incident')
 
-@konten.doc_type
-class KontenDocument(DocType):
+@incident.doc_type
+class IncidentDocument(DocType):
     class Meta:
-        model = Konten
+        model = Incident
 
         fields = [
-            'id',
-            'judul',
-            'highlight',
-            'isi',
+            'idincident',
+            'kasus',
+            'solusi',
+            'applikasi',
         ]

@@ -1,19 +1,39 @@
 from django.shortcuts import render, redirect
 
 #INI UNTUK IMPORT FORMS
-from .forms import LoginForm, SearchForm
+from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm
 
 #INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
 
+#INI UNTUK FLASH MESSAGE
+from django.contrib import messages
+
 #INI IMPORT MODEL
-from .models import Konten
+from .models import Incident, Komentar
 
 #INI BUAT Q OBJECTS FILTER
 from django.db.models import Q
 
-#IMPORT DARI SEARCH
-from search.documents import KontenDocument
+#IMPORT DARI SEARCH UNTUK ELASTICSEARCH
+from search.documents import IncidentDocument
+
+#UNTUK STRIP
+from django.utils.html import strip_tags
+
+#UNTUK REGULAR EXPRESSION
+import re
+
+from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
+
+import requests
+import json
+
+#INI UNTUK PAGINATION BAGIAN SEARCH
+from django.core.paginator import Paginator
+
+#INI BUAT Q OBJECTS FILTER
+from django.db.models import Q
 
 #UNTUK STRIP
 from django.utils.html import strip_tags
@@ -25,10 +45,11 @@ import requests
 import json
 
 # Create your views here.
-def home(request):
+def landing(request):
     if 'action' in request.GET:
         if request.GET.get('action') == 'logout':
             request.session.flush()
+            messages.success(request, 'You are Logged Out!')
             return redirect('wiki-home')
     else:
         if request.method == 'POST':
@@ -41,30 +62,23 @@ def home(request):
                 response = requests.post(url)
                 data = response.json()
                 if data['status'] == 'success':
-                    # form = SearchForm()
                     request.session['username'] = username
-                    request.session['token'] = data['data']['jwt']['token']
-                    request.session.set_expiry(data['data']['jwt']['expires'])
-                    # return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
-                    return redirect('wiki-home2')
-                else:
-                    # form = LoginForm()
-                    # return render(request, 'hr_wiki/home.html', {'form': form})
+                    # request.session['token'] = data['data']['jwt']['token']
+                    # request.session.set_expiry(data['data']['jwt']['expires'])
+                    messages.success(request, 'You are Logged In!')
                     return redirect('wiki-home')
+                else:
+                    messages.error(request, 'Incorrect Username or Password!')
+                    return redirect('wiki-landing')
         else:
             form = LoginForm()
-            return render(request, 'hr_wiki/home.html', {'form': form})
-
-    # INI BUAT LOAD API NYA DUDE
-    # url = 'https://apifactory.telkom.co.id:8243/hcm/auth/v1/token?username=402256&password=Sflozi14'
-    # r = requests.post(url)
-    # status = [r.json]
+            return render(request, 'hr_wiki/landing.html', {'name': 'Landing','form': form})
   
-def home2(request):
+def home(request):
     try:
         request.session['username']
     except KeyError:
-        return redirect('wiki-home')
+        return redirect('wiki-landing')
     except Exception:
         print('Error!')
     else:
@@ -76,14 +90,14 @@ def home2(request):
                 return redirect(red)
         else:
             form = SearchForm()
-            return render(request, 'hr_wiki/home2.html', {'name': 'home2', 'form': form, 'username': request.session['username']})
+            return render(request, 'hr_wiki/home.html', {'name': 'Home', 'form': form, 'username': request.session['username']})
 
   
-def sear(request, q):
+def search(request, q):
     try:
         request.session['username']
     except KeyError:
-        return redirect('wiki-home')
+        return redirect('wiki-landing')
     except Exception:
         print('Error!')
     else:
@@ -95,31 +109,83 @@ def sear(request, q):
                 return redirect(red)
         else:
             form = SearchForm()
-            konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
-            konten_list = KontenDocument.search().query("match", judul= q)
-            # print(konten_list)
+            # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
+            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q)
             konten = []
             for item in konten_list:
                 konten.append(
                     {
-                        'id': item.id,
-                        'judul': item.judul,
-                        'highlight': strip_tags(item.isi)[:150]+'...',
-                        'isi': strip_tags(item.isi)
+                        'id': item.idincident,
+                        'judul': item.kasus,
+                        'highlight': get_highlight(strip_tags(item.solusi.replace("&nbsp;", ""))),
+                        'isi': strip_tags(item.solusi.replace("&nbsp;", "")),
+                        'views': Incident.objects.get(idincident=item.idincident).hits
                     }
                 )
             paginator = Paginator(konten, 4)
 
             page = request.GET.get('page')
             kontens = paginator.get_page(page)
-            return render(request, 'hr_wiki/search.html', {'name' :'search', 'kontens': kontens, 'form': form, 'username': request.session['username']})
+            return render(request, 'hr_wiki/search.html', {'name' :'Search', 'kontens': kontens, 'form': form, 'username': request.session['username']})
 
 def content(request, content_id):
-    content = Konten.objects.get(id=content_id)
-    form = SearchForm()
-    judul = content.judul
-    isi = content.isi.split('\n')
-    print(isi[0][:150]+'...')
-    # for i in range(len(isi)):
-    #     isi[i] = strip_tags(isi[i]) + '\n'
-    return render(request, 'hr_wiki/content.html', {'name': 'content', 'form': form, 'judul': judul, 'isi': isi, 'username': request.session['username']})
+    try:
+        request.session['username']
+    except KeyError:
+        return redirect('wiki-landing')
+    except Exception:
+        print('Error!')
+    else:
+        if request.method == 'POST':
+                form = SearchForm(request.POST)
+                like = LikeForm(request.POST)
+                dislike = DislikeForm(request.POST)
+                komen = KomenForm(request.POST)
+
+                if form.is_valid():
+                    q = form.cleaned_data['search']
+                    red = f'http://localhost:8000/search/{q}'
+                    return redirect(red)
+                if like.is_valid():
+                    likes = Incident.objects.get(idincident=content_id)
+                    update_log_incident('like', likes, request.session['username'], content_id)
+
+                    red = f'http://localhost:8000/content/{content_id}'
+                    return redirect(red)
+                if dislike.is_valid():
+                    dislikes = Incident.objects.get(idincident=content_id)
+                    update_log_incident('dislike', dislikes, request.session['username'], content_id)
+                    
+                    red = f'http://localhost:8000/content/{content_id}'
+                    return redirect(red)
+                if komen.is_valid():
+                    isiKomen = komen.cleaned_data['komen']
+
+                    saveKomen = Komentar(nik=request.session['username'], isi_komentar=isiKomen)
+                    saveKomen.incident_id = content_id
+                    saveKomen.save()
+
+                    messages.success(request, "Thanks for your comment!")
+
+                    red = f'http://localhost:8000/content/{content_id}'
+                    return redirect(red)
+        else:
+            content = Incident.objects.get(idincident=content_id)
+            form = SearchForm()
+            like = LikeForm()
+            dislike = DislikeForm()
+            komen = KomenForm()
+
+            stars = count_stars(content)
+
+            update_log_incident('hits', content, request.session['username'], content_id)
+
+            findLog = find_log(request.session['username'], content_id)
+
+            likeDisIsThere = findLog.filter(Q(like = True) | Q(dislike = True))
+            if len(likeDisIsThere) != 0:
+                disable = findLog.first()
+
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
+            else:
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
