@@ -97,7 +97,7 @@ def search(request, q):
             # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
             konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q)
             konten = []
-            for item in konten_list:
+            for item in konten_list.scan():
                 konten.append(
                     {
                         'id': item.idincident,
