@@ -47,7 +47,8 @@
             @include flex(center, center);
             margin-top: 1em;
     
-            a{
+            div, a{
+                cursor: pointer;
                 img{
                     width: 2.1em;
                     height: 2.1em;
@@ -280,7 +281,8 @@
             @include flex(center, center);
             margin-top: 1em;
     
-            a{
+            div, a{
+                cursor: pointer;
                 img{
                     width: 2.1em;
                     height: 2.1em;

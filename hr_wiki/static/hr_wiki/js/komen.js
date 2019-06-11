@@ -16,3 +16,4 @@ window.addEventListener('click', ()=>{
         modalKomen.classList.remove('show')
     }
 })
+

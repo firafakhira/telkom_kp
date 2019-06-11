@@ -1,5 +1,6 @@
 from django.db.models import Q
 from .models import Log
+import math
 
 def find_log(username, incident_id):
     return Log.objects.filter(Q(username = username) & Q(incident_id = incident_id))
@@ -49,7 +50,7 @@ def update_log_incident(column, table, username, incident_id):
 
 def count_stars(content):
     if (int(content.like) + int(content.dislike)) != 0:
-        pLike = (int(content.like) // (int(content.like) + int(content.dislike))) * 5
+        pLike = math.floor(int(content.like) / (int(content.like) + int(content.dislike)) * 5)
     else:
         pLike = 0
 
