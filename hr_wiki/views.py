@@ -41,6 +41,10 @@ from django.utils.html import strip_tags
 #UNTUK SPLIT
 import re
 
+#UNTUK
+from django.core.mail import send_mail
+
+
 import requests
 import json
 
@@ -170,6 +174,15 @@ def content(request, content_id):
                     red = f'http://localhost:8000/content/{content_id}'
                     return redirect(red)
         else:
+            if 'action' in request.GET:
+                if request.GET.get('sendmail'):
+                    send_mail(
+                        'Subject here',
+                        'Here is the message.',
+                        'from@example.com',
+                        ['to@example.com'],
+                        fail_silently=False,
+                    )
             content = Incident.objects.get(idincident=content_id)
             form = SearchForm()
             like = LikeForm()
@@ -186,6 +199,6 @@ def content(request, content_id):
             if len(likeDisIsThere) != 0:
                 disable = findLog.first()
 
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username'], 'content_id': content_id})
             else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username'], 'content_id': content_id})

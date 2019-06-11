@@ -20,16 +20,17 @@
             <img src="{% static 'hr_wiki/img/save.png' %}" alt="tombol">
         </a>
 
-        <script type="text/javascript" async>
+        <!-- <script type="text/javascript" async>
             function genericSocialShare(url) {
                 window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
                 return true;
             }
-        </script>
+        </script> -->
 
-        <a href="javascript:void(0)"
+        <!-- <a href="javascript:void(0)"
             onclick="javascript:genericSocialShare('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=I want to share this site&body=Check out this site http://www.hrwiki.com.&ui=2&tf=1&pli=1')"
-            title="share">
+            title="share"> -->
+        <a href="{% url 'wiki-content' content_id %}?action=send_mail" title="Share">
             <img src="{% static 'hr_wiki/img/share.png' %}" alt="tombol">
         </a>
     </div>

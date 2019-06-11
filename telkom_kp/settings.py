@@ -78,6 +78,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'telkom_kp.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Host for sending e-mail.
+EMAIL_HOST = 'smtp.telkom.co.id'
+
+# Port for sending e-mail.
+EMAIL_PORT = 1025
+
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
