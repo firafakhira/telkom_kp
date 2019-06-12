@@ -83,6 +83,7 @@ nav{
                     width: 1.5em;
                     height: 1.5em;
                 }
+
             }
             .login{
                 @include button(1.5px solid $ijo, $ijo, white);

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'search',
-    'django_elasticsearch_dsl'
+    'django_elasticsearch_dsl',
+    'hr_wiki-admin',
+    'tinymce'
 ]
 
 ELASTICSEARCH_DSL = {
@@ -78,19 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'telkom_kp.wsgi.application'
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# Host for sending e-mail.
-EMAIL_HOST = 'smtp.telkom.co.id'
-
-# Port for sending e-mail.
-EMAIL_PORT = 1025
-
-# Optional SMTP authentication information for EMAIL_HOST.
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
 
 
 # Database
@@ -148,7 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-sessions = 'django.contrib.sessions'
 EMAIL_HOST = 'smtp.telkom.co.id'
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""

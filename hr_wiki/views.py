@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 #INI UNTUK IMPORT FORMS
-from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm, ShareForm
+from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm
 
 #INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
@@ -29,25 +29,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
-
-import requests
-import json
-
-#INI UNTUK PAGINATION BAGIAN SEARCH
-from django.core.paginator import Paginator
-
-#INI BUAT Q OBJECTS FILTER
-from django.db.models import Q
-
-#UNTUK STRIP
-from django.utils.html import strip_tags
-
-#UNTUK SPLIT
-import re
-
-#UNTUK
-from django.core.mail import send_mail
-
 
 import requests
 import json
@@ -182,21 +163,11 @@ def content(request, content_id):
                     red = f'http://localhost:8000/content/{content_id}'
                     return redirect(red)
         else:
-            if 'action' in request.GET:
-                if request.GET.get('sendmail'):
-                    send_mail(
-                        'Subject here',
-                        'Here is the message.',
-                        'from@example.com',
-                        ['to@example.com'],
-                        fail_silently=False,
-                    )
             content = Incident.objects.get(idincident=content_id)
             form = SearchForm()
             like = LikeForm()
             dislike = DislikeForm()
             komen = KomenForm()
-            share = ShareForm()
 
             stars = count_stars(content)
 
@@ -208,33 +179,22 @@ def content(request, content_id):
             if len(likeDisIsThere) != 0:
                 disable = findLog.first()
 
-<<<<<<< HEAD
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username'], 'content_id': content_id})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
             else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username'], 'content_id': content_id})
-=======
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
-            else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'konten': content, 'username': request.session['username']})
+                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
 
 def share_link(request):
     if 'url' in request.GET:
         if request.GET.get('url'):
-            if request.method == 'POST':
-                share = ShareForm(request.POST)
-                if share.is_valid():
-                    nik = share.cleaned_data['penerima']
-                    at = share.cleaned_data['at']
-                    subjekEmail = "HC-Wiki Share Link"
-                    isiEmail = f'Check this link: http://{request.GET.get("url")}'
-                    pengirim = f'{request.session["username"]}@telkom.co.id'
-                    penerima = f'{nik}{at}' #Ganti sama ->>> nik@telkom.co.id
+            subjekEmail = "HC-Wiki Share Link"
+            isiEmail = "Check this link: "+request.GET.get('url')
+            pengirim = "402256@telkom.co.id"
+            penerima = "fauzanfirdauuus@gmail.com" #Ganti sama ->>> nik@telkom.co.id
 
-                    settings.EMAIL_HOST_USER = pengirim
-                    settings.EMAIL_HOST_PASSWORD = request.session['password']
+            settings.EMAIL_HOST_USER = pengirim
+            settings.EMAIL_HOST_PASSWORD = request.session['password']
 
-                    send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
-                    
-                    return redirect('wiki-home')
+            send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
+            
+            return redirect('wiki-home')
 
->>>>>>> 66e60ec14cd5132505443047344905a0b08665db

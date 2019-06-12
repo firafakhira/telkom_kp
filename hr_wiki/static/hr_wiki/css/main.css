@@ -637,218 +637,6 @@ a {
   }
 }
 
-@media screen and (max-width: 544px) {
-  .modal-share {
-    position: relative;
-    z-index: 3;
-    top: -100vh;
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.7);
-    overflow: hidden !important;
-  }
-  .modal-share .fa-window-close {
-    cursor: pointer;
-    margin: -1em 0 1em 0;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-  }
-  .modal-share .modal-share-content {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    right: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 11em;
-    padding: 1em;
-    margin: -10em -10em 0 0;
-    background-color: rgba(12, 144, 147, 0.8);
-    border-radius: 0.5em;
-    -webkit-animation: show 0.4s ease-in;
-            animation: show 0.4s ease-in;
-  }
-  .modal-share .modal-share-content h1 {
-    font-size: 1em;
-    color: white;
-  }
-  .modal-share .modal-share-content form {
-    display: -ms-grid;
-    display: grid;
-        grid-template-areas: 'a b' 'c c';
-    margin-top: 1em;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .modal-share .modal-share-content form input {
-    width: 10em;
-    text-align: center;
-    border-radius: none;
-    margin-bottom: 1em;
-    padding: .8em 0.5em;
-    background-color: white;
-    outline: none;
-    border: none;
-  }
-  .modal-share .modal-share-content form .penerima {
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: a;
-  }
-  .modal-share .modal-share-content form .at {
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: b;
-  }
-  .modal-share .modal-share-content form button {
-    cursor: not-allowed;
-    cursor: pointer;
-    width: 5em;
-    border-radius: 1em;
-    border: 1.5px solid white;
-    background-color: white;
-    color: #0C9093;
-    padding: 0.5em;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 0.7em;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: c;
-  }
-  .modal-share .modal-share-content form button:hover {
-    background-color: #0C9093;
-    color: white;
-  }
-}
-
-@media screen and (min-width: 544px) {
-  .modal-share {
-    position: relative;
-    z-index: 3;
-    top: -100vh;
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.7);
-    overflow: hidden !important;
-  }
-  .modal-share .fa-window-close {
-    cursor: pointer;
-    margin: -1em 0 1em 0;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-  }
-  .modal-share .modal-share-content {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    right: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 11em;
-    padding: 1em;
-    margin: -10em -10em 0 0;
-    background-color: rgba(12, 144, 147, 0.8);
-    border-radius: 0.5em;
-    -webkit-animation: show 0.4s ease-in;
-            animation: show 0.4s ease-in;
-  }
-  .modal-share .modal-share-content h1 {
-    font-size: 1em;
-    color: white;
-  }
-  .modal-share .modal-share-content form {
-    display: -ms-grid;
-    display: grid;
-        grid-template-areas: 'a b' 'c c';
-    margin-top: 1em;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .modal-share .modal-share-content form input {
-    width: 10em;
-    text-align: center;
-    border-radius: none;
-    margin-bottom: 1em;
-    padding: .8em 0.5em;
-    background-color: white;
-    outline: none;
-    border: none;
-  }
-  .modal-share .modal-share-content form .penerima {
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: a;
-  }
-  .modal-share .modal-share-content form .at {
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: b;
-  }
-  .modal-share .modal-share-content form button {
-    cursor: not-allowed;
-    cursor: pointer;
-    width: 5em;
-    border-radius: 1em;
-    border: 1.5px solid white;
-    background-color: white;
-    color: #0C9093;
-    padding: 0.5em;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-    font-size: 0.7em;
-    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: c;
-  }
-  .modal-share .modal-share-content form button:hover {
-    background-color: #0C9093;
-    color: white;
-  }
-}
-
 .clicked {
   color: #0C9093 !important;
   font-weight: normal !important;
@@ -1375,10 +1163,7 @@ a {
             align-items: center;
     margin-top: 1em;
   }
-  .content .tombol div, .content .tombol a {
-    cursor: pointer;
-  }
-  .content .tombol div img, .content .tombol a img {
+  .content .tombol a img {
     width: 2.1em;
     height: 2.1em;
     margin: 0 0.5em;
@@ -1735,10 +1520,7 @@ a {
             align-items: center;
     margin-top: 1em;
   }
-  .content .tombol div, .content .tombol a {
-    cursor: pointer;
-  }
-  .content .tombol div img, .content .tombol a img {
+  .content .tombol a img {
     width: 2.1em;
     height: 2.1em;
     margin: 0 0.5em;

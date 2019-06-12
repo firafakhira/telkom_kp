@@ -1,0 +1,40 @@
+{% extends 'hr_wiki-admin/base.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="row d-flex justify-content-center mt-2">
+  <div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="col-12 wrapper-container">
+  <div class="main-wrapper">
+    <div class="container">
+      <div class="page-header">
+        <!-- Silakan replace sesuai judul halaman divisi kalian -->
+        <div class="page-title text-center">
+          ID Konten : {{content.idincident}}
+          <!-- Subtitle opsional, tapi bila ingin diberi, jelaskan page anda dalam maks 8 kata -->
+          <!--div class="page-subtitle">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.-->
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="conten-main">
+          <form method="POST" class="d-flex flex-column">
+            {% csrf_token %}
+            {{ form.judul }}
+            <br>
+            {{ form.isi }}
+            <button type="submit" class="btn btn-danger mt-2">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
