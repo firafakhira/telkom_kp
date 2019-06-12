@@ -185,7 +185,6 @@ def content(request, content_id):
             like = LikeForm()
             dislike = DislikeForm()
             komen = KomenForm()
-<<<<<<< HEAD
             share = ShareForm()
             
             #INI UNTUK ARTIKEL TERKAIT
@@ -195,8 +194,6 @@ def content(request, content_id):
 
             #INI UNTUK DIBAWA KE URL SHARE BIAR BISA BALIK KE SINI
             request.session['content_id'] = content_id
-=======
->>>>>>> 185179097d2e1fd83752eaf119557796eea3cbfe
 
             stars = count_stars(content)
 
@@ -208,7 +205,6 @@ def content(request, content_id):
             if len(likeDisIsThere) != 0:
                 disable = findLog.first()
 
-<<<<<<< HEAD
                 return render(
                                 request, 
                                 'hr_wiki/content.html', 
@@ -243,16 +239,10 @@ def content(request, content_id):
                                     'username': request.session['username']
                                 }
                 )
-=======
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
-            else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'stars': stars, 'konten': content, 'username': request.session['username']})
->>>>>>> 185179097d2e1fd83752eaf119557796eea3cbfe
 
 def share_link(request):
     if 'url' in request.GET:
         if request.GET.get('url'):
-<<<<<<< HEAD
             if request.method == 'POST':
                 share = ShareForm(request.POST)
                 if share.is_valid():
@@ -272,17 +262,4 @@ def share_link(request):
                     
                     red = f'http://localhost:8000/content/{request.session["content_id"]}'
                     return redirect(red)
-=======
-            subjekEmail = "HC-Wiki Share Link"
-            isiEmail = "Check this link: "+request.GET.get('url')
-            pengirim = "402256@telkom.co.id"
-            penerima = "fauzanfirdauuus@gmail.com" #Ganti sama ->>> nik@telkom.co.id
-
-            settings.EMAIL_HOST_USER = pengirim
-            settings.EMAIL_HOST_PASSWORD = request.session['password']
-
-            send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
-            
-            return redirect('wiki-home')
->>>>>>> 185179097d2e1fd83752eaf119557796eea3cbfe
 
