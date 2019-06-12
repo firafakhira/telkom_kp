@@ -1,6 +1,5 @@
 from django.db.models import Q
 from .models import Log
-import math
 
 #INI UNTUK NGERUBAH TIMESTAMP JADI DATETIME
 from datetime import datetime
@@ -54,7 +53,7 @@ def update_log_incident(column, table, username, incident_id):
 
 def count_stars(content):
     if (int(content.like) + int(content.dislike)) != 0:
-        pLike = math.floor(int(content.like) / (int(content.like) + int(content.dislike)) * 5)
+        pLike = (int(content.like) // (int(content.like) + int(content.dislike))) * 5
     else:
         pLike = 0
 

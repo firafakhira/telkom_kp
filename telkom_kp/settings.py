@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'search',
-    'django_elasticsearch_dsl'
+    'django_elasticsearch_dsl',
+    'hr_wiki-admin',
+    'tinymce'
 ]
 
 ELASTICSEARCH_DSL = {
@@ -135,7 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-sessions = 'django.contrib.sessions'
 EMAIL_HOST = 'smtp.telkom.co.id'
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
