@@ -1,0 +1,74 @@
+.formKonten{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #E2E2E2;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    border-radius: 5px;
+}
+#kolUsername{
+    width: 300px;
+    height: 50px;
+    margin-bottom: 20px;
+    font-family: Montserrat;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+#kolPassword{
+    width: 300px;
+    height: 50px;
+    margin-bottom: 30px;
+    font-family: Montserrat;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+/* #btnLogin{
+    width: 300px;
+    height: 50px;
+    font-family: Montserrat;
+    background-color: #0C9093;
+    outline: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+} */
+#btnLogin{
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #e41b13;
+    color: white;
+    padding: 0.7em;
+    font-family: Montserrat;
+    padding-left: 128px;
+    padding-right: 128px;
+    text-align: center;
+}
+#btnLogin:active{
+    background-color: #EA0A7A;
+}
+
+/* a{
+    width: 300px;
+    padding:auto;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+} */
+.formKonten p{
+    font-family: Montserrat;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 30px;
+}

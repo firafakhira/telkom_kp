@@ -36,19 +36,3 @@ class DislikeForm(forms.Form):
 
 class KomenForm(forms.Form):
     komen = forms.CharField(widget=forms.Textarea)
-
-class ShareForm(forms.Form):
-    penerima = forms.CharField(widget=forms.TextInput(
-        attrs = {
-            'placeholder': 'NIK Penerima',
-            'class': 'penerima'
-        }
-    ))
-
-    at = forms.CharField(widget=forms.TextInput(
-        attrs = {
-            'class': 'at',
-            'value': '@telkom.co.id',
-            'readonly': ''
-        }
-    ))
