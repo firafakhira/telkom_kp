@@ -1670,8 +1670,8 @@ a {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .content .cek .artikel .artikel-link p {
-    margin: 0 0.5em;
+  .content .cek .artikel .artikel-link a {
+    margin: 0.5em 0.5em;
     color: #0c9093;
     font-size: 10pt;
   }
@@ -2028,7 +2028,7 @@ a {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .content .cek .artikel .artikel-link p {
+  .content .cek .artikel .artikel-link a {
     color: #0c9093;
     font-size: 10pt;
   }
@@ -2204,6 +2204,8 @@ a {
   border: 1px solid transparent;
   border-radius: .25rem;
   font-size: 0.9em;
+  text-align: center;
+  line-height: 1.5em;
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;

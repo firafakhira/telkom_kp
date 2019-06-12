@@ -2,6 +2,10 @@ from django.db.models import Q
 from .models import Log
 import math
 
+#INI UNTUK NGERUBAH TIMESTAMP JADI DATETIME
+from datetime import datetime
+import pytz
+
 def find_log(username, incident_id):
     return Log.objects.filter(Q(username = username) & Q(incident_id = incident_id))
 
@@ -63,6 +67,13 @@ def count_stars(content):
     
     return stars
 
-def get_highlight(string):
+def get_highlight(string, max=20):
     hilite = string.split()
-    return f"{' '.join(hilite[:20])}..."
+    return f"{' '.join(hilite[:max])}..."
+
+def get_expired(timestamp):
+    local_tz = pytz.timezone("Asia/Jakarta")
+    utc_dt = datetime.utcfromtimestamp(timestamp).replace(tzinfo=pytz.utc)
+    local_dt = local_tz.normalize(utc_dt.astimezone(local_tz))
+
+    return (local_dt.replace(tzinfo=None) - datetime.now()).total_seconds()

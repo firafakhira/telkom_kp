@@ -48,11 +48,9 @@
         <div class="artikel">
             <h4>Artikel Terkait</h4>
             <div class="artikel-link">
-                <p>Suspendices ultra massa</p><br>
-                <p>Suspendices ultra massa</p><br>
-                <p>Suspendices ultra massa</p><br>
-                <p>Suspendices ultra massa</p><br>
-                <p>Suspendices ultra massa</p><br>
+                    {% for konten in kontens %}
+                    <a href="{% url 'wiki-content' konten.id %}" title="{{ konten.judul }}">{{ konten.hilite }}</a><br>
+                    {% endfor %}
             </div>
         </div>
     </div>

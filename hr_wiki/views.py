@@ -28,7 +28,7 @@ import re
 from django.core.mail import send_mail
 from django.conf import settings
 
-from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight
+from hr_wiki.services import update_log_incident, find_log, count_stars, get_highlight, get_expired
 
 import requests
 import json
@@ -53,8 +53,7 @@ def landing(request):
                 if data['status'] == 'success':
                     request.session['username'] = username
                     request.session['password'] = password
-                    # request.session['token'] = data['data']['jwt']['token']
-                    # request.session.set_expiry(data['data']['jwt']['expires'])
+                    request.session.set_expiry(get_expired(data['data']['jwt']['expires']))
                     messages.success(request, 'You are Logged In!')
                     return redirect('wiki-home')
                 else:
@@ -80,7 +79,15 @@ def home(request):
                 return redirect(red)
         else:
             form = SearchForm()
-            return render(request, 'hr_wiki/home.html', {'name': 'Home', 'form': form, 'username': request.session['username']})
+            return render(
+                            request, 
+                            'hr_wiki/home.html', 
+                            {
+                                'name': 'Home', 
+                                'form': form, 
+                                'username': request.session['username']
+                            }
+            )
 
   
 def search(request, q):
@@ -107,6 +114,7 @@ def search(request, q):
                     {
                         'id': item.idincident,
                         'judul': item.kasus,
+                        'hilite': get_highlight(item.kasus, 3),
                         'highlight': get_highlight(strip_tags(item.solusi.replace("&nbsp;", ""))),
                         'isi': strip_tags(item.solusi.replace("&nbsp;", "")),
                         'views': Incident.objects.get(idincident=item.idincident).hits
@@ -119,7 +127,16 @@ def search(request, q):
 
             page = request.GET.get('page')
             kontens = paginator.get_page(page)
-            return render(request, 'hr_wiki/search.html', {'name' :'Search', 'kontens': kontens, 'form': form, 'username': request.session['username']})
+            return render(
+                            request, 
+                            'hr_wiki/search.html', 
+                            {
+                                'name' :'Search', 
+                                'kontens': kontens, 
+                                'form': form, 
+                                'username': request.session['username']
+                            }
+            )
 
 def content(request, content_id):
     try:
@@ -169,6 +186,14 @@ def content(request, content_id):
             dislike = DislikeForm()
             komen = KomenForm()
             share = ShareForm()
+            
+            #INI UNTUK ARTIKEL TERKAIT
+            artikel_terkait = Incident.objects.filter(applikasi=content.applikasi)[:5]
+            for i in range(len(artikel_terkait)):
+                artikel_terkait[i].hilite = get_highlight(artikel_terkait[i].kasus, 3)
+
+            #INI UNTUK DIBAWA KE URL SHARE BIAR BISA BALIK KE SINI
+            request.session['content_id'] = content_id
 
             stars = count_stars(content)
 
@@ -180,9 +205,40 @@ def content(request, content_id):
             if len(likeDisIsThere) != 0:
                 disable = findLog.first()
 
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'disable': disable, 'konten': content, 'username': request.session['username']})
+                return render(
+                                request, 
+                                'hr_wiki/content.html', 
+                                {
+                                    'name': 'Content', 
+                                    'form': form, 
+                                    'like': like, 
+                                    'dislike': dislike, 
+                                    'komen': komen, 
+                                    'share': share, 
+                                    'stars': stars, 
+                                    'disable': disable, 
+                                    'konten': content,
+                                    'artikels': artikel_terkait,
+                                    'username': request.session['username']
+                                }
+                )
             else:
-                return render(request, 'hr_wiki/content.html', {'name': 'Content', 'form': form, 'like': like, 'dislike': dislike, 'komen': komen, 'share': share, 'stars': stars, 'konten': content, 'username': request.session['username']})
+                return render(
+                                request, 
+                                'hr_wiki/content.html', 
+                                {
+                                    'name': 'Content',
+                                    'form': form,
+                                    'like': like,
+                                    'dislike': dislike,
+                                    'komen': komen,
+                                    'share': share,
+                                    'stars': stars,
+                                    'konten': content,
+                                    'artikels': artikel_terkait,
+                                    'username': request.session['username']
+                                }
+                )
 
 def share_link(request):
     if 'url' in request.GET:
@@ -193,14 +249,17 @@ def share_link(request):
                     nik = share.cleaned_data['penerima']
                     at = share.cleaned_data['at']
                     subjekEmail = "HC-Wiki Share Link"
-                    isiEmail = f'Check this link: http://{request.GET.get("url")}'
+                    isiEmail = f'Check this link: http://localhost:8000{request.GET.get("url")}'
                     pengirim = f'{request.session["username"]}@telkom.co.id'
-                    penerima = f'{nik}{at}' #Ganti sama ->>> nik@telkom.co.id
+                    penerima = f'{nik}{at}'
 
                     settings.EMAIL_HOST_USER = pengirim
                     settings.EMAIL_HOST_PASSWORD = request.session['password']
 
                     send_mail(subjekEmail,isiEmail,pengirim,[penerima],fail_silently=False,)
+
+                    messages.success(request, f'This link was successfully shared to {penerima}')
                     
-                    return redirect('wiki-home')
+                    red = f'http://localhost:8000/content/{request.session["content_id"]}'
+                    return redirect(red)
 
