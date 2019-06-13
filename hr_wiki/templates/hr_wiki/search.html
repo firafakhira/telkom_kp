@@ -33,7 +33,9 @@
         <a href="?page={{ kontens.previous_page_number }}">Prev</a>
         {% endif %}
         {% for num in kontens.paginator.page_range %}
+        {% if num > kontens.number|add:'-4' and num < kontens.number|add:'2' %}
         <a href="?page={{ num }}" class="{% if kontens.number == num %}active{% endif %}">{{ num }}</a>
+        {% endif %}
         {% endfor %}
         {% if kontens.has_next %}
         <a href="?page={{ kontens.next_page_number }}">Next</a>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 #INI UNTUK IMPORT FORMS
-from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm
+from .forms import LoginForm, SearchForm, LikeForm, DislikeForm, KomenForm, ShareForm
 
 #INI UNTUK PAGINATION BAGIAN SEARCH
 from django.core.paginator import Paginator
@@ -113,8 +113,8 @@ def search(request, q):
                 konten.append(
                     {
                         'id': item.idincident,
-                        'judul': item.kasus,
-                        'hilite': get_highlight(item.kasus, 3),
+                        'judul': strip_tags(item.kasus.replace("&nbsp;", "")),
+                        'hilite': get_highlight(strip_tags(item.kasus.replace("&nbsp;", "")), 3),
                         'highlight': get_highlight(strip_tags(item.solusi.replace("&nbsp;", ""))),
                         'isi': strip_tags(item.solusi.replace("&nbsp;", "")),
                         'views': Incident.objects.get(idincident=item.idincident).hits

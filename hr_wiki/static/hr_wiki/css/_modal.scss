@@ -236,6 +236,153 @@
     }
 }
 
+.modal-share{
+    @include responsive("xsmall"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-share-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 11em;
+            // width: 20em;
+            padding: 1em;
+            margin: -10em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                display: grid;
+                grid-template-areas: 
+                                    'a b'
+                                    'c c';
+                margin-top: 1em;
+                align-items: center;
+                input{
+                    width: 10em;
+                    text-align: center;
+                    border-radius: none;
+                    margin-bottom: 1em;
+                    padding: .8em 0.5em;
+                    background-color: white;
+                    outline: none;
+                    border: none;
+                }
+                .penerima{
+                    border-top-left-radius: 1em;
+                    border-bottom-left-radius: 1em;
+                    grid-area: a;
+                }
+                .at{
+                    border-top-right-radius: 1em;
+                    border-bottom-right-radius: 1em;
+                    grid-area: b;
+                }
+                button{
+                    cursor: not-allowed;
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    grid-area: c;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("small"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-share-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 11em;
+            // width: 20em;
+            padding: 1em;
+            margin: -10em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                display: grid;
+                grid-template-areas: 
+                                    'a b'
+                                    'c c';
+                margin-top: 1em;
+                align-items: center;
+                input{
+                    width: 10em;
+                    text-align: center;
+                    border-radius: none;
+                    margin-bottom: 1em;
+                    padding: .8em 0.5em;
+                    background-color: white;
+                    outline: none;
+                    border: none;
+                }
+                .penerima{
+                    border-top-left-radius: 1em;
+                    border-bottom-left-radius: 1em;
+                    grid-area: a;
+                }
+                .at{
+                    border-top-right-radius: 1em;
+                    border-bottom-right-radius: 1em;
+                    grid-area: b;
+                }
+                button{
+                    cursor: not-allowed;
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    grid-area: c;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .clicked{
     color: $ijo !important;
     font-weight: normal !important;

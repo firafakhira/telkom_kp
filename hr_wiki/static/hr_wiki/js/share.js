@@ -1,9 +1,8 @@
-const btn = document.getElementById('share')
+const share = document.getElementById('share')
 const modalShare = document.querySelector('.modal-share')
-const close = document.querySelector('.fa-window-close')
 
 
-btn.addEventListener('click', ()=>{
+share.addEventListener('click', ()=>{
     modalShare.classList.add('show')
 })
 
