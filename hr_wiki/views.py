@@ -53,8 +53,19 @@ def landing(request):
                 if data['status'] == 'success':
                     request.session['username'] = username
                     request.session['password'] = password
+                    request.session['token'] = data['data']['jwt']['token']
                     request.session.set_expiry(get_expired(data['data']['jwt']['expires']))
                     messages.success(request, 'You are Logged In!')
+
+                    headers = {}
+                    headers['x-authorization'] = f"Bearer {request.session['token']}"
+
+                    url = f"https://apifactory.telkom.co.id:8243/hcm/employee/v1/getEmployee/v1/1/{request.session['username']}"
+
+                    response = requests.get(url, headers=headers)
+
+                    print(response.text)
+
                     return redirect('wiki-home')
                 else:
                     messages.error(request, 'Incorrect Username or Password!')

@@ -137,10 +137,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#Email Config
 EMAIL_HOST = 'smtp.telkom.co.id'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-
