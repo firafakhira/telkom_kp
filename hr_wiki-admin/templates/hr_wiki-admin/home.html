@@ -8,7 +8,7 @@
           Admin Homepage
         </div> <br>
       </div>
-      <a href="#" class="btn btn-success mb-1">Tambah Artikel Baru</a><br>
+      <a href="{% url 'admin-add' %}" class="btn btn-success mb-1">Tambah Artikel Baru</a><br>
       <input type="text" id="myInput" onkeyup="searchID()" placeholder="Search by ID...">
 
       <div class="row">
@@ -28,7 +28,7 @@
               <td> {{ d.kasus}}</td>
               <td> {{ d.highlight }} </td>
               <td> <a id="editKonten" href="{% url 'admin-edit' d.idincident %}"> Edit Konten</a> | <a id="hapusKonten"
-                  href="">Hapus Konten</a></td>
+                  href="{% url 'admin-delete' d.idincident %}">Hapus Konten</a></td>
             </tr>
             {% endfor %}
           </tbody>
