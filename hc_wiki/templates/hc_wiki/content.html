@@ -34,16 +34,16 @@
 
     <div class="content-main">
         <div class="row" id="save">
-            <h3>{{ konten.kasus|safe }}</h3>
+            <h3>{{ konten.kasus|safe|cut:"\r\n" }}</h3>
 
-            {{ konten.solusi|safe }}
+            {{ konten.solusi|safe|cut:"\r\n" }}
 
         </div>
         <div style="display: none">
             <div id="printDiv">
-                    <h3>{{ konten.kasus|safe }}</h3>
+                    <h3>{{ konten.kasus|safe|cut:"\r\n" }}</h3>
 
-                    {{ konten.solusi|safe }}
+                    {{ konten.solusi|safe|cut:"\r\n" }}
                     <br><p>printed by : {{ username }}</p>
             </div>
 
