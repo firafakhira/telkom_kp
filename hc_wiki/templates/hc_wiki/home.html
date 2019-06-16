@@ -1,0 +1,66 @@
+{% extends "hc_wiki/base.html" %}
+{% load static %}
+{% block content %}
+{% if username %}
+    <div class="con">
+        <div class="content-landing">
+            <div class="content-landing-text">
+                <p class="header"><b>Welcome to HR Wiki!</b></p>
+    
+                <h1>Everything you need to know is here</h1>
+    
+                <div class="searchText">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.search }}
+                        <!-- <input type='text' placeholder="Type Here..." id="kolomInput"> -->
+                        <button type="submit" class="btn_search">Search</button> <!-- nanti ini diaktifin kalo udah ada db -->
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="content-landing-img">
+                <div class="logoicon">
+                    <a href="{% url 'wiki-search' 'Manajemen Karir' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/mk2.png' %}">
+                        <span>Manajemen Karir</span> 
+                    </a>
+                    <a href="{% url 'wiki-search' 'Remunerasi' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/remunerasi2.png' %}">
+                        <span>Remunerasi</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Travel Management' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/tm2.png' %}">
+                        <span>Travel Management</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Spiritual Capital Management' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/scm2.png' %}">
+                        <span>Spiritual Capital Management</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Kesehatan' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/kes2.png' %}">
+                        <span>Kesehatan</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Employee Relation' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/er2.png' %}">
+                        <span>Employee Relation</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Rekruitasi' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/rekrut2.png' %}">
+                        <span>Rekruitasi</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Administration Service' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/as2.png' %}">
+                        <span>Administration Service</span>
+                    </a>
+                    <a href="{% url 'wiki-search' 'Manajemen Waktu' %}" id="logo">
+                        <img id="logobtn" src="{% static 'hc_wiki/img/mw2.png' %}">
+                        <span>Manajemen Waktu</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock content %}
+

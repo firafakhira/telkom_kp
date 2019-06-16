@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls import url
 
 urlpatterns = [
-    path('admin/', include('hr_wiki-admin.urls')),
-    path('', include('hr_wiki.urls')),
+    path('admin/', include('hc_wiki-admin.urls')),
+    path('', include('hc_wiki.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
 ]
