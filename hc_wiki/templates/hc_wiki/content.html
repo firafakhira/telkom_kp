@@ -1,0 +1,146 @@
+{% extends "hc_wiki/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="content">
+    <div class=cari>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.search }}
+            <button class="btn_search" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="tombol">
+        <div href="" id="doPrint" title="Print">
+            <img src="{% static 'hc_wiki/img/print.png' %}" alt="tombol">
+        </div>
+
+        <a href="{% static 'hc_wiki/img/juncheng2013.pdf' %}" title="Save" download="Rules.pdf">
+            <img src="{% static 'hc_wiki/img/save.png' %}" alt="tombol">
+        </a>
+
+        <script type="text/javascript" async>
+            function genericSocialShare(url) {
+                window.open(url, 'sharer', 'toolbar=0,status=0,width=648,height=395');
+                return true;
+            }
+        </script>
+
+        <div id="share" title="share">
+            <img src="{% static 'hc_wiki/img/share.png' %}" alt="tombol">
+        </div>
+    </div>
+
+    <div class="content-main">
+        <div class="row" id="save">
+            <h3>{{ konten.kasus|safe }}</h3>
+
+            {{ konten.solusi|safe }}
+
+        </div>
+        <div style="display: none">
+            <div id="printDiv">
+                    <h3>{{ konten.kasus|safe }}</h3>
+
+                    {{ konten.solusi|safe }}
+                    <br><p>printed by : {{ username }}</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="report">
+        <p>Apakah artikel ini membantu?</p>
+        <div class="thumb">
+            {% if disable %}
+            {% if disable.like == 1 %}
+            <img src="{% static 'hc_wiki/img/thumbs up.png' %}">
+            {% elif disable.dislike == 1 %}
+            <img src="{% static 'hc_wiki/img/thumbs down.png' %}">
+            {% endif %}
+            {% else %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ like.like }}
+                <button type="submit"><img src="{% static 'hc_wiki/img/thumbs up.png' %}"></button>
+            </form>
+            <form method="POST">
+                {% csrf_token %}
+                {{ dislike.dislike }}
+                <button type="submit"><img src="{% static 'hc_wiki/img/thumbs down.png' %}"></button>
+            </form>
+            {% endif %}
+        </div>
+        <button id="komen">Komentar Artikel</button>
+
+    </div>
+
+    <div class="cek">
+        <div class="info_konten">
+            <div class="text_konten">
+                <img src="{% static 'hc_wiki/img/calendar.png' %}">
+                <span style="color: #0c9093;
+                    font-size: 9pt;">{{ konten.lastupdate }}
+                </span>
+            </div>
+            <div class="text_konten">
+                <img src="{% static 'hc_wiki/img/person2.png' %}">
+                <span style="color: #0c9093;
+                    font-size: 9pt;">{{ konten.createdby }}
+                </span>
+            </div>
+            <div class="text_konten">
+                <img src="{% static 'hc_wiki/img/trophy.png' %}">
+                <span style="color: #0c9093;
+                    font-size: 9pt;">{{ konten.hits }} Views
+                </span>
+            </div>
+            <div class="text_konten">
+                <img src="{% static 'hc_wiki/img/star2.png' %}">
+                {% for star in stars %}
+                {{ star|safe }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="artikel">
+            <h4>Artikel Terkait</h4>
+            <div class="artikel-link">
+                {% for artikel in artikels %}
+                <a href="{% url 'wiki-content' artikel.idincident %}" title="{{ artikel.kasus }}">{{ artikel.hilite }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-share">
+    <div class="modal-share-content">
+        <i class="fa fa-window-close" aria-hidden="true" style="color: white"></i>
+        <h1>Share Link via Email</h1>
+        <form method="POST" action="{% url 'wiki-share' %}?url={{ request.get_full_path }}">
+            {% csrf_token %}
+            {{ share.penerima }}
+            {{ share.at }}
+            <button type="submit">Share</button>
+        </form>
+        <!-- <a href="{% url 'wiki-share' %}?url={{ request.get_full_path }}"><button type="submit">Send</button></a> -->
+    </div>
+</div>
+
+<div class="modal-komen">
+    <div class="modal-komen-content">
+        <i class="fa fa-window-close" aria-hidden="true" style="color: white"></i>
+        <h1>Komentar Artikel</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ komen.komen }}
+            <button type="submit">Komentar</button>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'hc_wiki/js/print.js' %}"></script>
+<script src="{% static 'hc_wiki/js/komen.js' %}"></script>
+<script src="{% static 'hc_wiki/js/share.js' %}"></script>
+{% endblock content %}
