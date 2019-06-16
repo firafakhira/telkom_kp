@@ -41,7 +41,7 @@
         </div>
         <div style="display: none">
             <div id="printDiv">
-                    <h3>{{ konten.kasus }}</h3>
+                    <h3>{{ konten.kasus|safe }}</h3>
 
                     {{ konten.solusi|safe }}
                     <br><p>printed by : {{ username }}</p>

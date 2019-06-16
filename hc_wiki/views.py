@@ -113,10 +113,10 @@ def search(request, q):
                 konten.append(
                     {
                         'id': item.idincident,
-                        'judul': strip_tags(item.kasus.replace("&nbsp;", "")),
-                        'hilite': get_highlight(strip_tags(item.kasus.replace("&nbsp;", "")), 3),
-                        'highlight': get_highlight(strip_tags(item.solusi.replace("&nbsp;", ""))),
-                        'isi': strip_tags(item.solusi.replace("&nbsp;", "")),
+                        'judul': item.kasus.replace("&nbsp;", ""),
+                        'hilite': get_highlight(item.kasus.replace("&nbsp;", ""), 3),
+                        'highlight': get_highlight(item.solusi.replace("&nbsp;", "")),
+                        'isi': item.solusi.replace("&nbsp;", ""),
                         'views': Incident.objects.get(idincident=item.idincident).hits
                     }
                 )
