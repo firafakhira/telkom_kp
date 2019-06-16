@@ -50,28 +50,28 @@ def editKonten(request, content_id):
         areaForm = IncidentForm(initial={'isi': content.solusi, 'judul': content.kasus})
         return render(request, 'hc_wiki-admin/edit.html', {'name': 'edit','content':content, 'form': areaForm})
 
-def addKonten(request):
-    if request.method == 'POST':
-        areaForm = IncidentForm(request.POST)
-        if areaForm.is_valid():
-            judul = areaForm.cleaned_data['judul']
-            isi = areaForm.cleaned_data['isi']
+# def addKonten(request):
+#     if request.method == 'POST':
+#         areaForm = IncidentForm(request.POST)
+#         if areaForm.is_valid():
+#             judul = areaForm.cleaned_data['judul']
+#             isi = areaForm.cleaned_data['isi']
 
-            content = Incident(kasus=judul, solusi=isi)
-            content.save()
+#             content = Incident(kasus=judul, solusi=isi)
+#             content.save()
             
-            messages.success(request, f'Content was succesfully created!')
+#             messages.success(request, f'Content was succesfully created!')
 
-            red = f'http://localhost:8000/admin/add/'
-            return redirect('admin-home')
-    else:
-        areaForm = IncidentForm()
-        return render(request, 'hc_wiki-admin/add.html', {'name': 'add', 'form': areaForm})
+#             red = f'http://localhost:8000/admin/add/'
+#             return redirect('admin-home')
+#     else:
+#         areaForm = IncidentForm()
+#         return render(request, 'hc_wiki-admin/add.html', {'name': 'add', 'form': areaForm})
 
-def deleteKonten(request, content_id):
-    delete = Incident.objects.get(idincident=content_id)
-    delete.delete()
+# def deleteKonten(request, content_id):
+#     delete = Incident.objects.get(idincident=content_id)
+#     delete.delete()
 
-    messages.success(request, f'Content was succesfully deleted!')
+#     messages.success(request, f'Content was succesfully deleted!')
 
-    return redirect('admin-home')
+#     return redirect('admin-home')
