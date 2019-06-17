@@ -6,8 +6,17 @@ class IncidentForm(forms.Form):
             'id': 'full-featured'
         }
     ),required=False)
-    judul = forms.CharField(widget=forms.Textarea(
+
+    judul = forms.CharField(widget=forms.TextInput(
         attrs = {
-            'id': 'basic-example'
+            'class': 'form-control',
+            'placeholder': 'Judul Konten'
         }
-    ),required=False)
+    ))
+
+    tema = forms.CharField(widget=forms.TextInput(
+        attrs = {
+            'class': 'form-control',
+            'placeholder': 'Tema Konten'
+        }
+    ))
