@@ -32,6 +32,7 @@ def login(request):
 
                 if username == 'admin' and password == 'admin':
                     request.session['admin'] = username
+                    request.session.set_expiry(3600)
 
                     messages.success(request, 'You are Logged In!')
 

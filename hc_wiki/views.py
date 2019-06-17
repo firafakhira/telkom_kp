@@ -35,12 +35,9 @@ import json
 
 # Create your views here.
 def landing(request):
-    if 'action' in request.GET:
-        if request.GET.get('action') == 'logout':
-            request.session.flush()
-            messages.success(request, 'You are Logged Out!')
-            return redirect('wiki-home')
-    else:
+    try:
+        request.session['username']
+    except KeyError:
         if request.method == 'POST':
             form = LoginForm(request.POST)
             if form.is_valid():
@@ -73,6 +70,16 @@ def landing(request):
         else:
             form = LoginForm()
             return render(request, 'hc_wiki/landing.html', {'name': 'Landing','form': form})
+    except Exception:
+        print('Error!')
+    else:
+        if 'action' in request.GET:
+            if request.GET.get('action') == 'logout':
+                request.session.flush()
+                messages.success(request, 'You are Logged Out!')
+                return redirect('wiki-home')
+        else:
+            return redirect('wiki-home')
   
 def home(request):
     try:
