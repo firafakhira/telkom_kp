@@ -17,6 +17,7 @@ class Incident(models.Model):
     # flagaktif = models.IntegerField(blank=True, null=True)
     # flagapprove = models.IntegerField(blank=True, null=True)
     hits = models.IntegerField(blank=True, null=True)
+    busscd = models.IntegerField()
 
     def __int__(self):
         return self.idincident
