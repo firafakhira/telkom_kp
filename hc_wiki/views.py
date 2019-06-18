@@ -33,6 +33,8 @@ from hc_wiki.services import update_log_incident, find_log, count_stars, get_hig
 import requests
 import json
 
+from elasticsearch import Elasticsearch
+
 # Create your views here.
 def landing(request):
     try:
@@ -125,23 +127,36 @@ def search(request, q):
         else:
             form = SearchForm()
             # konten = Konten.objects.filter(Q(judul__icontains=q) | Q(isi__icontains=q))
-            konten_list = IncidentDocument.search().query("match_phrase_prefix", _all= q).sort("hits")
+            db = Incident.objects.all()
+
+            konten_list = Elasticsearch('10.60.185.217:9200').search(index="incident", body={
+                'query': {
+                    'multi_match': {
+                        'query': q,
+                        'fields' : ['kasus', 'solusi', 'applikasi',],
+                        'type': 'phrase_prefix',
+                    }
+                },
+                'from': 0 , 'size': len(db),
+                'sort': [{'hits': {'order': 'desc'}}]
+            })
             konten = []
-            for item in konten_list.scan():
+            for item in konten_list['hits']['hits']:
                 konten.append(
                     {
-                        'id': item.idincident,
-                        'judul': item.kasus.replace("&nbsp;", ""),
-                        'hilite': get_highlight(item.kasus.replace("&nbsp;", ""), 3),
-                        'highlight': get_highlight(item.solusi.replace("&nbsp;", "")),
-                        'isi': item.solusi.replace("&nbsp;", ""),
-                        'views': Incident.objects.get(idincident=item.idincident).hits
+                        'id': item['_source']['idincident'],
+                        'judul': item['_source']['kasus'].replace("&nbsp;", ""),
+                        'hilite': get_highlight(item['_source']['kasus'].replace("&nbsp;", ""), 3),
+                        'highlight': get_highlight(item['_source']['solusi'].replace("&nbsp;", "")),
+                        'isi': item['_source']['solusi'].replace("&nbsp;", ""),
+                        'views': item['_source']['hits'],
                     }
                 )
-            
-            konten = sorted(konten, key=lambda x: x['views'], reverse=True)
+
+            # konten = sorted(konten, key=lambda x: x['views'], reverse=True)
             
             paginator = Paginator(konten, 4)
+            print(paginator)
 
             page = request.GET.get('page')
             kontens = paginator.get_page(page)
@@ -280,4 +295,3 @@ def share_link(request):
                     
                     red = f'http://localhost:8000/content/{request.session["content_id"]}'
                     return redirect(red)
-

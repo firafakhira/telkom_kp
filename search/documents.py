@@ -13,5 +13,5 @@ class IncidentDocument(DocType):
             'kasus',
             'solusi',
             'applikasi',
-            
+            'hits',
         ]
