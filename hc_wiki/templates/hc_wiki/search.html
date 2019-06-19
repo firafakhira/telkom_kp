@@ -1,0 +1,58 @@
+{% extends "hc_wiki/base.html" %}
+{% load static %}
+{% block content %}
+<div class="content">
+
+    <div class=cari>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.search }}
+            <button class="btn_search" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="content-search">
+        <div class="isi">
+            
+            {% for konten in kontens %}
+            <div class="row">
+                <h3><a href="{% url 'wiki-content' konten.id %}">{{ konten.judul|striptags|cut:"\r\n" }}</a>
+                    <nobr class="hits" style="margin-left: 10px;font-size: 13px; color: #A89D98; opacity: 0.5;">[{{ konten.views }}
+                        Views]</nobr>
+                </h3>
+                <p>{{ konten.highlight|striptags|cut:"\r\n" }}</p>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pagination">
+        {% if kontens.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ kontens.previous_page_number }}">Prev</a>
+        {% endif %}
+        {% for num in kontens.paginator.page_range %}
+        {% if num > kontens.number|add:'-4' and num < kontens.number|add:'2' %}
+        <a href="?page={{ num }}" class="{% if kontens.number == num %}active{% endif %}">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+        {% if kontens.has_next %}
+        <a href="?page={{ kontens.next_page_number }}">Next</a>
+        <a href="?page={{ kontens.paginator.num_pages }}">Last</a>
+        {% endif %}
+
+    </div>
+
+    <div class="cek">
+        <div class="artikel">
+            <h4>Artikel Terkait</h4>
+            <div class="artikel-link">
+                    {% for konten in kontens %}
+                    <a href="{% url 'wiki-content' konten.id %}" title="{{ konten.judul }}">{{ konten.hilite }}</a><br>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

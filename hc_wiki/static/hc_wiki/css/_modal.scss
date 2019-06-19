@@ -1,0 +1,465 @@
+.modal{
+    @include position(relative, 2);
+    top: -100vh;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.7);
+    
+    .modal-login{
+        @include responsive("xsmall"){
+            @include position(absolute, 1);
+            right: 2em;
+            margin-top: 12vh;
+            padding: 1em;
+            background-color: $ijo;
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            form{
+                @include flex(flex-start, stretch, column);
+                input{
+                    @include input;
+                }
+                .forgot{
+                    @include flex(flex-end, center);
+                    margin-top: 1em;
+                    small{
+                        margin-right: 1em;
+                        a{
+                            text-decoration: none;
+                            color: white;
+                        }
+                    }
+                    button{
+                        @include button(1.5px solid white, white, $ijo);
+                        @include tranisition-btn;
+                        &:focus{
+                            outline: none;
+                        }
+                        &:hover{
+                            background-color: $ijo;
+                            color: white;
+                            @include tranisition-btn;
+                        }
+                    }
+                }
+            }
+        }
+        @include responsive("small"){
+            @include position(absolute, 1);
+            right: 4em;
+            margin-top: 11vh;
+            padding: 1em;
+            background-color: $ijo;
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            form{
+                @include flex(flex-start, stretch, column);
+                input{
+                    @include input;
+                }
+                .forgot{
+                    @include flex(flex-end, center);
+                    margin-top: 1em;
+                    small{
+                        margin-right: 1em;
+                        a{
+                            text-decoration: none;
+                            color: white;
+                        }
+                    }
+                    button{
+                        @include button(1.5px solid white, white, $ijo);
+                        @include tranisition-btn;
+                        &:focus{
+                            outline: none;
+                        }
+                        &:hover{
+                            background-color: $ijo;
+                            color: white;
+                            @include tranisition-btn;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-profil{
+        @include position(absolute, 1);
+        right: 4em;
+        @include flex($direction: column);
+        height: 5em;
+        width: 7em;
+        margin-top: 11vh;
+        padding: 1em;
+        background-color: $ijo;
+        border-radius: 0.5em;
+        animation: show 0.4s ease-out;
+        .greet, .logout{
+            @include flex($justify: center, $direction: column);
+            width: 100%;
+            height: 50%;
+            color: white;
+        }
+        .logout{
+            cursor: pointer;
+            border-top: 1px solid #c7c6c6;
+            &:active{
+                color: #c7c6c6;
+            }
+        }
+    }
+}
+
+.modal-komen{
+    @include responsive("xsmall"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-komen-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 15em;
+            width: 15em;
+            padding: 1em;
+            margin: -7.5em -7.5em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show-from-bottom 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                @include flex($direction:column);
+                margin-top: 1em;
+                height: 10em;
+                widows: 10em;
+                textarea{
+                    width: 15em;
+                    resize: none;
+                    margin-bottom: 1em;
+                    padding: 1em;
+                    border: 1px solid white;
+                    border-radius: 1em;
+                }
+                button{
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("small"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-komen-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 25em;
+            width: 20em;
+            padding: 1.5em 1em;
+            margin: -15em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show-from-bottom 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                @include flex($direction:column);
+                margin-top: 1em;
+                textarea{
+                    width: 19em;
+                    resize: none;
+                    margin-bottom: 1em;
+                    padding: 1em;
+                    border: 1px solid white;
+                    border-radius: 1em;
+                }
+                button{
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("medium"){
+        .modal-komen-content{
+            width: 35em;
+            margin-right: -17.5em;
+            
+            .talk-bubble {
+                margin: 5px;
+                padding: 10px;
+                display: inline-block;
+                position: relative;
+                width: 450px;
+                height: auto;
+                background-color: lightyellow;
+            }
+            .border{
+              border: 5px solid #666;
+            }
+            .round{
+              border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+            
+            }
+            
+            // .tri-right.border.left-top:before {
+            //     content: ' ';
+            //     position: absolute;
+            //     width: 0;
+            //     height: 0;
+            //   left: -40px;
+            //     right: auto;
+            //   top: -8px;
+            //     bottom: auto;
+            //     border: 32px solid;
+            //     border-color: #666 transparent transparent transparent;
+            // }
+            // .tri-right.left-top:after{
+            //     content: ' ';
+            //     position: absolute;
+            //     width: 0;
+            //     height: 0;
+            //   left: -20px;
+            //     right: auto;
+            //   top: 0px;
+            //     bottom: auto;
+            //     border: 22px solid;
+            //     border-color: lightyellow transparent transparent transparent;
+            // }
+            .kolom-komen {
+                width: 500px;
+                height: 200px;
+                max-height: 20em;
+                overflow-y: scroll;
+                
+            }
+            form{
+                textarea{
+                    width: 35em;
+                    height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.modal-share{
+    @include responsive("xsmall"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-share-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 11em;
+            // width: 20em;
+            padding: 1em;
+            margin: -10em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                display: grid;
+                grid-template-areas: 
+                                    'a b'
+                                    'c c';
+                margin-top: 1em;
+                align-items: center;
+                input{
+                    width: 10em;
+                    text-align: center;
+                    border-radius: none;
+                    margin-bottom: 1em;
+                    padding: .8em 0.5em;
+                    background-color: white;
+                    outline: none;
+                    border: none;
+                }
+                .penerima{
+                    border-top-left-radius: 1em;
+                    border-bottom-left-radius: 1em;
+                    grid-area: a;
+                }
+                .at{
+                    border-top-right-radius: 1em;
+                    border-bottom-right-radius: 1em;
+                    grid-area: b;
+                }
+                button{
+                    cursor: not-allowed;
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    grid-area: c;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @include responsive("small"){
+        @include position(relative, 3);
+        top: -100vh;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255,255,255,0.7);
+        overflow: hidden !important;
+        .fa-window-close{
+            cursor: pointer;
+            margin: -1em 0 1em 0;
+            align-self: flex-end;
+        }
+        .modal-share-content{
+            @include position(absolute, 1);
+            top: 50%;
+            right: 50%;
+            @include flex(center, center, column);
+            height: 11em;
+            // width: 20em;
+            padding: 1em;
+            margin: -10em -10em 0 0;
+            background-color: rgba($color: $ijo, $alpha: 0.8);
+            border-radius: 0.5em;
+            animation: show 0.4s ease-in;
+            h1{
+                font-size: 1em;
+                color: white;
+            }
+            form{
+                display: grid;
+                grid-template-areas: 
+                                    'a b'
+                                    'c c';
+                margin-top: 1em;
+                align-items: center;
+                input{
+                    width: 10em;
+                    text-align: center;
+                    border-radius: none;
+                    margin-bottom: 1em;
+                    padding: .8em 0.5em;
+                    background-color: white;
+                    outline: none;
+                    border: none;
+                }
+                .penerima{
+                    border-top-left-radius: 1em;
+                    border-bottom-left-radius: 1em;
+                    grid-area: a;
+                }
+                .at{
+                    border-top-right-radius: 1em;
+                    border-bottom-right-radius: 1em;
+                    grid-area: b;
+                }
+                button{
+                    cursor: not-allowed;
+                    @include button(1.5px solid white, white, $ijo);
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 0.7em;
+                    @include tranisition-btn;
+                    grid-area: c;
+                    &:hover{
+                        background-color: $ijo;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.clicked{
+    color: $ijo !important;
+    font-weight: normal !important;
+    background-color: white !important;
+    @include tranisition-btn;
+}
+
+@keyframes show{
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes show-from-bottom{
+    from{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(25vh);
+        opacity: 1;
+    }
+}

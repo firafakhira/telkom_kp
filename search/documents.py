@@ -1,5 +1,5 @@
 from django_elasticsearch_dsl import DocType, Index
-from hr_wiki.models import Incident
+from hc_wiki.models import Incident
 
 incident = Index('incident')
 
@@ -13,5 +13,5 @@ class IncidentDocument(DocType):
             'kasus',
             'solusi',
             'applikasi',
-            
+            'hits',
         ]

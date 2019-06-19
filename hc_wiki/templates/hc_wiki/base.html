@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if name %}
+    <title>HR Wiki - {{ name }}</title>
+    {% else %}
+    <title>HR Wiki</title>
+    {% endif %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'hc_wiki/css/main.css' %}">
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            {% if username %}
+            <a href="{% url 'wiki-home' %}"><img src="{% static 'hc_wiki/img/logo.png' %}" alt="logo"></a>
+            {% else %}
+            <a href="{% url 'wiki-landing' %}"><img src="{% static 'hc_wiki/img/logo.png' %}" alt="logo"></a>
+            {% endif %}
+        </div>
+
+        <div class="nav-link">
+            {% if username %}
+            <a href="{% url 'wiki-home' %}" class="{% if name == 'Home' %}active{% endif %}">Home</a>
+            {% else %}
+            <a href="{% url 'wiki-landing' %}" class="{% if name == 'Landing' %}active{% endif %}">Home</a>
+            {% endif %}
+            <a href="#" class="{% if name == 'Contact' %}active{% endif %}">Contact</a>
+            <a href="#" class="{% if name == 'About' %}active{% endif %}">About</a>
+            {% if username %}
+            <div id="profil"><span>Halo, user {{ username }}</span><img class="profile"
+                    src="{% static 'hc_wiki/img/person.png' %}"> </div>
+            {% else %}
+            <div class="login" id="btn">Login</div>
+            {% endif %}
+        </div>
+
+        <div class="hamburger-icon">
+            <button>
+                <img src="https://img.icons8.com/metro/26/000000/menu.png">
+            </button>
+        </div>
+    </nav>
+    {% if messages %}
+    <div class="alert">
+        {% for message in messages %}
+        <div class="alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="sidebar">
+        <div class="sidebar-nav">
+            {% if username %}
+            <span>
+                Halo, {{ username }}
+            </span>
+            <a href="{% url 'wiki-home' %}" class="sidebar-link">Home</a>
+            {% else %}
+            <a href="{% url 'wiki-landing' %}" class="sidebar-link">Home</a>
+            {% endif %}
+            <a href="#">Contact</a>
+            <a href="#" class="sidebar-link">About</a>
+            {% if username %}
+            <a href="{% url 'wiki-landing' %}?action=logout" class="logout sidebar-link">
+                Logout
+            </a>
+            {% else %}
+            <span class="login sidebar-link" id="sidebar-login">
+                Login
+            </span>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if username %}
+    <div class="modal">
+        <div class="modal-profil">
+            <span class="greet">
+                Halo, {{ username }}
+            </span>
+            <a href="{% url 'wiki-landing' %}?action=logout" class="logout">
+                Logout
+            </a>
+        </div>
+    </div>
+    <script src="{% static 'hc_wiki/js/profil.js' %}"></script>
+    {% else %}
+    <div class="modal">
+        <div class="modal-login">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.username }}
+                {{ form.password }}
+                <div class="forgot">
+                    <small><a href="#">Forgot password?</a></small>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'hc_wiki/js/login.js' %}"></script>
+    {% endif %}
+    <script src="{% static 'hc_wiki/js/sidebar.js' %}"></script>
+    <script src="{% static 'hc_wiki/js/alert.js' %}"></script>
+</body>
+
+</html>

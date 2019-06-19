@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'hr_wiki',
+    'hc_wiki',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,13 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'search',
     'django_elasticsearch_dsl',
-    'hr_wiki-admin',
+    'hc_wiki-admin',
     'tinymce'
 ]
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': '10.60.185.217:9200'
     },
 }
 
@@ -85,16 +85,27 @@ WSGI_APPLICATION = 'telkom_kp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.sqlite3',
+#         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hr_wiki',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hr_wiki',
-        'USER': 'root',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hc_wiki',
+        'USER': 'postgres',
+        'PASSWORD': 'ngantuk',
         'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'PORT': '5432'
     }
 }
 
@@ -137,9 +148,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#Email Config
 EMAIL_HOST = 'smtp.telkom.co.id'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-

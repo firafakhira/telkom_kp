@@ -1,0 +1,41 @@
+{% extends 'hc_wiki-admin/base.html' %}
+{% load static %}
+
+{% block content %}
+<form class="row" method="POST">
+  {% csrf_token %}
+  <div class="col-8">
+    <div class="box">
+      <div class="box-header">
+        Isi Konten
+      </div>
+      <div class="box-body">
+        {{ form.isi }}
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="box">
+      <div class="box-header">
+        Tema dan Judul Konten
+      </div>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="namaBarang">{{ form.tema.label_tag }}</label>
+          {{ form.tema }}
+        </div>
+        <div class="form-group">
+          <label for="namaBarang">{{ form.judul.label_tag }}</label>
+          {{ form.judul }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'hc_wiki-admin/js/tinymce/tinymce.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'hc_wiki-admin/js/tinymce/custom.js' %}"></script>
+{% endblock %}

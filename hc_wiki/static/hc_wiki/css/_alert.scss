@@ -1,0 +1,40 @@
+.alert{
+    @include position(relative, 2);
+    @include flex(center, center);
+    width: 100%;
+    // margin-bottom: -3em;
+}
+
+.alert-success{
+    @include position(absolute, 1);
+    @include flex(center, center);
+    top: 1em;
+    right: 50%;
+    margin-right: -11.5em;
+    width: 20em;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 1.5em;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-error{
+    @include position(absolute, 1);
+    @include flex(center, center);
+    top: 1em;
+    right: 50%;
+    margin-right: -11.5em;
+    width: 20em;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-size: 0.9em;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

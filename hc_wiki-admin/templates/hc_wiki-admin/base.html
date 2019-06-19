@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  {% include 'hc_wiki-admin/head_tag.html' %}
+  <!-- Load Layout Base Tag -->
+  <title>HC Wiki - Admin</title>
+  <!-- Input CSS atau JS yang dibutuhkan setelah line ini -->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-2.0.0/datatables.min.css" />
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/sc-2.0.0/datatables.min.js"></script>
+  <!-- Taruh file css di folder /css-->
+  <!-- Taruh file js di /js-->
+
+  <!-- Contoh cara input css, ganti sesuai kebutuhan -->
+  <!-- <?php /* echo link_tag('css/base_styles.css') */ ?> -->
+  <link rel="stylesheet" href="{% static 'hc_wiki-admin/css/base_styles.css' %}">
+</head>
+
+<body>
+  {% if messages %}
+  {% for message in messages %}
+  <script type='text/javascript'>alert('{{ message }}');</script>
+  {% endfor %}
+  {% endif %}
+  <div class="container-fluid p-0">
+    <div class="row equal no-gutters">
+      <!-- SIDEBAR -->
+
+      <div class="col-12 wrapper">
+        <!-- TOPMENU -->
+        <div class="col-12 top-menu-container">
+          <div class="row no-gutters">
+            <div class="col-10">
+              <div class="top-menu">
+                <div class="bar">
+                  <a href="#" id="menu-toggle">
+                    <ion-icon name="menu"></ion-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="top-menu">
+                <div class="bar force-right">
+                  <a href="#popup_toggle" data-toggle="custom_popup">
+                    <div class="profile-picture"
+                      style="background-image: url('https://assets.vg247.com/current//2018/05/fortnite_thanos_avengers_infinity_war_event_square_header_1.jpg')">
+                    </div>
+                  </a>
+                </div>
+                <div class="bar force-right">
+                  <div id="popup_toggle" class="collapse profile-popup">
+                    <div class="profile-popup-body">
+                      <div class="picture"
+                        style="background-image: url('https://assets.vg247.com/current//2018/05/fortnite_thanos_avengers_infinity_war_event_square_header_1.jpg')">
+                      </div>
+                      <div class="name">
+                        Halo, {{ admin|title }}
+                      </div>
+                      <a href="{% url 'admin-login' %}?action=logout">
+                        <div class="logout">
+                          Logout
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Script for toggle menu popup -->
+        <script>
+          $.each($("[data-toggle=custom_popup]"), function (i, v) {
+            $(this).on("click", function (e) {
+              e.preventDefault();
+              $($(this).attr("href")).toggle();
+            })
+          });
+        </script>
+
+        <!-- Script for toggle sidebar menu popup -->
+        <script type="text/javascript">
+          $(function () {
+            $(window).resize(function () {
+              if ($(window).width() < 768) {
+                if ($(".sidebar-container").is(":visible")) {
+                  $(".sidebar-container").hide();
+                  $(".sidebar-container").removeClass("col-9")
+                  $(".sidebar-container").addClass("col-12");
+                  $(".wrapper").removeClass("visible col-sm-8 col-md-9 col-xl-10");
+                  $(".wrapper").addClass("col-12 col-sm-12 col-md-12 col-xl-12");
+                }
+              } else {
+                if ($(".sidebar-container").is(":hidden")) {
+                  $(".sidebar-container").show();
+                  $(".sidebar-container").removeClass("col-12")
+                  $(".sidebar-container").addClass("col-9");
+                  $(".wrapper").removeClass("col-12 col-sm-12 col-md-12 col-xl-12");
+                  $(".wrapper").addClass("col-sm-8 col-md-9 col-xl-10");
+                }
+              }
+            });
+
+            $("#menu-toggle").on("click", function (e) {
+              e.preventDefault();
+              if ($(".sidebar-container").is(":visible")) {
+                console.log("Is Visible, hiding");
+                $(".sidebar-container").hide();
+                $(".sidebar-container").removeClass("col-9");
+                $(".sidebar-container").addClass("col-12");
+                $(".wrapper").removeClass("visible col-sm-8 col-md-9 col-xl-10");
+                $(".wrapper").addClass("col-12 col-sm-12 col-md-12 col-xl-12");
+              } else {
+                console.log("Is not Visible, showing");
+                $(".sidebar-container").show();
+                $(".sidebar-container").removeClass("col-12")
+                $(".sidebar-container").addClass("col-9");
+                $(".wrapper").removeClass("col-12 col-sm-12 col-md-12 col-xl-12");
+                if ($(window).width() < 768) {
+                  $(".wrapper").addClass("visible col-sm-8 col-md-9 col-xl-10");
+                } else {
+                  $(".wrapper").addClass("col-sm-8 col-md-9 col-xl-10");
+                }
+              }
+            });
+          })
+        </script>
+        <div class="col-12 wrapper-container">
+          <div class="main-wrapper">
+            <div class="container">
+              <div class="page-header">
+                <div class="page-title">
+                  {% if name == 'Edit Konten' %}
+                  {{ name|title }} - ID {{ content.idincident }}
+                  {% else %}
+                  {{ name|title }}
+                  {% endif %}
+                </div>
+              </div>
+              {% block content %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block script %}{% endblock %}
+
+  <!-- <?php $this->load->view('base_layout/js_mandatory')?> -->
+</body>
+
+</html>

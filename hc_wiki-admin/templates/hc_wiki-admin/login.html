@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% include 'hc_wiki-admin/head_tag.html' %}
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'hc_wiki-admin/css/base_styles.css' %}">
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <script type='text/javascript'>alert('{{ message }}');</script>
+    {% endfor %}
+    {% endif %}
+    <!-- Ini gonta ganti aja dibawah -->
+    <div style="height: 100%;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+            <div class="wrapper">
+                <div class="main-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box" style="padding: 40px;">
+                                <div class="center-box ">
+                                    <div class="box-header" style="text-align: center; padding: 30px">
+                                        <a href=""><img src="{% static 'hc_wiki-admin/img/Telkom_Indonesia_2013.svg' %}"
+                                                alt="logo"></a>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="login-text" style="text-align: center">
+                                            <b>Login</b>
+                                        </div>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            {{ form.username.label_tag }}
+                                            <br>
+                                            {{ form.username }}
+                                            <br>
+                                            {{ form.password.label_tag }}
+                                            <br>
+                                            {{ form.password }}
+                                            <br>
+                                            <div class="login-button" style="text-align: center">
+                                                <button type="submit" class="btn btn-primary btn-md">LOGIN</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
